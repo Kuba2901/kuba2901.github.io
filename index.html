@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>My Portfolio</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="styles.css">
+	<style>
+		body {
+			background-color: #121212;
+			color: #e0e0e0;
+		}
+
+		.navbar {
+			background-color: #121212 !important;
+		}
+
+		.bg-light {
+			background-color: #121212 !important;
+		}
+
+		.jumbotron {
+			background-color: #121212 !important;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- Navigation -->
+	<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+		<div class="container">
+			<a class="navbar-brand" href="#">Jakub Nenczak</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+				aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav ms-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="#about">About</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#resume">Resume</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#projects">Projects</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#skills">Skills</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#contact">Contact</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Hero Section -->
+	<div class="jumbotron text-center">
+		<div class="container">
+			<h1 class="display-4">Hello, I'm Kuba</h1>
+			<p class="lead">Software Developer | Rome, Italy</p>
+			<hr class="my-4">
+			<p>I create innovative and practical tech solutions with a focus on automation, open-source technologies,
+				and seamless user experiences.</p>
+			<a class="btn btn-primary btn-lg" href="#contact" role="button">Get In Touch</a>
+		</div>
+	</div>
+
+	<!-- About Section -->
+	<section id="about">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4 text-center mb-4" data-aos="fade-right">
+					<img src="./assets/ja.jpg" alt="Profile Photo" class="rounded-square img-fluid shadow">
+				</div>
+				<div class="col-lg-8" data-aos="fade-left">
+					<h2>About Me</h2>
+					<p>Welcome to my portfolio! I am a passionate Software and DevOps Engineer with a strong background
+						in automation, AI-driven applications, and cloud infrastructure. I believe in building
+						efficient, scalable, and open-source-driven solutions that enhance productivity and innovation.
+					</p>
+
+					<p>My background includes studying at the 42 coding school, obtaining the CKA certification, and
+						working on projects ranging from mobile and web applications in Flutter to Kubernetes-based AI
+						systems.</p>
+
+					<p><strong>Technical Expertise:</strong> I work with technologies such as Kubernetes, Docker,
+						Terraform, Flutter, Java (Spring Boot), Python, and Go. I am also experienced in CI/CD,
+						infrastructure automation, and AI-driven development.</p>
+
+					<p><strong>Current Focus:</strong> I am currently exploring the intersection of AI and software
+						development, working on Retrieval-Augmented Generation (RAG) systems, and optimizing
+						cloud-native applications.</p>
+
+					<p><strong>Future Goals:</strong> I am eager to deepen my expertise in cloud security, obtain more
+						certifications, and contribute to open-source DevOps and AI projects.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Resume Section -->
+	<section id="resume" class="py-5">
+		<div class="container">
+			<h2 class="text-center mb-5">Resume</h2>
+
+			<!-- Experience -->
+			<div class="row mb-5">
+				<div class="col-lg-3">
+					<h3 class="resume-section-title">Experience</h3>
+				</div>
+				<div class="col-lg-9">
+					<!-- Job 1 -->
+					<!-- Job 2 -->
+					<div class="resume-item mb-4" data-aos="fade-up" data-aos-delay="100">
+						<h4>Software Developer</h4>
+						<h5>KO2 s.r.l., Rome</h5>
+						<p class="resume-date">Nov, 2024 - Present</p>
+						<ul>
+							<li><strong>Developed the mobile application for a veterinary laboratory:</strong>
+								Designed and implemented a Flutter-based mobile application using the BLoC state
+								management pattern to streamline communication between veterinary clinics and the
+								laboratory. The app facilitated test result tracking, appointment scheduling, and sample
+								management. Additionally, mentored teammates on Flutter development best practices,
+								helping improve code quality and project efficiency.
+							</li>
+							<li><strong>Backend and DevOps Engineer for TIM (Telecom Italia) project:</strong>
+								Contributed to the development and deployment of a large-scale telecommunications
+								project for TIM, utilizing Kubernetes for container orchestration and Java with Spring
+								Boot for backend services. Focused on optimizing cloud infrastructure, automating
+								deployments, and ensuring system reliability in a high-availability environment.
+							</li>
+						</ul>
+					</div>
+
+
+					<div class="resume-item mb-4" data-aos="fade-up" data-aos-delay="100">
+						<h4>Founder & Lead Developer</h4>
+						<h5>Hitspot</h5>
+						<p class="resume-date">2023 - Present</p>
+						<ul>
+							<li><strong>Designed and developed a travel discovery mobile application:</strong>
+								Built Hitspot using Flutter and the BLoC state management pattern, enabling users to
+								explore, share, and embark on curated travel experiences. Integrated Google Maps for
+								location-based recommendations and a seamless user experience.
+							</li>
+							<li><strong>Implemented backend services and cloud infrastructure:</strong>
+								Developed a Supabase-powered backend with PostgreSQL, leveraging Firebase for
+								authentication and storage. Optimized API performance and scalability to handle dynamic
+								content updates.
+							</li>
+							<li><strong>Led product growth and user engagement strategies:</strong>
+								Managed app releases, user feedback collection, and marketing efforts, refining features
+								based on real-world usage. Published beta versions and onboarded early adopters to
+								validate key functionalities.
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- Education -->
+				<div class="row mb-5">
+					<div class="col-lg-3">
+						<h3 class="resume-section-title">Education</h3>
+					</div>
+					<div class="col-lg-9">
+						<!-- Education 1 -->
+						<div class="resume-item mb-4" data-aos="fade-up">
+							<h4>42 Coding School</h4>
+							<h5>School 42, Rome</h5>
+							<p class="resume-date">Jan, 2024 - Present</p>
+							<p>Compling project-based curriculum focused on computer science fundamentals, C
+								programming,
+								and software engineering principles.</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Certifications -->
+				<div class="row">
+					<div class="col-lg-3">
+						<h3 class="resume-section-title">Certifications</h3>
+					</div>
+					<div class="col-lg-9">
+						<div class="resume-item mb-4" data-aos="fade-up">
+							<h4>Certified Kubernetes Administrator (CKA)</h4>
+							<p class="resume-date">Feb, 2025</p>
+							<p>Demonstrated expertise in managing Kubernetes clusters, including deployment, networking, security, troubleshooting, and automation. Proven ability to design, configure, and maintain cloud-native applications at scale.</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Download Resume Button -->
+				<div class="text-center mt-5" data-aos="fade-up">
+					<a href="#" class="btn btn-primary btn-lg">Download Full Resume</a>
+				</div>
+			</div>
+	</section>
+
+
+	<!-- Projects Section -->
+	<section id="projects">
+		<div class="container">
+			<h2 class="text-center mb-5">My Projects</h2>
+
+			<!-- Project Filter -->
+			<div class="text-center mb-4 project-filter">
+				<div class="btn-group" role="group" aria-label="Project filters">
+					<button type="button" class="btn btn-outline-primary active" data-filter="all">All</button>
+					<button type="button" class="btn btn-outline-primary" data-filter="mobile">Mobile</button>
+					<button type="button" class="btn btn-outline-primary" data-filter="ai">AI</button>
+					<button type="button" class="btn btn-outline-primary" data-filter="other">Other</button>
+				</div>
+			</div>
+
+			<div class="row">
+				<!-- Project 1 -->
+				<div class="col-md-4">
+					<div class="card project-card" data-category="mobile" data-aos="fade-up" data-aos-delay="100">
+						<img src="./assets/hitspot_blue.png" class="card-img-top" alt="Project 1">
+						<div class="card-body">
+							<h5 class="card-title">Hitspot</h5>
+							<p class="card-text">Modern mobile application to connect travellers and locals.</p>
+							<div class="d-flex justify-content-between">
+								<a href="https://hitspot.app" class="btn btn-outline-primary">View Project</a>
+								<a href="#" class="btn btn-outline-secondary">Code/Details (TODO)</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Project 2 -->
+				<div class="col-md-4">
+					<div class="card project-card" data-category="ai" data-aos="fade-up" data-aos-delay="200">
+						<img src="./assets/munchmosaic.png" class="card-img-top" alt="Project 2">
+						<div class="card-body">
+							<h5 class="card-title">MunchMosaic</h5>
+							<p class="card-text">An AI application that generates food recipes based on your
+								ingredients.</p>
+							<div class="d-flex justify-content-between">
+								<a href="https://munchmosaic.cloud" class="btn btn-outline-primary">View Project</a>
+								<a href="#" class="btn btn-outline-secondary">Code/Details (TODO)</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Project 3 -->
+				<div class="col-md-4">
+					<div class="card project-card" data-category="other" data-aos="fade-up" data-aos-delay="300">
+						<img src="./assets/minishell.png" class="card-img-top" alt="Project 3">
+						<div class="card-body">
+							<h5 class="card-title">Minishell</h5>
+							<p class="card-text">A basic shell clone written in C.</p>
+							<div class="d-flex justify-content-between">
+								<a href="#" class="btn btn-outline-primary">View Project</a>
+								<a href="https://github.com/kuba2901/42_minishell.git"
+									class="btn btn-outline-secondary">Code/Details</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Project 4 -->
+				<!-- <div class="col-md-4">
+                    <div class="card project-card" data-category="other" data-aos="fade-up" data-aos-delay="100">
+                        <img src="/api/placeholder/400/300" class="card-img-top" alt="Project 4">
+                        <div class="card-body">
+                            <h5 class="card-title">Data Visualization</h5>
+                            <p class="card-text">Interactive dashboard showcasing data visualization using modern JS libraries.</p>
+                            <div class="d-flex justify-content-between">
+                                <a href="#" class="btn btn-outline-primary">View Project</a>
+                                <a href="#" class="btn btn-outline-secondary">Code/Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+
+				<!-- Project 5 -->
+				<!-- <div class="col-md-4">
+                    <div class="card project-card" data-category="design" data-aos="fade-up" data-aos-delay="200">
+                        <img src="/api/placeholder/400/300" class="card-img-top" alt="Project 5">
+                        <div class="card-body">
+                            <h5 class="card-title">UI/UX Case Study</h5>
+                            <p class="card-text">Comprehensive user interface and experience design for a mobile application.</p>
+                            <div class="d-flex justify-content-between">
+                                <a href="#" class="btn btn-outline-primary">View Project</a>
+                                <a href="#" class="btn btn-outline-secondary">Code/Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+
+				<!-- Project 6 -->
+				<!-- <div class="col-md-4">
+                    <div class="card project-card" data-category="other" data-aos="fade-up" data-aos-delay="300">
+                        <img src="/api/placeholder/400/300" class="card-img-top" alt="Project 6">
+                        <div class="card-body">
+                            <h5 class="card-title">Photography Portfolio</h5>
+                            <p class="card-text">Curated collection of landscape and portrait photography with minimalist design.</p>
+                            <div class="d-flex justify-content-between">
+                                <a href="#" class="btn btn-outline-primary">View Project</a>
+                                <a href="#" class="btn btn-outline-secondary">Code/Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+			</div>
+		</div>
+	</section>
+
+	<!-- Skills Section -->
+	<section id="skills" class="py-5">
+		<div class="container">
+			<h2 class="text-center mb-5">Skills & Languages</h2>
+			<div class="row">
+				<!-- Technical Skills -->
+				<div class="col-md-6">
+					<h4>Technical Skills</h4>
+					<div>
+						<span class="badge bg-primary skill-badge">Kubernetes</span>
+						<span class="badge bg-primary skill-badge">Docker</span>
+						<span class="badge bg-primary skill-badge">Python</span>
+						<span class="badge bg-primary skill-badge">C</span>
+						<span class="badge bg-primary skill-badge">Java</span>
+						<span class="badge bg-primary skill-badge">Flutter & Dart</span>
+					</div>
+				</div>
+
+				<div class="col-md-6">
+					<h4>Languages</h4>
+					<div>
+						<span class="badge bg-secondary skill-badge">Polish (Native)</span>
+						<span class="badge bg-secondary skill-badge">English (Advanced)</span>
+						<span class="badge bg-secondary skill-badge">French (Advanced)</span>
+						<span class="badge bg-secondary skill-badge">Italian (Intermediate)</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Contact Section -->
+	<section id="contact">
+		<div class="container">
+			<h2 class="text-center mb-5">Get In Touch</h2>
+			<div class="row">
+				<div class="col-md-6">
+					<form action="https://formsubmit.co/kubanenczakdev@gmail.com" method="POST">
+						<div class="mb-3">
+							<label for="name" class="form-label">Name</label>
+							<input type="text" class="form-control" id="name" name="name" required>
+						</div>
+						<div class="mb-3">
+							<label for="email" class="form-label">Email</label>
+							<input type="email" class="form-control" id="email" name="email" required>
+						</div>
+						<div class="mb-3">
+							<label for="message" class="form-label">Message</label>
+							<textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+						</div>
+						<button type="submit" class="btn btn-primary">Send Message</button>
+					</form>
+				</div>
+				<div class="col-md-6">
+					<div class="card">
+						<div class="card-body">
+							<h5 class="card-title">Contact Information</h5>
+							<p class="card-text">Feel free to reach out through the form or directly via:</p>
+							<ul class="list-unstyled">
+								<li><strong>Email:</strong> kubanenczakdev@gmail.com</li>
+								<li><strong>Location:</strong> Rome, Italy</li>
+							</ul>
+							<div class="mt-4">
+								<a href="https://www.linkedin.com/in/jakub-nenczak-946742243/"
+									class="text-dark social-links"><i class="bi bi-linkedin"></i></a>
+								<a href="https://www.github.com/kuba2901" class="text-dark social-links"><i
+										class="bi bi-github"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="text-center">
+		<div class="container">
+			<p>© 2025 Jakub Nenczak. All Rights Reserved.</p>
+		</div>
+	</footer>
+
+	<!-- Bootstrap Bundle with Popper -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+	<!-- Bootstrap Icons -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+	<!-- AOS - Animate On Scroll Library -->
+	<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+	<!-- Custom JS -->
+	<script src="script.js"></script>
+	<script>
+		// Initialize AOS (Animate On Scroll)
+		AOS.init({
+			duration: 800,
+			easing: 'ease',
+			once: true
+		});
+	</script>
+</body>
+
+</html>
