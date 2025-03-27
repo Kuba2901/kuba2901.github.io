@@ -71,33 +71,36 @@
 	</div>
 
 	<!-- About Section -->
-	<section id="about">
+	<section id="about" class="py-5">
 		<div class="container">
-			<div class="row">
-				<div class="col-lg-4 text-center mb-4" data-aos="fade-right">
-					<img src="./assets/ja.jpg" alt="Profile Photo" class="rounded-square img-fluid shadow">
+			<div class="row align-items-center">
+				<!-- Image Column -->
+				<div class="col-lg-4 mb-4 mb-lg-0" data-aos="fade-right" data-aos-duration="800">
+					<div class="position-relative">
+						<img src="./assets/ja.jpg" alt="Profile Photo" class="img-fluid rounded-3 shadow-lg">
+						<div class="bg-primary position-absolute rounded-circle d-none d-lg-block"
+							style="width: 120px; height: 120px; bottom: -20px; left: -30px; z-index: -1; opacity: 0.1;">
+						</div>
+					</div>
 				</div>
-				<div class="col-lg-8" data-aos="fade-left">
-					<h2>About Me</h2>
-					<p>Welcome to my portfolio! I am a passionate Software and DevOps Engineer with a strong background
-						in automation, AI-driven applications, and cloud infrastructure. I believe in building
-						efficient, scalable, and open-source-driven solutions that enhance productivity and innovation.
+
+				<!-- Content Column -->
+				<div class="col-lg-8" data-aos="fade-left" data-aos-duration="800" data-aos-delay="100">
+					<h2 class="fw-bold mb-4 position-relative">
+						<span class="position-relative z-2">About Me</span>
+						<span class="position-absolute bg-primary opacity-10 rounded w-25 h-30"
+							style="bottom: 0; left: 0; z-index: -1;"></span>
+					</h2>
+
+					<p class="lead mb-4">
+						I'm a Software and DevOps Engineer with 5 years of coding experience who thrives at the
+						intersection of cloud infrastructure,
+						automation, and AI-driven solutions. With a foundation from 42 coding school and CKA
+						certification,
+						I build systems that scale and innovate.
 					</p>
 
-					<p>My background includes studying at the 42 coding school, obtaining the CKA certification, and
-						working on projects ranging from mobile and web applications in Flutter to Kubernetes-based AI
-						systems.</p>
 
-					<p><strong>Technical Expertise:</strong> I work with technologies such as Kubernetes, Docker,
-						Terraform, Flutter, Java (Spring Boot), Python, and Go. I am also experienced in CI/CD,
-						infrastructure automation, and AI-driven development.</p>
-
-					<p><strong>Current Focus:</strong> I am currently exploring the intersection of AI and software
-						development, working on Retrieval-Augmented Generation (RAG) systems, and optimizing
-						cloud-native applications.</p>
-
-					<p><strong>Future Goals:</strong> I am eager to deepen my expertise in cloud security, obtain more
-						certifications, and contribute to open-source DevOps and AI projects.</p>
 				</div>
 			</div>
 		</div>
@@ -114,7 +117,6 @@
 					<h3 class="resume-section-title">Experience</h3>
 				</div>
 				<div class="col-lg-9">
-					<!-- Job 1 -->
 					<!-- Job 2 -->
 					<div class="resume-item mb-4" data-aos="fade-up" data-aos-delay="100">
 						<h4>Software Developer</h4>
@@ -189,7 +191,9 @@
 						<div class="resume-item mb-4" data-aos="fade-up">
 							<h4>Certified Kubernetes Administrator (CKA)</h4>
 							<p class="resume-date">Feb, 2025</p>
-							<p>Demonstrated expertise in managing Kubernetes clusters, including deployment, networking, security, troubleshooting, and automation. Proven ability to design, configure, and maintain cloud-native applications at scale.</p>
+							<p>Demonstrated expertise in managing Kubernetes clusters, including deployment, networking,
+								security, troubleshooting, and automation. Proven ability to design, configure, and
+								maintain cloud-native applications at scale.</p>
 						</div>
 					</div>
 				</div>
@@ -207,18 +211,7 @@
 		<div class="container">
 			<h2 class="text-center mb-5">My Projects</h2>
 
-			<!-- Project Filter -->
-			<div class="text-center mb-4 project-filter">
-				<div class="btn-group" role="group" aria-label="Project filters">
-					<button type="button" class="btn btn-outline-primary active" data-filter="all">All</button>
-					<button type="button" class="btn btn-outline-primary" data-filter="mobile">Mobile</button>
-					<button type="button" class="btn btn-outline-primary" data-filter="ai">AI</button>
-					<button type="button" class="btn btn-outline-primary" data-filter="other">Other</button>
-				</div>
-			</div>
-
 			<div class="row">
-				<!-- Project 1 -->
 				<div class="col-md-4">
 					<div class="card project-card" data-category="mobile" data-aos="fade-up" data-aos-delay="100">
 						<img src="./assets/hitspot_blue.png" class="card-img-top" alt="Project 1">
@@ -227,13 +220,11 @@
 							<p class="card-text">Modern mobile application to connect travellers and locals.</p>
 							<div class="d-flex justify-content-between">
 								<a href="https://hitspot.app" class="btn btn-outline-primary">View Project</a>
-								<a href="#" class="btn btn-outline-secondary">Code/Details (TODO)</a>
 							</div>
 						</div>
 					</div>
 				</div>
 
-				<!-- Project 2 -->
 				<div class="col-md-4">
 					<div class="card project-card" data-category="ai" data-aos="fade-up" data-aos-delay="200">
 						<img src="./assets/munchmosaic.png" class="card-img-top" alt="Project 2">
@@ -243,7 +234,6 @@
 								ingredients.</p>
 							<div class="d-flex justify-content-between">
 								<a href="https://munchmosaic.cloud" class="btn btn-outline-primary">View Project</a>
-								<a href="#" class="btn btn-outline-secondary">Code/Details (TODO)</a>
 							</div>
 						</div>
 					</div>
@@ -257,58 +247,44 @@
 							<h5 class="card-title">Minishell</h5>
 							<p class="card-text">A basic shell clone written in C.</p>
 							<div class="d-flex justify-content-between">
-								<a href="#" class="btn btn-outline-primary">View Project</a>
 								<a href="https://github.com/kuba2901/42_minishell.git"
-									class="btn btn-outline-secondary">Code/Details</a>
+									class="btn btn-outline-primary">View Project</a>
 							</div>
 						</div>
 					</div>
 				</div>
 
 				<!-- Project 4 -->
-				<!-- <div class="col-md-4">
-                    <div class="card project-card" data-category="other" data-aos="fade-up" data-aos-delay="100">
-                        <img src="/api/placeholder/400/300" class="card-img-top" alt="Project 4">
-                        <div class="card-body">
-                            <h5 class="card-title">Data Visualization</h5>
-                            <p class="card-text">Interactive dashboard showcasing data visualization using modern JS libraries.</p>
-                            <div class="d-flex justify-content-between">
-                                <a href="#" class="btn btn-outline-primary">View Project</a>
-                                <a href="#" class="btn btn-outline-secondary">Code/Details</a>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
+				<div class="col-md-4">
+					<div class="card project-card" data-category="other" data-aos="fade-up" data-aos-delay="300">
+						<img src="./assets/coeur_logo.png" class="card-img-top" alt="Project 3">
+						<div class="card-body">
+							<h5 class="card-title">Coeur Clothing</h5>
+							<p class="card-text">An e-commerce application built for a small designer clothing brand.
+							</p>
+							<div class="d-flex justify-content-between">
+								<a href="https://coeurclothing.pl" class="btn btn-outline-primary">View Project</a>
+							</div>
+						</div>
+					</div>
+				</div>
 
 				<!-- Project 5 -->
-				<!-- <div class="col-md-4">
-                    <div class="card project-card" data-category="design" data-aos="fade-up" data-aos-delay="200">
-                        <img src="/api/placeholder/400/300" class="card-img-top" alt="Project 5">
-                        <div class="card-body">
-                            <h5 class="card-title">UI/UX Case Study</h5>
-                            <p class="card-text">Comprehensive user interface and experience design for a mobile application.</p>
-                            <div class="d-flex justify-content-between">
-                                <a href="#" class="btn btn-outline-primary">View Project</a>
-                                <a href="#" class="btn btn-outline-secondary">Code/Details</a>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
+				<div class="col-md-4">
+					<div class="card project-card" data-category="other" data-aos="fade-up" data-aos-delay="300">
+						<img src="./assets/robot.png" class="card-img-top" alt="Project 3">
+						<div class="card-body">
+							<h5 class="card-title">Autobot</h5>
+							<p class="card-text">A car-like ROS2 robot with Raspberry Pi 4 for a brain.</p>
+							<div class="d-flex justify-content-between">
+								<a href="https://github.com/Kuba2901/autobot" class="btn btn-outline-primary">View
+									Project</a>
+							</div>
+						</div>
+					</div>
+				</div>
 
-				<!-- Project 6 -->
-				<!-- <div class="col-md-4">
-                    <div class="card project-card" data-category="other" data-aos="fade-up" data-aos-delay="300">
-                        <img src="/api/placeholder/400/300" class="card-img-top" alt="Project 6">
-                        <div class="card-body">
-                            <h5 class="card-title">Photography Portfolio</h5>
-                            <p class="card-text">Curated collection of landscape and portrait photography with minimalist design.</p>
-                            <div class="d-flex justify-content-between">
-                                <a href="#" class="btn btn-outline-primary">View Project</a>
-                                <a href="#" class="btn btn-outline-secondary">Code/Details</a>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
+
 			</div>
 		</div>
 	</section>

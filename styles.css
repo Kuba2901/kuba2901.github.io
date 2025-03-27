@@ -62,9 +62,9 @@ section {
     background-color: var(--background-dark);
 }
 
-#projects {
+/* #projects {
     background-color: rgba(53, 73, 94, 0.2) !important;
-}
+} */
 
 section h2 {
     margin-bottom: 40px;
@@ -266,7 +266,7 @@ footer {
 .resume-item h4 {
 	font-weight: 600;
 	margin-bottom: 5px;
-	color: #007bff;
+	color: var(--primary-color);
 }
 
 .resume-item h5 {
