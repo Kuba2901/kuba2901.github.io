@@ -333,6 +333,256 @@
 		</div>
 	</section>
 
+	<!-- Projects Section -->
+	<section id="projects" class="py-5"">
+		<div class=" container">
+		<div class="row mb-4">
+			<div class="col-lg-8 mx-auto text-center">
+				<h2 class="text-center mb-5 w-" style="color: var(--primary-color);">My Projects</h2>
+				<p style="color: var(--text-color);">A showcase of my recent work across mobile, AI, and software
+					development</p>
+
+				<!-- Filter Buttons -->
+				<div class="d-flex justify-content-center flex-wrap mt-3 mb-4">
+					<span class="badge rounded-pill m-1 filter-btn active"
+						style="background-color: var(--primary-color); color: var(--background-dark); font-weight: normal; padding: 8px 15px; cursor: pointer;"
+						data-filter="all">All Projects</span>
+					<span class="badge rounded-pill m-1 filter-btn"
+						style="background-color: rgba(66, 184, 131, 0.15); color: var(--primary-color); border: 1px solid var(--primary-color); font-weight: normal; padding: 8px 15px; cursor: pointer;"
+						data-filter="mobile">Mobile Apps</span>
+					<span class="badge rounded-pill m-1 filter-btn"
+						style="background-color: rgba(66, 184, 131, 0.15); color: var(--primary-color); border: 1px solid var(--primary-color); font-weight: normal; padding: 8px 15px; cursor: pointer;"
+						data-filter="ai">AI Solutions</span>
+					<span class="badge rounded-pill m-1 filter-btn"
+						style="background-color: rgba(66, 184, 131, 0.15); color: var(--primary-color); border: 1px solid var(--primary-color); font-weight: normal; padding: 8px 15px; cursor: pointer;"
+						data-filter="other">Other</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="row g-4 projects-container">
+			<!-- Project 1: Hitspot -->
+			<div class="col-md-6 col-lg-4 project-item" data-category="mobile">
+				<div class="card h-100 border-0 shadow-sm"
+					style="background-color: var(--background-card); border-radius: 8px;" data-aos="fade-up"
+					data-aos-delay="100">
+					<div class="project-img-container">
+						<img src="./assets/hitspot_blue.png" class="card-img-top" alt="Hitspot Mobile App">
+						<div class="project-overlay">
+							<div class="project-tech">
+								<span class="badge rounded-pill"
+									style="background-color: rgba(66, 184, 131, 0.15); color: var(--primary-color); border: 1px solid var(--primary-color); font-weight: normal; padding: 4px 10px;">Flutter</span>
+								<span class="badge rounded-pill"
+									style="background-color: rgba(66, 184, 131, 0.15); color: var(--primary-color); border: 1px solid var(--primary-color); font-weight: normal; padding: 4px 10px;">Supabase</span>
+								<span class="badge rounded-pill"
+									style="background-color: rgba(66, 184, 131, 0.15); color: var(--primary-color); border: 1px solid var(--primary-color); font-weight: normal; padding: 4px 10px;">Firebase</span>
+								<span class="badge rounded-pill"
+									style="background-color: rgba(66, 184, 131, 0.15); color: var(--primary-color); border: 1px solid var(--primary-color); font-weight: normal; padding: 4px 10px;">Geolocation</span>
+							</div>
+						</div>
+					</div>
+					<div class="card-body">
+						<h5 class="card-title" style="color: var(--text-color);">Hitspot</h5>
+						<p class="card-text" style="color: var(--text-muted);">Modern mobile application that
+							connects travelers with locals for authentic experiences and hidden gems.</p>
+					</div>
+					<div class="card-footer bg-transparent border-0 pt-0">
+						<div class="d-flex justify-content-between align-items-center">
+							<a href="https://hitspot.app" class="btn btn-primary" target="_blank">View Project</a>
+							<!-- <div class="project-links">
+								<a href="#" class="social-links"><i class="fab fa-github"></i></a>
+							</div> -->
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Project 2: MunchMosaic -->
+			<div class="col-md-6 col-lg-4 project-item" data-category="ai">
+				<div class="card h-100 border-0 shadow-sm"
+					style="background-color: var(--background-card); border-radius: 8px;" data-aos="fade-up"
+					data-aos-delay="200">
+					<div class="project-img-container">
+						<img src="./assets/munchmosaic.png" class="card-img-top" alt="MunchMosaic AI Recipe Generator">
+						<div class="project-overlay">
+							<div class="project-tech">
+								<span class="badge rounded-pill"
+									style="background-color: rgba(66, 184, 131, 0.15); color: var(--primary-color); border: 1px solid var(--primary-color); font-weight: normal; padding: 4px 10px;">Python</span>
+								<span class="badge rounded-pill"
+									style="background-color: rgba(66, 184, 131, 0.15); color: var(--primary-color); border: 1px solid var(--primary-color); font-weight: normal; padding: 4px 10px;">AI/ML</span>
+								<span class="badge rounded-pill"
+									style="background-color: rgba(66, 184, 131, 0.15); color: var(--primary-color); border: 1px solid var(--primary-color); font-weight: normal; padding: 4px 10px;">Docker</span>
+							</div>
+						</div>
+					</div>
+					<div class="card-body">
+						<h5 class="card-title" style="color: var(--text-color);">MunchMosaic</h5>
+						<p class="card-text" style="color: var(--text-muted);">AI-powered application that generates
+							creative food recipes based on the ingredients you have available.</p>
+					</div>
+					<div class="card-footer bg-transparent border-0 pt-0">
+						<div class="d-flex justify-content-between align-items-center">
+							<a href="https://munchmosaic.cloud" class="btn btn-primary" target="_blank">View
+								Project</a>
+							<!-- <div class="project-links">
+								<a href="#" class="social-links"><i class="fab fa-github"></i></a>
+							</div> -->
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Project 3: Minishell -->
+			<div class="col-md-6 col-lg-4 project-item" data-category="other">
+				<div class="card h-100 border-0 shadow-sm"
+					style="background-color: var(--background-card); border-radius: 8px;" data-aos="fade-up"
+					data-aos-delay="300">
+					<div class="project-img-container">
+						<img src="./assets/minishell.png" class="card-img-top" alt="Minishell C Project">
+						<div class="project-overlay">
+							<div class="project-tech">
+								<span class="badge rounded-pill"
+									style="background-color: rgba(66, 184, 131, 0.15); color: var(--primary-color); border: 1px solid var(--primary-color); font-weight: normal; padding: 4px 10px;">C</span>
+								<span class="badge rounded-pill"
+									style="background-color: rgba(66, 184, 131, 0.15); color: var(--primary-color); border: 1px solid var(--primary-color); font-weight: normal; padding: 4px 10px;">Unix</span>
+								<span class="badge rounded-pill"
+									style="background-color: rgba(66, 184, 131, 0.15); color: var(--primary-color); border: 1px solid var(--primary-color); font-weight: normal; padding: 4px 10px;">42
+									School</span>
+							</div>
+						</div>
+					</div>
+					<div class="card-body">
+						<h5 class="card-title" style="color: var(--text-color);">Minishell</h5>
+						<p class="card-text" style="color: var(--text-muted);">A custom shell implementation written
+							in C that replicates core functionality of bash, featuring command execution and piping.
+						</p>
+					</div>
+					<div class="card-footer bg-transparent border-0 pt-0">
+						<div class="d-flex justify-content-between align-items-center">
+							<a href="https://github.com/kuba2901/42_minishell.git" class="btn btn-primary"
+								target="_blank">View Project</a>
+							<div class="project-links">
+								<a href="https://github.com/kuba2901/42_minishell.git" class="social-links"><i
+										class="fab fa-github"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Project 4: Coeur Clothing -->
+			<div class="col-md-6 col-lg-4 project-item" data-category="other">
+				<div class="card h-100 border-0 shadow-sm"
+					style="background-color: var(--background-card); border-radius: 8px;" data-aos="fade-up"
+					data-aos-delay="400">
+					<div class="project-img-container">
+						<img src="./assets/coeur_logo.png" class="card-img-top" alt="Coeur Clothing E-Commerce">
+						<div class="project-overlay">
+							<div class="project-tech">
+								<span class="badge rounded-pill"
+									style="background-color: rgba(66, 184, 131, 0.15); color: var(--primary-color); border: 1px solid var(--primary-color); font-weight: normal; padding: 4px 10px;">E-Commerce</span>
+								<span class="badge rounded-pill"
+									style="background-color: rgba(66, 184, 131, 0.15); color: var(--primary-color); border: 1px solid var(--primary-color); font-weight: normal; padding: 4px 10px;">Flutter</span>
+								<span class="badge rounded-pill"
+									style="background-color: rgba(66, 184, 131, 0.15); color: var(--primary-color); border: 1px solid var(--primary-color); font-weight: normal; padding: 4px 10px;">Stripe</span>
+								<span class="badge rounded-pill"
+									style="background-color: rgba(66, 184, 131, 0.15); color: var(--primary-color); border: 1px solid var(--primary-color); font-weight: normal; padding: 4px 10px;">Firebase</span>
+							</div>
+						</div>
+					</div>
+					<div class="card-body">
+						<h5 class="card-title" style="color: var(--text-color);">Coeur Clothing</h5>
+						<p class="card-text" style="color: var(--text-muted);">Custom e-commerce platform developed
+							for a small designer clothing brand, featuring product catalog and secure checkout.</p>
+					</div>
+					<div class="card-footer bg-transparent border-0 pt-0">
+						<div class="d-flex justify-content-between align-items-center">
+							<a href="https://coeurclothing.pl" class="btn btn-primary" target="_blank">View
+								Project</a>
+							<!-- <div class="project-links">
+								<a href="#" class="social-links"><i class="fab fa-github"></i></a>
+							</div> -->
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Project 5: Autobot -->
+			<div class="col-md-6 col-lg-4 project-item" data-category="other">
+				<div class="card h-100 border-0 shadow-sm"
+					style="background-color: var(--background-card); border-radius: 8px;" data-aos="fade-up"
+					data-aos-delay="500">
+					<div class="project-img-container">
+						<img src="./assets/robot.png" class="card-img-top" alt="Autobot ROS2 Robot">
+						<div class="project-overlay">
+							<div class="project-tech">
+								<span class="badge rounded-pill"
+									style="background-color: rgba(66, 184, 131, 0.15); color: var(--primary-color); border: 1px solid var(--primary-color); font-weight: normal; padding: 4px 10px;">ROS2</span>
+								<span class="badge rounded-pill"
+									style="background-color: rgba(66, 184, 131, 0.15); color: var(--primary-color); border: 1px solid var(--primary-color); font-weight: normal; padding: 4px 10px;">Raspberry
+									Pi</span>
+								<span class="badge rounded-pill"
+									style="background-color: rgba(66, 184, 131, 0.15); color: var(--primary-color); border: 1px solid var(--primary-color); font-weight: normal; padding: 4px 10px;">Robotics</span>
+							</div>
+						</div>
+					</div>
+					<div class="card-body">
+						<h5 class="card-title" style="color: var(--text-color);">Autobot</h5>
+						<p class="card-text" style="color: var(--text-muted);">Car-like robot built with ROS2 and
+							powered by Raspberry Pi 4, featuring RC controls.</p>
+					</div>
+					<div class="card-footer bg-transparent border-0 pt-0">
+						<div class="d-flex justify-content-between align-items-center">
+							<a href="https://github.com/Kuba2901/autobot" class="btn btn-primary" target="_blank">View
+								Project</a>
+							<div class="project-links">
+								<a href="https://github.com/Kuba2901/autobot" class="social-links"><i
+										class="fab fa-github"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+
+		<!-- Script for filter functionality -->
+		<script>
+			document.addEventListener('DOMContentLoaded', function () {
+				const filterBtns = document.querySelectorAll('.filter-btn');
+				const projectItems = document.querySelectorAll('.project-item');
+
+				filterBtns.forEach(btn => {
+					btn.addEventListener('click', () => {
+						// Remove active class from all buttons
+						filterBtns.forEach(btn => {
+							btn.classList.remove('active');
+							btn.style.backgroundColor = 'rgba(66, 184, 131, 0.15)';
+							btn.style.color = 'var(--primary-color)';
+						});
+
+						// Add active class to clicked button
+						btn.classList.add('active');
+						btn.style.backgroundColor = 'var(--primary-color)';
+						btn.style.color = 'var(--background-dark)';
+
+						// Get filter value
+						const filterValue = btn.getAttribute('data-filter');
+
+						// Filter projects
+						projectItems.forEach(item => {
+							if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+								item.style.display = 'block';
+							} else {
+								item.style.display = 'none';
+							}
+						});
+					});
+				});
+			});
+		</script>
+	</section>
+
 	<!-- Skills Section -->
 	<section id="skills" class="py-5">
 		<div class="container">
@@ -586,192 +836,7 @@
 		</div>
 	</section>
 
-	<!-- Projects Section -->
-	<section id="projects">
-		<div class="container">
-			<div class="row mb-5">
-				<div class="col-lg-6 mx-auto text-center">
-					<h2 class="fw-bold position-relative d-inline-block mb-3">
-						<span class="position-relative z-2" style="color: var(--primary-color);">My Projects</span>
-						<span class="position-absolute bg-primary opacity-10 rounded w-50 h-30"
-							style="bottom: 0; left: 25%; z-index: -1;"></span>
-					</h2>
-					<p class="lead" style="color: var(--text-color);">A showcase of my recent work across mobile, AI,
-						and software development</p>
 
-					<!-- Filter Buttons -->
-					<div class="d-flex justify-content-center flex-wrap mt-4 project-filter">
-						<div class="btn-group">
-							<button class="btn filter-btn active" data-filter="all">All Projects</button>
-							<button class="btn filter-btn" data-filter="mobile">Mobile Apps</button>
-							<button class="btn filter-btn" data-filter="ai">AI Solutions</button>
-							<button class="btn filter-btn" data-filter="other">Other</button>
-						</div>
-					</div>
-				</div>
-			</div>
-
-
-			<div class="row g-4 projects-container">
-				<!-- Project 1: Hitspot -->
-				<div class="col-md-6 col-lg-4 project-item" data-category="mobile">
-					<div class="card h-100 border-0 shadow-sm rounded-3 overflow-hidden" data-aos="fade-up"
-						data-aos-delay="100">
-						<div class="project-img-container">
-							<img src="./assets/hitspot_blue.png" class="card-img-top" alt="Hitspot Mobile App">
-							<div class="project-overlay">
-								<div class="project-tech">
-									<span class="badge bg-dark me-1">Flutter</span>
-									<span class="badge bg-dark me-1">Firebase</span>
-									<span class="badge bg-dark">Geolocation</span>
-								</div>
-							</div>
-						</div>
-						<div class="card-body">
-							<h5 class="card-title fw-bold">Hitspot</h5>
-							<p class="card-text">Modern mobile application that connects travelers with locals for
-								authentic experiences and hidden gems.</p>
-						</div>
-						<div class="card-footer border-0 pt-0">
-							<div class="d-flex justify-content-between align-items-center">
-								<a href="https://hitspot.app" class="btn btn-primary" target="_blank">View Project</a>
-								<div class="project-links">
-									<a href="#" class="text-muted me-2"><i class="fab fa-github"></i></a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Project 2: MunchMosaic -->
-				<div class="col-md-6 col-lg-4 project-item" data-category="ai">
-					<div class="card h-100 border-0 shadow-sm rounded-3 overflow-hidden" data-aos="fade-up"
-						data-aos-delay="200">
-						<div class="project-img-container">
-							<img src="./assets/munchmosaic.png" class="card-img-top"
-								alt="MunchMosaic AI Recipe Generator">
-							<div class="project-overlay">
-								<div class="project-tech">
-									<span class="badge bg-dark me-1">Python</span>
-									<span class="badge bg-dark me-1">AI/ML</span>
-									<span class="badge bg-dark">React</span>
-								</div>
-							</div>
-						</div>
-						<div class="card-body">
-							<h5 class="card-title fw-bold">MunchMosaic</h5>
-							<p class="card-text">AI-powered application that generates creative food recipes based on
-								the ingredients you have available.</p>
-						</div>
-						<div class="card-footer border-0 pt-0">
-							<div class="d-flex justify-content-between align-items-center">
-								<a href="https://munchmosaic.cloud" class="btn btn-primary" target="_blank">View
-									Project</a>
-								<div class="project-links">
-									<a href="#" class="text-muted me-2"><i class="fab fa-github"></i></a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Project 3: Minishell -->
-				<div class="col-md-6 col-lg-4 project-item" data-category="other">
-					<div class="card h-100 border-0 shadow-sm rounded-3 overflow-hidden" data-aos="fade-up"
-						data-aos-delay="300">
-						<div class="project-img-container">
-							<img src="./assets/minishell.png" class="card-img-top" alt="Minishell C Project">
-							<div class="project-overlay">
-								<div class="project-tech">
-									<span class="badge bg-dark me-1">C</span>
-									<span class="badge bg-dark me-1">Unix</span>
-									<span class="badge bg-dark">42 School</span>
-								</div>
-							</div>
-						</div>
-						<div class="card-body">
-							<h5 class="card-title fw-bold">Minishell</h5>
-							<p class="card-text">A custom shell implementation written in C that replicates core
-								functionality of bash, featuring command execution and piping.</p>
-						</div>
-						<div class="card-footer border-0 pt-0">
-							<div class="d-flex justify-content-between align-items-center">
-								<a href="https://github.com/kuba2901/42_minishell.git" class="btn btn-primary"
-									target="_blank">View Project</a>
-								<div class="project-links">
-									<a href="https://github.com/kuba2901/42_minishell.git" class="text-muted"><i
-											class="fab fa-github"></i></a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Project 4: Coeur Clothing -->
-				<div class="col-md-6 col-lg-4 project-item" data-category="other">
-					<div class="card h-100 border-0 shadow-sm rounded-3 overflow-hidden" data-aos="fade-up"
-						data-aos-delay="400">
-						<div class="project-img-container">
-							<img src="./assets/coeur_logo.png" class="card-img-top" alt="Coeur Clothing E-Commerce">
-							<div class="project-overlay">
-								<div class="project-tech">
-									<span class="badge bg-dark me-1">E-Commerce</span>
-									<span class="badge bg-dark me-1">Web Dev</span>
-									<span class="badge bg-dark">Payment Integration</span>
-								</div>
-							</div>
-						</div>
-						<div class="card-body">
-							<h5 class="card-title fw-bold">Coeur Clothing</h5>
-							<p class="card-text">Custom e-commerce platform developed for a small designer clothing
-								brand, featuring product catalog and secure checkout.</p>
-						</div>
-						<div class="card-footer border-0 pt-0">
-							<div class="d-flex justify-content-between align-items-center">
-								<a href="https://coeurclothing.pl" class="btn btn-primary" target="_blank">View
-									Project</a>
-								<div class="project-links">
-									<a href="#" class="text-muted me-2"><i class="fab fa-github"></i></a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Project 5: Autobot -->
-				<div class="col-md-6 col-lg-4 project-item" data-category="other">
-					<div class="card h-100 border-0 shadow-sm rounded-3 overflow-hidden" data-aos="fade-up"
-						data-aos-delay="500">
-						<div class="project-img-container">
-							<img src="./assets/robot.png" class="card-img-top" alt="Autobot ROS2 Robot">
-							<div class="project-overlay">
-								<div class="project-tech">
-									<span class="badge bg-dark me-1">ROS2</span>
-									<span class="badge bg-dark me-1">Raspberry Pi</span>
-									<span class="badge bg-dark">Robotics</span>
-								</div>
-							</div>
-						</div>
-						<div class="card-body">
-							<h5 class="card-title fw-bold">Autobot</h5>
-							<p class="card-text">Car-like robot built with ROS2 and powered by Raspberry Pi 4, featuring
-								RC controls.</p>
-						</div>
-						<div class="card-footer border-0 pt-0">
-							<div class="d-flex justify-content-between align-items-center">
-								<a href="https://github.com/Kuba2901/autobot" class="btn btn-primary"
-									target="_blank">View Project</a>
-								<div class="project-links">
-									<a href="https://github.com/Kuba2901/autobot" class="text-muted"><i
-											class="fab fa-github"></i></a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
 
 	<!-- Contact Section -->
 	<section id="contact">

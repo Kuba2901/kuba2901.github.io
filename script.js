@@ -81,30 +81,3 @@ if (contactForm) {
 }
 
 
-// Project Filters
-document.addEventListener('DOMContentLoaded', function () {
-	const filterBtns = document.querySelectorAll('.filter-btn');
-	const projectItems = document.querySelectorAll('.project-item');
-
-	filterBtns.forEach(btn => {
-		btn.addEventListener('click', () => {
-			// Remove active class from all buttons
-			filterBtns.forEach(btn => btn.classList.remove('active'));
-
-			// Add active class to clicked button
-			btn.classList.add('active');
-
-			// Get filter value
-			const filterValue = btn.getAttribute('data-filter');
-
-			// Filter projects
-			projectItems.forEach(item => {
-				if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-					item.style.display = 'block';
-				} else {
-					item.style.display = 'none';
-				}
-			});
-		});
-	});
-});
