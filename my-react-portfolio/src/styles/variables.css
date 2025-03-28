@@ -1,0 +1,11 @@
+:root {
+	--primary-color: #42b883;      /* Vue.js green */
+	--secondary-color: #121212;    /* Vue.js dark blue */
+	--background-dark: #121212;    /* Dark background */
+	--background-card: #1e1e1e;    /* Slightly lighter for cards */
+	--text-color: #e0e0e0;         /* Light text for dark backgrounds */
+	--text-muted: #aaaaaa;         /* Muted text */
+	--highlight-color: #2c3e50;    /* Darker Vue.js blue for highlights */
+	--border-color: #333333;       /* Border color */
+	--success-color: #42b883;      /* Success/confirmation color */
+  }

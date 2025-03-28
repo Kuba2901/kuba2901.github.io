@@ -1,0 +1,21 @@
+body {
+	font-family: 'Roboto', sans-serif;
+	color: var(--text-color);
+	line-height: 1.6;
+	background-color: var(--background-dark);
+  }
+  
+  .App {
+	text-align: center;
+	min-height: 100vh;
+	background-color: var(--background-dark);
+  }
+  
+  h1 {
+	color: var(--primary-color);
+	margin-top: 2rem;
+  }
+  
+  p {
+	color: var(--text-color);
+  }
