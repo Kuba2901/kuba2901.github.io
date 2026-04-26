@@ -2,935 +2,412 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Jakub Nenczak - Portfolio</title>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-	<link rel="stylesheet" href="styles.css">
-	<style>
-		body {
-			background-color: #121212;
-			color: #e0e0e0;
-		}
-
-		.navbar {
-			background-color: #121212 !important;
-		}
-
-		.bg-light {
-			background-color: #121212 !important;
-		}
-
-		.jumbotron {
-			background-color: #121212 !important;
-		}
-	</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jakub Nenczak — Backend Software Engineer</title>
+    <meta name="description"
+        content="Jakub Nenczak - Backend Software Engineer specializing in distributed systems, C++, and cloud-native architecture.">
+    <meta property="og:title" content="Jakub Nenczak — Backend Software Engineer">
+    <meta property="og:description"
+        content="Architecting scalable distributed systems and production-grade AI integrations.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-	<!-- Navigation -->
-	<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-		<div class="container">
-			<a class="navbar-brand" href="#">Jakub Nenczak</a>
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-				aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarNav">
-				<ul class="navbar-nav ms-auto">
-					<li class="nav-item">
-						<a class="nav-link" href="#about">About</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#resume">Resume</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#projects">Projects</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#skills">Skills</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#contact">Contact</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
 
-	<!-- Hero Section -->
-	<section id="hero" class="d-flex align-items-center position-relative overflow-hidden"
-		style="min-height: 100vh; background-color: var(--background-dark);">
-		<!-- Animated background elements -->
-		<div class="position-absolute w-100 h-100" style="overflow: hidden; z-index: 1;">
-			<div class="position-absolute"
-				style="width: 80px; height: 80px; background: var(--primary-color); opacity: 0.1; border-radius: 50%; top: 10%; left: 10%; animation: float 8s infinite ease-in-out;">
-			</div>
-			<div class="position-absolute"
-				style="width: 120px; height: 120px; background: var(--primary-color); opacity: 0.05; border-radius: 50%; top: 70%; left: 80%; animation: float 12s infinite ease-in-out;">
-			</div>
-			<div class="position-absolute"
-				style="width: 40px; height: 40px; background: var(--primary-color); opacity: 0.07; border-radius: 50%; top: 40%; left: 60%; animation: float 10s infinite ease-in-out;">
-			</div>
-			<div class="position-absolute"
-				style="width: 60px; height: 60px; border: 2px solid var(--primary-color); opacity: 0.1; border-radius: 10px; top: 85%; left: 30%; transform: rotate(45deg); animation: float 15s infinite ease-in-out;">
-			</div>
-		</div>
+    <div id="cursor"></div>
 
-		<div class="container position-relative" style="z-index: 2;">
-			<div class="row align-items-center">
-				<div class="col-lg-8 mx-auto text-center">
-					<div class="mb-4">
-						<h5 class="text-uppercase mb-3"
-							style="letter-spacing: 3px; color: var(--primary-color); opacity: 0.9;">Welcome to my
-							portfolio</h5>
-						<h1 class="display-3 fw-bold mb-4" style="color: var(--text-color);">I'm <span
-								style="color: var(--primary-color);">Kuba</span></h1>
-						<div class="d-flex justify-content-center">
-							<div class="typed-text position-relative" style="height: 60px;">
-                                <p class="lead mb-0" style="font-size: 1.5rem; color: var(--text-color);">Cloud-Native
-                                    Backend & DevOps Engineer | Wrocław, Poland </p>
-							</div>
-						</div>
-						<p class="my-4" style="color: var(--text-muted); max-width: 700px; margin: 0 auto;">
-							I create innovative and practical tech solutions with a focus on automation,
-							open-source technologies, and seamless user experiences.
-						</p>
-					</div>
+    <!-- NAV -->
+    <nav>
+        <div class="nav-logo">jakubnenczak<span>.</span>me</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Work</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="mailto:kubanenczakdev@gmail.com">Contact</a></li>
+        </ul>
+    </nav>
 
-					<div class="d-flex justify-content-center mt-5">
-						<a href="#projects" class="btn btn-primary btn-lg me-3">
-							<span>View My Work</span>
-							<i class="fas fa-arrow-right ms-2"></i>
-						</a>
-						<a href="#contact" class="btn btn-outline-primary btn-lg">
-							<span>Get In Touch</span>
-						</a>
-					</div>
+    <main>
 
-					<div class="mt-5 pt-5">
-						<a href="#about" class="scroll-down-link d-inline-block">
-							<div class="mouse"
-								style="width: 26px; height: 40px; border: 2px solid var(--text-muted); border-radius: 20px; position: relative;">
-								<div class="wheel"
-									style="width: 4px; height: 8px; background: var(--primary-color); border-radius: 2px; position: absolute; top: 8px; left: 50%; transform: translateX(-50%); animation: scroll 2s infinite;">
-								</div>
-							</div>
-							<!-- <p class="mt-2" style="color: var(--text-muted); font-size: 0.8rem;">Scroll Down</p> -->
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
+        <!-- HERO -->
+        <section id="hero">
+            <div class="hero-bg-text">Backend</div>
 
-		<!-- Animation for floating elements and scroll wheel -->
-		<style>
-			@keyframes float {
-				0% {
-					transform: translateY(0px) rotate(0deg);
-				}
+            <div class="hero-label">Backend Software Engineer</div>
 
-				50% {
-					transform: translateY(-20px) rotate(5deg);
-				}
+            <h1 class="hero-name">Jakub<br><em>Nenczak</em></h1>
 
-				100% {
-					transform: translateY(0px) rotate(0deg);
-				}
-			}
+            <p class="hero-tagline">
+                Architecting scalable distributed systems, high-performance network servers, and production-grade AI
+                integrations.
+            </p>
 
-			@keyframes scroll {
-				0% {
-					opacity: 1;
-					top: 8px;
-				}
+            <div class="hero-meta">
+                <span class="hero-loc">// Wrocław, Poland</span>
+                <div class="hero-links">
+                    <a href="https://github.com/kuba2901" target="_blank" class="btn">GitHub ↗</a>
+                    <a href="http://linkedin.com/in/jakub-nenczak-946742243" target="_blank" class="btn">LinkedIn ↗</a>
+                    <a href="https://drive.google.com/file/d/1pvN9uGQZnMvSNAVUZMA2i_g0gTTxpnxy/view?usp=share_link"
+                        target="_blank" class="btn btn-primary">Resume</a>
+                </div>
+            </div>
+        </section>
 
-				75% {
-					opacity: 1;
-					top: 20px;
-				}
+        <!-- ABOUT -->
+        <section id="about">
+            <div class="about-left">
+                <div class="section-header">
+                    <span class="section-num">01</span>
+                    <h2 class="section-title">About</h2>
+                </div>
+                <div class="about-text">
+                    <p>I am a Backend Software Engineer specializing in <strong>distributed systems</strong>,
+                        <strong>network programming</strong>, and <strong>cloud-native infrastructure</strong>.
+                    </p>
+                    <p>Currently completing my B.S. in Automatic Control and Robotics at Wrocław University of Science
+                        and Technology and the rigorous systems engineering curriculum at <strong>42 Roma
+                            Luiss</strong>.</p>
+                    <p>My engineering philosophy prioritizes non-blocking I/O, strict data consistency, and deliberate
+                        architectural trade-offs over framework reliance.</p>
+                    <div class="cka-badge">Certified Kubernetes Administrator (CKA)</div>
+                </div>
+            </div>
 
-				100% {
-					opacity: 0;
-					top: 20px;
-				}
-			}
-
-			#hero {
-				transition: all 0.3s ease;
-			}
-
-			.scroll-down-link {
-				transition: opacity 0.3s;
-			}
-
-			.scroll-down-link:hover {
-				opacity: 0.8;
-			}
-		</style>
-	</section>
-
-	<!-- About Section -->
-	<section id="about" class="py-5">
-		<div class="container">
-			<div class="row align-items-center">
-				<!-- Image Column -->
-				<div class="col-lg-4 mb-4 mb-lg-0" data-aos="fade-right" data-aos-duration="800">
-					<div class="position-relative">
-						<img src="./assets/ja.jpg" alt="Profile Photo" class="img-fluid rounded-3 shadow-lg">
-						<div class="bg-primary position-absolute rounded-circle d-none d-lg-block"
-							style="width: 120px; height: 120px; bottom: -20px; left: -30px; z-index: -1; opacity: 0.1;">
-						</div>
-					</div>
-				</div>
-
-				<!-- Content Column -->
-				<div class="col-lg-8" data-aos="fade-left" data-aos-duration="800" data-aos-delay="100">
-					<h2 class="fw-bold mb-4 position-relative">
-						<span class="position-relative z-2" style="color: var(--primary-color);">About Me</span>
-						<span class="position-absolute bg-primary opacity-10 rounded w-25 h-30"
-							style="bottom: 0; left: 0; z-index: -1;"></span>
-					</h2>
-
-					<p class="lead mb-4" style="color: var(--text-color);">
-						Certified Kubernetes Administrator (CKA) with experience building cloud-native applications and deploying containerized systems using modern DevOps pipelines. Familiar with major cloud ecosystems (AWS, GCP) and committed to designing scalable, reliable infrastructure
-					</p>
-
-					<div class="d-flex mt-4">
-						<a href="#resume" class="btn btn-primary me-2">View My Resume</a>
-						<a href="#contact" class="btn btn-outline-primary">Get In Touch</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- Resume Section -->
-	<section id="resume" class="py-5" style="background-color: rgba(44, 62, 80, 0.1);">
-		<div class="container">
-			<div class="row mb-5">
-				<div class="col-lg-6 mx-auto text-center">
-					<h2 class="fw-bold position-relative d-inline-block mb-3">
-						<span class="position-relative z-2" style="color: var(--primary-color);">My Resume</span>
-						<span class="position-absolute bg-primary opacity-10 rounded w-50 h-30"
-							style="bottom: 0; left: 25%; z-index: -1;"></span>
-					</h2>
-					<p style="color: var(--text-color);">My professional journey and qualifications</p>
-				</div>
-			</div>
-
-			<!-- Experience -->
-			<div class="row mb-5">
-				<div class="col-lg-3">
-					<h3 class="resume-section-title"
-						style="color: var(--primary-color); border-bottom: 2px solid var(--primary-color); display: inline-block; padding-bottom: 5px;">
-						Experience</h3>
-				</div>
-				<div class="col-lg-9">
-					<!-- Job 2 -->
-					<div class="resume-item mb-4 p-4" data-aos="fade-up" data-aos-delay="100"
-						style="background-color: var(--background-card); border-radius: 8px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <h4 style="color: var(--text-color);">DevOps & Backend Engineer</h4>
-                        </div>
-						<h5 style="color: var(--primary-color);">KO2 s.r.l., Rome</h5>
-                        <p class="resume-date" style="color: var(--text-muted);">Nov, 2024 - Nov, 2025</p>
-                        <ul style="color: var(--text-color); padding-left: 20px;">
-                            <li>Built a scalable veterinary diagnostics mobile platform using Flutter and modular architecture.</li>
-                            <li>Automated deployments with GitHub Actions CI/CD and Dockerized environments.</li>
-                            <li>Enhanced cloud-readiness with Kubernetes-based workloads and Infrastructure as Code principles.</li>
-                            <li>Collaborated with cross-functional teams to align system design with reliability and scalability goals.</li>
-                        </ul>
-					</div>
-
-                    <div class="resume-item mb-4 p-4" data-aos="fade-up" data-aos-delay="100"
-                        style="background-color: var(--background-card); border-radius: 8px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);">
-                        <h4 style="color: var(--text-color);">Independent Developer</h4>
-                        <h5 style="color: var(--primary-color);">Freelance & Personal Work</h5>
-                        <p class="resume-date" style="color: var(--text-muted);">Jan, 2020 - Present</p>
-                        <ul style="color: var(--text-color); padding-left: 20px;">
-                            <li><strong>MunchMosaic – AI-Powered Recipe Discovery Platform:</strong> Designed and deployed a cloud-native full-stack app integrating image recognition and NLP models (LLaVA + Qwen). Deployed production workloads on GCP Compute via K3S; managed environments through Kubernetes manifests. Automated build and release workflows with GitHub Actions and Docker pipelines.</li>
-                            <li><strong>Hitspot – Social Media Platform for Travelers:</strong> Developed a location-based Flutter app with Supabase and Firebase backends. Architected a modular data flow with edge functions for near-real-time geolocation updates.</li>
-                        </ul>
+            <div class="stack-grid">
+                <div class="stack-category">
+                    <div class="stack-cat-label">Systems &amp; Backend</div>
+                    <div class="stack-tags">
+                        <span class="tag hl">Python</span>
+                        <span class="tag hl">C/C++</span>
+                        <span class="tag">Java</span>
+                        <span class="tag">Dart</span>
                     </div>
-				</div>
-			</div>
+                </div>
+                <div class="stack-category">
+                    <div class="stack-cat-label">Data &amp; AI</div>
+                    <div class="stack-tags">
+                        <span class="tag hl">Qdrant</span>
+                        <span class="tag hl">LlamaIndex</span>
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">SQLite</span>
+                        <span class="tag">LLaVA</span>
+                        <span class="tag">Qwen</span>
+                    </div>
+                </div>
+                <div class="stack-category">
+                    <div class="stack-cat-label">Infrastructure</div>
+                    <div class="stack-tags">
+                        <span class="tag hl">Kubernetes (CKA)</span>
+                        <span class="tag hl">Docker Compose</span>
+                        <span class="tag">GCP</span>
+                        <span class="tag">Terraform</span>
+                        <span class="tag">GitHub Actions</span>
+                    </div>
+                </div>
+                <div class="stack-category">
+                    <div class="stack-cat-label">Networking</div>
+                    <div class="stack-tags">
+                        <span class="tag hl">HTTP/1.1 RFCs</span>
+                        <span class="tag hl">POSIX Sockets</span>
+                        <span class="tag">Non-blocking I/O</span>
+                        <span class="tag">TCP/IP</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-			<!-- Education -->
-                    <div class="row mb-5">
-				<div class="col-lg-3">
-					<h3 class="resume-section-title"
-						style="color: var(--primary-color); border-bottom: 2px solid var(--primary-color); display: inline-block; padding-bottom: 5px;">
-						Education</h3>
-				</div>
-				<div class="col-lg-9">
-                            <!-- Wrocław University of Science and Technology -->
-                            <div class="resume-item mb-4 p-4" data-aos="fade-up"
-                                style="background-color: var(--background-card); border-radius: 8px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);">
-                                <h4 style="color: var(--text-color);">Wrocław University of Science and Technology</h4>
-                                <h5 style="color: var(--primary-color);">Bachelor of Science, Automatic Control and Robotics</h5>
-                                <p class="resume-date" style="color: var(--text-muted);">Oct, 2025 - Feb, 2029</p>
+        <!-- PROJECTS -->
+        <section id="projects">
+            <div class="section-header">
+                <span class="section-num">02</span>
+                <h2 class="section-title">Featured Engineering Work</h2>
+            </div>
+
+            <div class="projects-grid">
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-num">001</span>
+                        <a href="https://github.com/Kuba2901/rag-document-builder" target="_blank"
+                            class="project-link">Source
+                            ↗</a>
+                    </div>
+                    <h3 class="project-title">Distributed RAG Document<br>Synthesis Platform</h3>
+                    <div class="project-stack">
+                        <span class="tag">Python</span>
+                        <span class="tag">Qdrant</span>
+                        <span class="tag">LlamaIndex</span>
+                        <span class="tag">MinIO</span>
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">Docker Compose</span>
+                    </div>
+                    <p class="project-problem">
+                        Automating synthesis of user-uploaded documents requires an asynchronous ingestion pipeline
+                        capable of semantic search without blocking the main application thread.
+                    </p>
+
+                    <div class="mermaid-container">
+                        <div class="mermaid">
+                            graph TD
+                            classDef database fill:#111316,stroke:#c8f090,stroke-width:1px,color:#e8e4dc;
+                            classDef process fill:#181b1f,stroke:#7a7870,stroke-width:1px,color:#e8e4dc;
+                            classDef client fill:#0b0d0f,stroke:#90d8f0,stroke-width:1px,color:#e8e4dc;
+                            classDef observability fill:#111316,stroke:#f0b890,stroke-width:1px,color:#e8e4dc;
+
+                            Client([Client / React Frontend]):::client -->|Upload Document| API[FastAPI Backend /
+                            Gateway]:::process
+
+                            API -->|1. Store Raw File| MinIO[(MinIO Object Storage)]:::database
+                            API -->|2. Async Processing| Orchestrator[LlamaIndex Orchestrator]:::process
+
+                            subgraph Data Ingestion Pipeline
+                            Orchestrator -->|Parse & Chunk| EmbedModel[Embedding Model]:::process
+                            EmbedModel -->|3a. Store Vectors| Qdrant[(Qdrant Vector DB)]:::database
+                            Orchestrator -->|3b. Store Metadata| SQLite[(SQLite / Metadata)]:::database
+                            end
+
+                            Client -->|4. Semantic Query| Retrieval[RAG Retrieval Engine]:::process
+                            Retrieval -->|K-NN Search| Qdrant
+                            Retrieval -->|Context Match| Synthesizer[LLM Inference Engine]:::process
+                            Synthesizer -->|5. Generated Document| Client
+
+                            subgraph Observability Stack
+                            Promtail[Promtail / Log Collector]:::observability
+                            Loki[(Loki Log Aggregation)]:::database
+                            Grafana([Grafana Dashboards]):::observability
+                            end
+
+                            %% Telemetry Flow (Dashed Lines)
+                            API -.->|App Logs| Promtail
+                            Orchestrator -.->|Pipeline Logs| Promtail
+                            Synthesizer -.->|Inference Logs| Promtail
+                            Promtail -.->|Push Logs| Loki
+                            Grafana -.->|Query Logs & Metrics| Loki
+                        </div>
+                    </div>
+
+                    <ul class="arch-points">
+                        <li>Engineered a containerized Retrieval-Augmented Generation (RAG) backend utilizing LlamaIndex
+                            for document chunking and metadata extraction.</li>
+                        <li>Integrated Qdrant as a dedicated Rust-based vector database for high-dimensional,
+                            low-latency similarity search.</li>
+                        <li>Designed a decoupled storage layer utilizing MinIO for raw object storage, establishing a
+                            clear migration path from SQLite to PostgreSQL for distributed, concurrent write scaling.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-num">002</span>
+                        <a href="https://github.com/Kuba2901/webserv" target="_blank" class="project-link">Source ↗</a>
+                    </div>
+                    <h3 class="project-title">High-Performance HTTP/1.1<br>Server <em
+                            style="font-family:var(--mono);font-size:1rem;color:var(--muted);font-style:normal;">(webserv)</em>
+                    </h3>
+                    <div class="project-stack">
+                        <span class="tag">C++</span>
+                        <span class="tag">POSIX Sockets</span>
+                        <span class="tag">raw TCP/IP</span>
+                    </div>
+                    <p class="project-problem">
+                        Standard networking libraries abstract away connection management. This project required
+                        building a fully RFC-compliant HTTP server from scratch to handle thousands of concurrent
+                        connections under strict memory constraints.
+                    </p>
+
+                    <div class="mermaid-container">
+                        <div class="mermaid">
+                            stateDiagram-v2
+
+                            classDef core fill:#181b1f,stroke:#c8f090,color:#e8e4dc
+                            classDef io fill:#111316,stroke:#90d8f0,color:#e8e4dc
+
+                            [*] --> Initialization
+                            Initialization --> EventLoop : Bind & Listen Sockets
+
+                            state EventLoop {
+
+                            [*] --> Wait
+
+                            Wait --> ReadReady : fd is readable
+                            Wait --> WriteReady : fd is writable
+
+                            state ReadReady {
+                            [*] --> Accept
+                            Accept --> AddToSet
+                            AddToSet --> Recv
+                            Recv --> Parse
+                            }
+
+                            state WriteReady {
+                            [*] --> Process
+                            Process --> CGI : Dynamic Content
+                            Process --> Send : Static Content
+                            CGI --> Send : Pipe stdout
+                            }
+
+                            Parse --> Process
+                            Send --> Wait : Keep-Alive
+                            Send --> CloseConnection : Connection close
+                            }
+                        </div>
+                    </div>
+
+                    <ul class="arch-points">
+                        <li>Bypassed standard web frameworks to implement a custom event loop and HTTP request parser in
+                            C++.</li>
+                        <li>Engineered a single-threaded, non-blocking I/O architecture using <code
+                                style="color:var(--accent);font-size:12px;">select()</code> multiplexing, efficiently
+                            managing up to 1024 concurrent file descriptors.</li>
+                        <li>Implemented robust state-machine logic to handle partial socket reads/writes (EAGAIN), CGI
+                            execution via <code style="color:var(--accent);font-size:12px;">fork()</code>, and memory
+                            safety under high-load stress testing.</li>
+                    </ul>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-num">003</span>
+                        <a href="https://github.com/Kuba2901/42_philosophers" target="_blank"
+                            class="project-link">Source ↗</a>
+                    </div>
+                    <h3 class="project-title">OS-Level Concurrency:<br>The Dining Philosophers</h3>
+                    <div class="project-stack">
+                        <span class="tag">C</span>
+                        <span class="tag">POSIX Threads</span>
+                        <span class="tag">Mutexes</span>
+                    </div>
+                    <p class="project-problem">
+                        Simulating distributed resource contention without triggering deadlocks, livelocks, or thread
+                        starvation.
+                    </p>
+                    <ul class="arch-points">
+                        <li>Solved the classic Dining Philosophers problem by strictly managing OS-level concurrency in
+                            C.</li>
+                        <li>Implemented fine-grained mutex locking on shared resources (forks and stdout) to prevent
+                            data races.</li>
+                        <li>Optimized context-switching and CPU utilization, ensuring mathematically sound resource
+                            allocation under high contention.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section id="experience">
+            <div class="section-header">
+                <span class="section-num">03</span>
+                <h2 class="section-title">Experience</h2>
+            </div>
+
+            <div class="exp-card">
+                <div class="exp-meta">
+                    <div class="exp-role">Backend Engineer</div>
+                    <div class="exp-company">KO2 s.r.l.</div>
+                    <div class="exp-date">Nov 2024 – Nov 2025</div>
+                </div>
+                <ul class="exp-bullets">
+                    <li>Architected and implemented core backend microservices for a veterinary diagnostics platform.
+                    </li>
+                    <li>Migrated legacy infrastructure to Kubernetes and Terraform (IaC), increasing system fault
+                        tolerance and cutting infrastructure provisioning time.</li>
+                    <li>Engineered automated deployment pipelines using GitHub Actions and Docker, ensuring
+                        zero-downtime deployments across environments.</li>
+                </ul>
+            </div>
+
+            <div class="exp-card">
+                <div class="exp-meta">
+                    <div class="exp-role">Independent Developer</div>
+                    <div class="exp-company">Freelance</div>
+                </div>
+                <div class="exp-projects">
+
+                    <div class="exp-subproject">
+                        <div class="exp-subproject-header">
+                            <span class="exp-subproject-name">Coeur Clothing</span>
+                            <div class="project-stack" style="margin-bottom:0;">
+                                <span class="tag">Flutter</span>
                             </div>
+                        </div>
+                        <p class="exp-subproject-desc">E-commerce mobile application for a small local Polish premium
+                            clothing brand — handling product listings, cart, and checkout flows.</p>
+                    </div>
 
-                            <!-- 42 Roma Luiss -->
-                            <div class="resume-item mb-4 p-4" data-aos="fade-up"
-                                style="background-color: var(--background-card); border-radius: 8px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);">
-                                <h4 style="color: var(--text-color);">42 Roma Luiss</h4>
-                                <h5 style="color: var(--primary-color);">RNCP Level 7, Computer Science (Expert en Architecture Informatique)</h5>
-                                <p class="resume-date" style="color: var(--text-muted);">Sep, 2023 - Oct, 2026</p>
+                    <div class="exp-subproject">
+                        <div class="exp-subproject-header">
+                            <span class="exp-subproject-name">Hitspot</span>
+                            <div class="project-stack" style="margin-bottom:0;">
+                                <span class="tag">Flutter</span>
+                                <span class="tag">Supabase</span>
+                                <span class="tag">Google Maps</span>
+                                <span class="tag">Cloud Functions</span>
+                                <span class="tag">Push Notifications</span>
                             </div>
+                        </div>
+                        <p class="exp-subproject-desc">Mobile application for travellers — integrating Google Maps for
+                            location discovery, Supabase for real-time backend, cloud functions for server-side logic,
+                            and push notifications for user engagement.</p>
+                    </div>
 
-                            <!-- Gdańsk University of Technology -->
-                            <div class="resume-item mb-4 p-4" data-aos="fade-up"
-                                style="background-color: var(--background-card); border-radius: 8px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);">
-                                <h4 style="color: var(--text-color);">Gdańsk University of Technology</h4>
-                                <h5 style="color: var(--primary-color);">Bachelor of Science, Computer Science</h5>
-                                <p class="resume-date" style="color: var(--text-muted);">Oct, 2022 - Sep, 2023</p>
-                            </div>
-				</div>
-			</div>
+                </div>
+            </div>
+        </section>
 
-			<!-- Certifications -->
-                    <div class="row mb-5">
-				<div class="col-lg-3">
-					<h3 class="resume-section-title"
-						style="color: var(--primary-color); border-bottom: 2px solid var(--primary-color); display: inline-block; padding-bottom: 5px;">
-						Certifications</h3>
-				</div>
-				<div class="col-lg-9">
-					<div class="resume-item mb-4 p-4" data-aos="fade-up"
-						style="background-color: var(--background-card); border-radius: 8px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);">
-						<h4 style="color: var(--text-color);">Certified Kubernetes Administrator (CKA)</h4>
-						<h5 style="color: var(--primary-color);">The Linux Foundation</h5>
-						<p class="resume-date" style="color: var(--text-muted);">Feb, 2025</p>
-						<p style="color: var(--text-color);">Demonstrated expertise in managing Kubernetes clusters,
-							including deployment, networking, security, troubleshooting, and automation. Proven ability
-							to design, configure, and maintain cloud-native applications at scale.</p>
-					</div>
-                            <div class="resume-item mb-4 p-4" data-aos="fade-up"
-                                style="background-color: var(--background-card); border-radius: 8px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);">
-                                <h4 style="color: var(--text-color);">AWS Certified Solutions Architect - Associate (In Progress)</h4>
-                                <h5 style="color: var(--primary-color);">Amazon Web Services</h5>
-                                <p class="resume-date" style="color: var(--text-muted);">In Progress</p>
-                            </div>
-				</div>
-			</div>
+    </main>
 
-			<!-- Download Resume Button -->
-			<div class="text-center mt-5" data-aos="fade-up">
-				<a href="https://docs.google.com/document/d/1Web7D-eZR__6j6nbOQIDcFJhhKr7KzrD/edit?usp=share_link&ouid=108562562873486291557&rtpof=true&sd=true" class="btn btn-primary btn-lg">
-					<span>Download Full Resume</span>
-					<i class="fas fa-download ms-2"></i>
-				</a>
-			</div>
-		</div>
-	</section>
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-name">Jakub Nenczak</div>
+        <div class="footer-links">
+            <a href="https://github.com/kuba2901" target="_blank">GitHub</a>
+            <a href="http://linkedin.com/in/jakub-nenczak-946742243" target="_blank">LinkedIn</a>
+            <a href="mailto:kubanenczakdev@gmail.com">Email</a>
+        </div>
+        <div class="footer-copy">// kubanenczakdev@gmail.com</div>
+    </footer>
 
-	<!-- Projects Section -->
-	<section id="projects" class="py-5"">
-		<div class=" container">
-		<div class="row mb-4">
-			<div class="col-lg-8 mx-auto text-center">
-				<h2 class="text-center mb-5 w-" style="color: var(--primary-color);">My Projects</h2>
-				<p style="color: var(--text-color);">A showcase of my recent work across mobile, AI, and software
-					development</p>
+    <script>
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', e => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
 
-				<!-- Filter Buttons -->
-				<div class="d-flex justify-content-center flex-wrap mt-3 mb-4">
-					<span class="badge rounded-pill m-1 filter-btn active"
-						style="background-color: var(--primary-color); color: var(--background-dark); font-weight: normal; padding: 8px 15px; cursor: pointer;"
-						data-filter="all">All Projects</span>
-					<span class="badge rounded-pill m-1 filter-btn"
-						style="background-color: rgba(66, 184, 131, 0.15); color: var(--primary-color); border: 1px solid var(--primary-color); font-weight: normal; padding: 8px 15px; cursor: pointer;"
-						data-filter="mobile">Mobile Apps</span>
-					<span class="badge rounded-pill m-1 filter-btn"
-						style="background-color: rgba(66, 184, 131, 0.15); color: var(--primary-color); border: 1px solid var(--primary-color); font-weight: normal; padding: 8px 15px; cursor: pointer;"
-						data-filter="ai">AI Solutions</span>
-					<span class="badge rounded-pill m-1 filter-btn"
-						style="background-color: rgba(66, 184, 131, 0.15); color: var(--primary-color); border: 1px solid var(--primary-color); font-weight: normal; padding: 8px 15px; cursor: pointer;"
-						data-filter="other">Other</span>
-				</div>
-			</div>
-		</div>
+        // Subtle scroll fade for project cards
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.style.opacity = '1';
+                    e.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
 
-		<div class="row g-4 projects-container">
-			<!-- Project 1: Hitspot -->
-			<div class="col-md-6 col-lg-4 project-item" data-category="mobile">
-				<div class="card h-100 border-0 shadow-sm"
-					style="background-color: var(--background-card); border-radius: 8px;" data-aos="fade-up"
-					data-aos-delay="100">
-					<div class="project-img-container">
-						<img src="./assets/hitspot_blue.png" class="card-img-top" alt="Hitspot Mobile App">
-						<div class="project-overlay">
-							<div class="project-tech">
-								<span class="badge rounded-pill"
-									style="background-color: rgba(66, 184, 131, 0.15); color: var(--primary-color); border: 1px solid var(--primary-color); font-weight: normal; padding: 4px 10px;">Flutter</span>
-								<span class="badge rounded-pill"
-									style="background-color: rgba(66, 184, 131, 0.15); color: var(--primary-color); border: 1px solid var(--primary-color); font-weight: normal; padding: 4px 10px;">Supabase</span>
-								<span class="badge rounded-pill"
-									style="background-color: rgba(66, 184, 131, 0.15); color: var(--primary-color); border: 1px solid var(--primary-color); font-weight: normal; padding: 4px 10px;">Firebase</span>
-								<span class="badge rounded-pill"
-									style="background-color: rgba(66, 184, 131, 0.15); color: var(--primary-color); border: 1px solid var(--primary-color); font-weight: normal; padding: 4px 10px;">Geolocation</span>
-							</div>
-						</div>
-					</div>
-					<div class="card-body">
-						<h5 class="card-title" style="color: var(--text-color);">Hitspot</h5>
-						<p class="card-text" style="color: var(--text-muted);">Modern mobile application that
-							connects travelers with locals for authentic experiences and hidden gems.</p>
-					</div>
-					<div class="card-footer bg-transparent border-0 pt-0">
-						<div class="d-flex justify-content-between align-items-center">
-							<button type="button" class="btn btn-secondary" disabled aria-disabled="true">Website inactive</button>
-							<!-- <div class="project-links">
-								<a href="#" class="social-links"><i class="fab fa-github"></i></a>
-							</div> -->
-						</div>
-					</div>
-				</div>
-			</div>
+        document.querySelectorAll('.project-card, .exp-card, .stack-category').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(16px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(el);
+        });
+    </script>
 
-			<!-- Project 2: MunchMosaic -->
-			<div class="col-md-6 col-lg-4 project-item" data-category="ai">
-				<div class="card h-100 border-0 shadow-sm"
-					style="background-color: var(--background-card); border-radius: 8px;" data-aos="fade-up"
-					data-aos-delay="200">
-					<div class="project-img-container">
-						<img src="./assets/munchmosaic.png" class="card-img-top" alt="MunchMosaic AI Recipe Generator">
-						<div class="project-overlay">
-							<div class="project-tech">
-								<span class="badge rounded-pill"
-									style="background-color: rgba(66, 184, 131, 0.15); color: var(--primary-color); border: 1px solid var(--primary-color); font-weight: normal; padding: 4px 10px;">Python</span>
-								<span class="badge rounded-pill"
-									style="background-color: rgba(66, 184, 131, 0.15); color: var(--primary-color); border: 1px solid var(--primary-color); font-weight: normal; padding: 4px 10px;">AI/ML</span>
-								<span class="badge rounded-pill"
-									style="background-color: rgba(66, 184, 131, 0.15); color: var(--primary-color); border: 1px solid var(--primary-color); font-weight: normal; padding: 4px 10px;">Docker</span>
-							</div>
-						</div>
-					</div>
-					<div class="card-body">
-						<h5 class="card-title" style="color: var(--text-color);">MunchMosaic</h5>
-						<p class="card-text" style="color: var(--text-muted);">AI-powered application that generates
-							creative food recipes based on the ingredients you have available.</p>
-					</div>
-					<div class="card-footer bg-transparent border-0 pt-0">
-						<div class="d-flex justify-content-between align-items-center">
-							<button type="button" class="btn btn-secondary" disabled aria-disabled="true">Website inactive</button>
-							<!-- <div class="project-links">
-								<a href="#" class="social-links"><i class="fab fa-github"></i></a>
-							</div> -->
-						</div>
-					</div>
-				</div>
-			</div>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'dark',
+            fontFamily: 'DM Mono'
+        });
+    </script>
 
-			<!-- Project 3: Minishell -->
-			<div class="col-md-6 col-lg-4 project-item" data-category="other">
-				<div class="card h-100 border-0 shadow-sm"
-					style="background-color: var(--background-card); border-radius: 8px;" data-aos="fade-up"
-					data-aos-delay="300">
-					<div class="project-img-container">
-						<img src="./assets/minishell.png" class="card-img-top" alt="Minishell C Project">
-						<div class="project-overlay">
-							<div class="project-tech">
-								<span class="badge rounded-pill"
-									style="background-color: rgba(66, 184, 131, 0.15); color: var(--primary-color); border: 1px solid var(--primary-color); font-weight: normal; padding: 4px 10px;">C</span>
-								<span class="badge rounded-pill"
-									style="background-color: rgba(66, 184, 131, 0.15); color: var(--primary-color); border: 1px solid var(--primary-color); font-weight: normal; padding: 4px 10px;">Unix</span>
-								<span class="badge rounded-pill"
-									style="background-color: rgba(66, 184, 131, 0.15); color: var(--primary-color); border: 1px solid var(--primary-color); font-weight: normal; padding: 4px 10px;">42
-									School</span>
-							</div>
-						</div>
-					</div>
-					<div class="card-body">
-						<h5 class="card-title" style="color: var(--text-color);">Minishell</h5>
-						<p class="card-text" style="color: var(--text-muted);">A custom shell implementation written
-							in C that replicates core functionality of bash, featuring command execution and piping.
-						</p>
-					</div>
-					<div class="card-footer bg-transparent border-0 pt-0">
-						<div class="d-flex justify-content-between align-items-center">
-							<a href="https://github.com/kuba2901/42_minishell.git" class="btn btn-primary"
-								target="_blank">View Project</a>
-							<div class="project-links">
-								<a href="https://github.com/kuba2901/42_minishell.git" class="social-links"><i
-										class="fab fa-github"></i></a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<!-- Project 4: Coeur Clothing -->
-			<div class="col-md-6 col-lg-4 project-item" data-category="mobile">
-				<div class="card h-100 border-0 shadow-sm"
-					style="background-color: var(--background-card); border-radius: 8px;" data-aos="fade-up"
-					data-aos-delay="400">
-					<div class="project-img-container">
-						<img src="./assets/coeur_logo.png" class="card-img-top" alt="Coeur Clothing E-Commerce">
-						<div class="project-overlay">
-							<div class="project-tech">
-								<span class="badge rounded-pill"
-									style="background-color: rgba(66, 184, 131, 0.15); color: var(--primary-color); border: 1px solid var(--primary-color); font-weight: normal; padding: 4px 10px;">E-Commerce</span>
-								<span class="badge rounded-pill"
-									style="background-color: rgba(66, 184, 131, 0.15); color: var(--primary-color); border: 1px solid var(--primary-color); font-weight: normal; padding: 4px 10px;">Flutter</span>
-								<span class="badge rounded-pill"
-									style="background-color: rgba(66, 184, 131, 0.15); color: var(--primary-color); border: 1px solid var(--primary-color); font-weight: normal; padding: 4px 10px;">Stripe</span>
-								<span class="badge rounded-pill"
-									style="background-color: rgba(66, 184, 131, 0.15); color: var(--primary-color); border: 1px solid var(--primary-color); font-weight: normal; padding: 4px 10px;">Firebase</span>
-							</div>
-						</div>
-					</div>
-					<div class="card-body">
-						<h5 class="card-title" style="color: var(--text-color);">Coeur Clothing</h5>
-						<p class="card-text" style="color: var(--text-muted);">Custom e-commerce platform developed
-							for a small designer clothing brand, featuring product catalog and secure checkout.</p>
-					</div>
-					<div class="card-footer bg-transparent border-0 pt-0">
-						<div class="d-flex justify-content-between align-items-center">
-							<button type="button" class="btn btn-secondary" disabled aria-disabled="true">Company sold</button>
-							<!-- <div class="project-links">
-								<a href="#" class="social-links"><i class="fab fa-github"></i></a>
-							</div> -->
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<!-- Project 5: Autobot -->
-			<div class="col-md-6 col-lg-4 project-item" data-category="other">
-				<div class="card h-100 border-0 shadow-sm"
-					style="background-color: var(--background-card); border-radius: 8px;" data-aos="fade-up"
-					data-aos-delay="500">
-					<div class="project-img-container">
-						<img src="./assets/robot.png" class="card-img-top" alt="Autobot ROS2 Robot">
-						<div class="project-overlay">
-							<div class="project-tech">
-								<span class="badge rounded-pill"
-									style="background-color: rgba(66, 184, 131, 0.15); color: var(--primary-color); border: 1px solid var(--primary-color); font-weight: normal; padding: 4px 10px;">ROS2</span>
-								<span class="badge rounded-pill"
-									style="background-color: rgba(66, 184, 131, 0.15); color: var(--primary-color); border: 1px solid var(--primary-color); font-weight: normal; padding: 4px 10px;">Raspberry
-									Pi</span>
-								<span class="badge rounded-pill"
-									style="background-color: rgba(66, 184, 131, 0.15); color: var(--primary-color); border: 1px solid var(--primary-color); font-weight: normal; padding: 4px 10px;">Robotics</span>
-							</div>
-						</div>
-					</div>
-					<div class="card-body">
-						<h5 class="card-title" style="color: var(--text-color);">Autobot</h5>
-						<p class="card-text" style="color: var(--text-muted);">Car-like robot built with ROS2 and
-							powered by Raspberry Pi 4, featuring RC controls.</p>
-					</div>
-					<div class="card-footer bg-transparent border-0 pt-0">
-						<div class="d-flex justify-content-between align-items-center">
-							<a href="https://github.com/Kuba2901/autobot" class="btn btn-primary" target="_blank">View
-								Project</a>
-							<div class="project-links">
-								<a href="https://github.com/Kuba2901/autobot" class="social-links"><i
-										class="fab fa-github"></i></a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<!-- Project 6: Cub3D -->
-			<div class="col-md-6 col-lg-4 project-item" data-category="other">
-				<div class="card h-100 border-0 shadow-sm"
-					style="background-color: var(--background-card); border-radius: 8px;" data-aos="fade-up"
-					data-aos-delay="600">
-					<div class="project-img-container">
-						<img src="./assets/cub3d.png" class="card-img-top" alt="Cub3D Raycaster">
-						<div class="project-overlay">
-							<div class="project-tech">
-								<span class="badge rounded-pill"
-									style="background-color: rgba(66, 184, 131, 0.15); color: var(--primary-color); border: 1px solid var(--primary-color); font-weight: normal; padding: 4px 10px;">C</span>
-								<span class="badge rounded-pill"
-									style="background-color: rgba(66, 184, 131, 0.15); color: var(--primary-color); border: 1px solid var(--primary-color); font-weight: normal; padding: 4px 10px;">Graphics</span>
-								<span class="badge rounded-pill"
-									style="background-color: rgba(66, 184, 131, 0.15); color: var(--primary-color); border: 1px solid var(--primary-color); font-weight: normal; padding: 4px 10px;">Raycasting</span>
-								<span class="badge rounded-pill"
-									style="background-color: rgba(66, 184, 131, 0.15); color: var(--primary-color); border: 1px solid var(--primary-color); font-weight: normal; padding: 4px 10px;">42 School</span>
-							</div>
-						</div>
-					</div>
-					<div class="card-body">
-						<h5 class="card-title" style="color: var(--text-color);">Cub3D</h5>
-						<p class="card-text" style="color: var(--text-muted);">A small raycasting engine written in C (42
-							School project) implementing basic 3D rendering, textures and player movement.</p>
-					</div>
-					<div class="card-footer bg-transparent border-0 pt-0">
-						<div class="d-flex justify-content-between align-items-center">
-							<a href="https://github.com/Kuba2901/42_Cub3D" class="btn btn-primary" target="_blank">View
-								Project</a>
-							<div class="project-links">
-								<a href="https://github.com/Kuba2901/42_Cub3D" class="social-links"><i
-										class="fab fa-github"></i></a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		</div>
-
-		<!-- Script for filter functionality -->
-		<script>
-			document.addEventListener('DOMContentLoaded', function () {
-				const filterBtns = document.querySelectorAll('.filter-btn');
-				const projectItems = document.querySelectorAll('.project-item');
-
-				filterBtns.forEach(btn => {
-					btn.addEventListener('click', () => {
-						// Remove active class from all buttons
-						filterBtns.forEach(btn => {
-							btn.classList.remove('active');
-							btn.style.backgroundColor = 'rgba(66, 184, 131, 0.15)';
-							btn.style.color = 'var(--primary-color)';
-						});
-
-						// Add active class to clicked button
-						btn.classList.add('active');
-						btn.style.backgroundColor = 'var(--primary-color)';
-						btn.style.color = 'var(--background-dark)';
-
-						// Get filter value
-						const filterValue = btn.getAttribute('data-filter');
-
-						// Filter projects
-						projectItems.forEach(item => {
-							if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-								item.style.display = 'block';
-							} else {
-								item.style.display = 'none';
-							}
-						});
-					});
-				});
-			});
-		</script>
-	</section>
-
-	<!-- Skills Section -->
-	<section id="skills" class="py-5">
-		<div class="container">
-			<h2 class="text-center mb-5" style="color: var(--primary-color);">Skills & Languages</h2>
-
-			<div class="row">
-				<!-- Technical Skills -->
-				<div class="col-lg-7 mb-4">
-					<h4
-						style="color: var(--text-color); margin-bottom: 25px; border-bottom: 2px solid var(--primary-color); display: inline-block; padding-bottom: 8px;">
-						<i class="fas fa-laptop-code me-2" style="color: var(--primary-color);"></i>Technical Skills
-					</h4>
-
-					<!-- Skill Categories -->
-					<div class="row">
-						<!-- Core -->
-						<div class="col-md-6 mb-4">
-							<h5 style="color: var(--primary-color); font-size: 1rem; margin-bottom: 15px;">Core
-								Technologies</h5>
-							<div class="skill-group">
-
-								<!-- Kubernetes -->
-								<div class="skill-item d-flex align-items-center mb-3">
-									<div class="skill-icon me-3"
-										style="width: 40px; height: 40px; background-color: rgba(66, 184, 131, 0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
-										<i class="fas fa-cubes" style="color: var(--primary-color);"></i>
-									</div>
-									<div class="skill-info">
-										<div style="color: var(--text-color);">Kubernetes</div>
-										<div class="progress"
-											style="height: 6px; background-color: var(--background-dark);">
-											<div class="progress-bar" role="progressbar"
-												style="width: 90%; background-color: var(--primary-color);"
-												aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-										</div>
-									</div>
-								</div>
-
-								<!-- Flutter -->
-								<div class="skill-item d-flex align-items-center mb-3">
-									<div class="skill-icon me-3"
-										style="width: 40px; height: 40px; background-color: rgba(66, 184, 131, 0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
-										<i class="fa-brands fa-flutter" style="color: var(--primary-color);"></i>
-									</div>
-									<div class="skill-info">
-										<div style="color: var(--text-color);">Flutter</div>
-										<div class="progress"
-											style="height: 6px; background-color: var(--background-dark);">
-											<div class="progress-bar" role="progressbar"
-												style="width: 90%; background-color: var(--primary-color);"
-												aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-										</div>
-									</div>
-								</div>
-
-								<div class="skill-item d-flex align-items-center mb-3">
-									<div class="skill-icon me-3"
-										style="width: 40px; height: 40px; background-color: rgba(66, 184, 131, 0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
-										<i class="fab fa-docker" style="color: var(--primary-color);"></i>
-									</div>
-									<div class="skill-info">
-										<div style="color: var(--text-color);">Docker</div>
-										<div class="progress"
-											style="height: 6px; background-color: var(--background-dark);">
-											<div class="progress-bar" role="progressbar"
-												style="width: 95%; background-color: var(--primary-color);"
-												aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Programming -->
-						<div class="col-md-6 mb-4">
-							<h5 style="color: var(--primary-color); font-size: 1rem; margin-bottom: 15px;">Programming
-								Languages</h5>
-							<div class="skill-group">
-								<div class="skill-item d-flex align-items-center mb-3">
-									<div class="skill-icon me-3"
-										style="width: 40px; height: 40px; background-color: rgba(66, 184, 131, 0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
-										<i class="fab fa-python" style="color: var(--primary-color);"></i>
-									</div>
-									<div class="skill-info">
-										<div style="color: var(--text-color);">Python</div>
-										<div class="progress"
-											style="height: 6px; background-color: var(--background-dark);">
-											<div class="progress-bar" role="progressbar"
-												style="width: 92%; background-color: var(--primary-color);"
-												aria-valuenow="92" aria-valuemin="0" aria-valuemax="100"></div>
-										</div>
-									</div>
-								</div>
-
-								<div class="skill-item d-flex align-items-center mb-3">
-									<div class="skill-icon me-3"
-										style="width: 40px; height: 40px; background-color: rgba(66, 184, 131, 0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
-										<i class="fab fa-java" style="color: var(--primary-color);"></i>
-									</div>
-									<div class="skill-info">
-										<div style="color: var(--text-color);">Java</div>
-										<div class="progress"
-											style="height: 6px; background-color: var(--background-dark);">
-											<div class="progress-bar" role="progressbar"
-												style="width: 92%; background-color: var(--primary-color);"
-												aria-valuenow="92" aria-valuemin="0" aria-valuemax="100"></div>
-										</div>
-									</div>
-								</div>
-
-								<div class="skill-item d-flex align-items-center mb-3">
-									<div class="skill-icon me-3"
-										style="width: 40px; height: 40px; background-color: rgba(66, 184, 131, 0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
-										<div style="color: var(--primary-color); font-weight: bold;">C</div>
-									</div>
-									<div class="skill-info">
-										<div style="color: var(--text-color);">C</div>
-										<div class="progress"
-											style="height: 6px; background-color: var(--background-dark);">
-											<div class="progress-bar" role="progressbar"
-												style="width: 92%; background-color: var(--primary-color);"
-												aria-valuenow="92" aria-valuemin="0" aria-valuemax="100"></div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Other Skills -->
-						<div class="col-12">
-							<h5 style="color: var(--primary-color); font-size: 1rem; margin-bottom: 15px;">Other Skills
-							</h5>
-							<div class="d-flex flex-wrap">
-								<span class="badge rounded-pill m-1"
-									style="background-color: rgba(66, 184, 131, 0.15); color: var(--primary-color); border: 1px solid var(--primary-color); font-weight: normal; padding: 8px 15px;">Flutter
-									& Dart</span>
-								<span class="badge rounded-pill m-1"
-									style="background-color: rgba(66, 184, 131, 0.15); color: var(--primary-color); border: 1px solid var(--primary-color); font-weight: normal; padding: 8px 15px;">Git</span>
-								<span class="badge rounded-pill m-1"
-									style="background-color: rgba(66, 184, 131, 0.15); color: var(--primary-color); border: 1px solid var(--primary-color); font-weight: normal; padding: 8px 15px;">JavaScript</span>
-								<span class="badge rounded-pill m-1"
-									style="background-color: rgba(66, 184, 131, 0.15); color: var(--primary-color); border: 1px solid var(--primary-color); font-weight: normal; padding: 8px 15px;">C++</span>
-								<span class="badge rounded-pill m-1"
-									style="background-color: rgba(66, 184, 131, 0.15); color: var(--primary-color); border: 1px solid var(--primary-color); font-weight: normal; padding: 8px 15px;">Spring
-									Boot</span>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Languages -->
-				<div class="col-lg-5 mb-4">
-                    <h4
-						style="color: var(--text-color); margin-bottom: 25px; border-bottom: 2px solid var(--primary-color); display: inline-block; padding-bottom: 8px;">
-						<i class="fas fa-globe me-2" style="color: var(--primary-color);"></i>Languages
-					</h4>
-
-					<div class="languages-container">
-						<!-- Polish -->
-						<div class="language-item mb-4">
-							<div class="d-flex justify-content-between align-items-center mb-2">
-								<div style="color: var(--text-color); font-weight: 500;">Polish</div>
-								<div style="color: var(--text-muted); font-size: 0.9rem;">Native</div>
-							</div>
-							<div class="language-bar"
-								style="height: 30px; background-color: var(--background-dark); border-radius: 15px; position: relative; overflow: hidden;">
-								<div
-									style="position: absolute; height: 100%; width: 100%; background-color: var(--primary-color); opacity: 0.2; border-radius: 15px;">
-								</div>
-								<div
-									style="position: absolute; height: 100%; width: 100%; background-color: var(--primary-color); border-radius: 15px;">
-								</div>
-								<div
-									style="position: absolute; top: 50%; transform: translateY(-50%); left: 15px; color: var(--background-dark); font-weight: 500;">
-									<i class="fas fa-check-circle me-1"></i>Native
-								</div>
-							</div>
-						</div>
-
-						<!-- English -->
-						<div class="language-item mb-4">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <div style="color: var(--text-color); font-weight: 500;">English</div>
-                                <div style="color: var(--text-muted); font-size: 0.9rem;">Fluent</div>
-                            </div>
-							<div class="language-bar"
-								style="height: 30px; background-color: var(--background-dark); border-radius: 15px; position: relative; overflow: hidden;">
-								<div
-									style="position: absolute; height: 100%; width: 100%; background-color: var(--primary-color); opacity: 0.2; border-radius: 15px;">
-								</div>
-                                <div
-                                    style="position: absolute; height: 100%; width: 100%; background-color: var(--primary-color); border-radius: 15px;">
-                                </div>
-                                <div
-                                    style="position: absolute; top: 50%; transform: translateY(-50%); left: 15px; color: var(--background-dark); font-weight: 500;">
-                                    <i class="fas fa-check-circle me-1"></i>Fluent
-                                </div>
-							</div>
-						</div>
-
-						<!-- French -->
-						<div class="language-item mb-4">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <div style="color: var(--text-color); font-weight: 500;">French</div>
-                                <div style="color: var(--text-muted); font-size: 0.9rem;">Advanced</div>
-                            </div>
-							<div class="language-bar"
-								style="height: 30px; background-color: var(--background-dark); border-radius: 15px; position: relative; overflow: hidden;">
-								<div
-									style="position: absolute; height: 100%; width: 100%; background-color: var(--primary-color); opacity: 0.2; border-radius: 15px;">
-								</div>
-                                <div
-                                    style="position: absolute; height: 100%; width: 85%; background-color: var(--primary-color); border-radius: 15px;">
-                                </div>
-								<div
-									style="position: absolute; top: 50%; transform: translateY(-50%); left: 15px; color: var(--background-dark); font-weight: 500;">
-									<i class="fas fa-check-circle me-1"></i>Advanced
-								</div>
-							</div>
-						</div>
-
-						<!-- Italian -->
-						<div class="language-item mb-4">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <div style="color: var(--text-color); font-weight: 500;">Italian</div>
-                                <div style="color: var(--text-muted); font-size: 0.9rem;">Intermediate</div>
-                            </div>
-							<div class="language-bar"
-								style="height: 30px; background-color: var(--background-dark); border-radius: 15px; position: relative; overflow: hidden;">
-								<div
-									style="position: absolute; height: 100%; width: 100%; background-color: var(--primary-color); opacity: 0.2; border-radius: 15px;">
-								</div>
-								<div
-									style="position: absolute; height: 100%; width: 60%; background-color: var(--primary-color); border-radius: 15px;">
-								</div>
-								<div
-									style="position: absolute; top: 50%; transform: translateY(-50%); left: 15px; color: var(--background-dark); font-weight: 500;">
-									<i class="fas fa-check-circle me-1"></i>Intermediate
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-
-
-	<!-- Contact Section -->
-	<section id="contact">
-		<div class="container">
-			<h2 class="text-center mb-5">Get In Touch</h2>
-			<div class="row">
-				<div class="col-md-6">
-					<form action="https://formsubmit.co/970f9041d88c8e888fd15a9a7cc0238d" method="POST">
-						<div class="mb-3">
-							<label for="name" class="form-label">Name</label>
-							<input type="text" class="form-control" id="name" name="name" required>
-						</div>
-						<div class="mb-3">
-							<label for="email" class="form-label">Email</label>
-							<input type="email" class="form-control" id="email" name="email" required>
-						</div>
-						<div class="mb-3">
-							<label for="message" class="form-label">Message</label>
-							<textarea class="form-control" id="message" name="message" rows="5" required></textarea>
-						</div>
-						<button type="submit" class="btn btn-primary">Send Message</button>
-					</form>
-				</div>
-				<div class="col-md-6">
-					<div class="card">
-						<div class="card-body">
-							<h5 class="card-title">Contact Information</h5>
-							<p class="card-text">Feel free to reach out through the form or directly via:</p>
-                            <ul class="list-unstyled">
-                                <li><strong>Email:</strong> kubanenczakdev@gmail.com</li>
-                                <li><strong>Phone:</strong> +48 519 594 167</li>
-                                <li><strong>Location:</strong> Wrocław, Poland </li>
-                            </ul>
-							<div class="mt-4">
-								<a href="https://www.linkedin.com/in/jakub-nenczak-946742243/"
-									class="text-dark social-links"><i class="bi bi-linkedin"></i></a>
-								<a href="https://www.github.com/kuba2901" class="text-dark social-links"><i
-										class="bi bi-github"></i></a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- Footer -->
-	<footer class="text-center">
-		<div class="container">
-			<p>© 2025 Jakub Nenczak. All Rights Reserved.</p>
-		</div>
-	</footer>
-
-	<!-- Bootstrap Bundle with Popper -->
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-	<!-- Bootstrap Icons -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-	<!-- AOS - Animate On Scroll Library -->
-	<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-	<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-	<!-- Custom JS -->
-	<script src="script.js"></script>
-	<script>
-		// Initialize AOS (Animate On Scroll)
-		AOS.init({
-			duration: 800,
-			easing: 'ease',
-			once: true
-		});
-	</script>
 </body>
 
 </html>
