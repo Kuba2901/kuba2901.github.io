@@ -1,692 +1,800 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jakub Nenczak — Backend Software Engineer</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<style>
-  /* ── CURRENTLY BUILDING ── */
-  #building {
-    border-bottom: 1px solid var(--border);
-  }
-
-  .building-card {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    padding: 2.5rem;
-    border: 1px solid rgba(240,184,144,0.15);
-    background: linear-gradient(135deg, rgba(240,184,144,0.03) 0%, transparent 60%);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .building-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, var(--accent3), transparent);
-  }
-
-  .wip-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.3rem 0.75rem;
-    border: 1px solid rgba(240,184,144,0.35);
-    color: var(--accent3);
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    margin-bottom: 1.25rem;
-  }
-
-  .wip-dot {
-    width: 6px; height: 6px;
-    background: var(--accent3);
-    border-radius: 50%;
-    animation: pulse 2s ease-in-out infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50%       { opacity: 0.4; transform: scale(0.75); }
-  }
-
-  h3.building-title {
-    font-family: var(--serif);
-    font-weight: 300;
-    font-size: 2rem;
-    letter-spacing: -0.02em;
-    color: var(--text);
-    line-height: 1.1;
-    margin-bottom: 0.75rem;
-  }
-
-  .building-subtitle {
-    font-size: 12px;
-    color: var(--accent3);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-bottom: 1.25rem;
-  }
-
-  .building-desc {
-    font-size: 13px;
-    color: var(--muted);
-    line-height: 1.75;
-    margin-bottom: 1.5rem;
-  }
-
-  .building-stack {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-  }
-
-  .tag-warm {
-    font-size: 12px;
-    padding: 0.25rem 0.6rem;
-    border: 1px solid rgba(240,184,144,0.25);
-    color: var(--accent3);
-    letter-spacing: 0.04em;
-  }
-
-  /* Roadmap */
-  .roadmap {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .roadmap-label {
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 1.25rem;
-  }
-
-  .roadmap-step {
-    display: flex;
-    gap: 1rem;
-    padding-bottom: 1.25rem;
-    position: relative;
-  }
-
-  .roadmap-step:not(:last-child)::after {
-    content: '';
-    position: absolute;
-    left: 7px; top: 18px;
-    width: 1px;
-    bottom: 0;
-    background: var(--border);
-  }
-
-  .roadmap-dot {
-    width: 15px; height: 15px;
-    border-radius: 50%;
-    border: 1px solid var(--border2);
-    background: var(--bg);
-    flex-shrink: 0;
-    margin-top: 3px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .roadmap-dot.done {
-    border-color: var(--accent);
-    background: rgba(200,240,144,0.12);
-  }
-
-  .roadmap-dot.done::after {
-    content: '';
-    width: 5px; height: 5px;
-    border-radius: 50%;
-    background: var(--accent);
-  }
-
-  .roadmap-dot.active {
-    border-color: var(--accent3);
-    background: rgba(240,184,144,0.12);
-    animation: pulse 2s ease-in-out infinite;
-  }
-
-  .roadmap-dot.active::after {
-    content: '';
-    width: 5px; height: 5px;
-    border-radius: 50%;
-    background: var(--accent3);
-  }
-
-  .roadmap-content {}
-
-  .roadmap-step-title {
-    font-size: 12px;
-    color: var(--text);
-    margin-bottom: 0.2rem;
-    letter-spacing: 0.02em;
-  }
-
-  .roadmap-step-title.muted { color: var(--muted); }
-
-  .roadmap-step-desc {
-    font-size: 12px;
-    color: var(--muted);
-    line-height: 1.5;
-  }
-
-  .roadmap-step-status {
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-bottom: 0.3rem;
-  }
-
-  .roadmap-step-status.done  { color: var(--accent); }
-  .roadmap-step-status.active { color: var(--accent3); }
-  .roadmap-step-status.future { color: var(--muted); }
-
-  /* ── VIEW ALL PROJECTS LINK ── */
-  .view-all-wrap {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 1px; /* sits right against the grid border */
-  }
-
-  .view-all-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 1rem 1.5rem;
-    font-size: 12px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--muted);
-    text-decoration: none;
-    border: 1px solid var(--border);
-    border-top: none;
-    transition: all 0.2s;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .view-all-link::before {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0;
-    width: 0; height: 1px;
-    background: var(--accent);
-    transition: width 0.3s ease;
-  }
-
-  .view-all-link:hover { color: var(--accent); }
-  .view-all-link:hover::before { width: 100%; }
-
-  @media (max-width: 768px) {
-    .building-card {
-      grid-template-columns: 1fr;
-      gap: 2.5rem;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jakub Nenczak — Backend Software Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── CURRENTLY BUILDING ── */
+    #building {
+      border-bottom: 1px solid var(--border);
     }
-  }
 
-  @media (max-width: 640px) {
-    .building-card { padding: 1.25rem; }
-    h3.building-title { font-size: 1.5rem; }
-  }
-</style>
+    .building-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      padding: 2.5rem;
+      border: 1px solid rgba(240, 184, 144, 0.15);
+      background: linear-gradient(135deg, rgba(240, 184, 144, 0.03) 0%, transparent 60%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .building-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, var(--accent3), transparent);
+    }
+
+    .wip-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.3rem 0.75rem;
+      border: 1px solid rgba(240, 184, 144, 0.35);
+      color: var(--accent3);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+
+    .wip-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--accent3);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.4;
+        transform: scale(0.75);
+      }
+    }
+
+    h3.building-title {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: 2rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      line-height: 1.1;
+      margin-bottom: 0.75rem;
+    }
+
+    .building-subtitle {
+      font-size: 12px;
+      color: var(--accent3);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+
+    .building-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 1.5rem;
+    }
+
+    .building-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .tag-warm {
+      font-size: 12px;
+      padding: 0.25rem 0.6rem;
+      border: 1px solid rgba(240, 184, 144, 0.25);
+      color: var(--accent3);
+      letter-spacing: 0.04em;
+    }
+
+    /* Roadmap */
+    .roadmap {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .roadmap-label {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+    }
+
+    .roadmap-step {
+      display: flex;
+      gap: 1rem;
+      padding-bottom: 1.25rem;
+      position: relative;
+    }
+
+    .roadmap-step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 18px;
+      width: 1px;
+      bottom: 0;
+      background: var(--border);
+    }
+
+    .roadmap-dot {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      border: 1px solid var(--border2);
+      background: var(--bg);
+      flex-shrink: 0;
+      margin-top: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .roadmap-dot.done {
+      border-color: var(--accent);
+      background: rgba(200, 240, 144, 0.12);
+    }
+
+    .roadmap-dot.done::after {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .roadmap-dot.active {
+      border-color: var(--accent3);
+      background: rgba(240, 184, 144, 0.12);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .roadmap-dot.active::after {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent3);
+    }
+
+    .roadmap-content {}
+
+    .roadmap-step-title {
+      font-size: 12px;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+      letter-spacing: 0.02em;
+    }
+
+    .roadmap-step-title.muted {
+      color: var(--muted);
+    }
+
+    .roadmap-step-desc {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .roadmap-step-status {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+
+    .roadmap-step-status.done {
+      color: var(--accent);
+    }
+
+    .roadmap-step-status.active {
+      color: var(--accent3);
+    }
+
+    .roadmap-step-status.future {
+      color: var(--muted);
+    }
+
+    /* ── VIEW ALL PROJECTS LINK ── */
+    .view-all-wrap {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 1px;
+      /* sits right against the grid border */
+    }
+
+    .view-all-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 1.5rem;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      border-top: none;
+      transition: all 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .view-all-link::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+
+    .view-all-link:hover {
+      color: var(--accent);
+    }
+
+    .view-all-link:hover::before {
+      width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      .building-card {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .building-card {
+        padding: 1.25rem;
+      }
+
+      h3.building-title {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<div id="cursor"></div>
+  <div id="cursor"></div>
 
-<!-- NAV -->
-<nav>
-  <div class="nav-logo">jakubnenczak<span>.</span>me</div>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#projects">Work</a></li>
-    <li><a href="#building">Building</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="mailto:kubanenczakdev@gmail.com">Contact</a></li>
-  </ul>
-</nav>
-
-<main>
-
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-bg-text">Backend</div>
-  <div class="hero-label">Backend Software Engineer</div>
-  <h1 class="hero-name">Jakub<br><em>Nenczak</em></h1>
-  <p class="hero-tagline">
-    Architecting scalable distributed systems, high-performance network servers, and production-grade AI integrations.
-  </p>
-  <div class="hero-meta">
-    <span class="hero-loc">// Wrocław, Poland</span>
-    <div class="hero-links">
-      <a href="https://github.com/kuba2901" target="_blank" class="btn">GitHub ↗</a>
-      <a href="http://linkedin.com/in/jakub-nenczak-946742243" target="_blank" class="btn">LinkedIn ↗</a>
-      <a href="https://drive.google.com/file/d/1cJk_P9iCMoZl8_HiFL2Ud8xhi9SoAAWS/view?usp=sharing" target="_blank" class="btn btn-primary">Resume</a>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="about-left">
-    <div class="section-header">
-      <span class="section-num">01</span>
-      <h2 class="section-title">About</h2>
-    </div>
-    <div class="about-text">
-      <p>I am a Backend Software Engineer specializing in <strong>distributed systems</strong>, <strong>network programming</strong>, and <strong>cloud-native infrastructure</strong>.</p>
-      <p>Currently completing my B.S. in Automatic Control and Robotics at Wrocław University of Science and Technology and the rigorous systems engineering curriculum at <strong>42 Roma Luiss</strong>.</p>
-      <div class="cka-badge">Certified Kubernetes Administrator (CKA)</div>
-    </div>
-  </div>
-  <div class="stack-grid">
-    <div class="stack-category">
-      <div class="stack-cat-label">Systems &amp; Backend</div>
-      <div class="stack-tags">
-        <span class="tag hl">Python</span>
-        <span class="tag hl">C/C++</span>
-        <span class="tag">Java</span>
-        <span class="tag">Dart</span>
-      </div>
-    </div>
-    <div class="stack-category">
-      <div class="stack-cat-label">Data &amp; AI</div>
-      <div class="stack-tags">
-        <span class="tag hl">Qdrant</span>
-        <span class="tag hl">LlamaIndex</span>
-        <span class="tag">PostgreSQL</span>
-        <span class="tag">SQLite</span>
-        <span class="tag">LLaVA</span>
-        <span class="tag">Qwen</span>
-      </div>
-    </div>
-    <div class="stack-category">
-      <div class="stack-cat-label">Infrastructure</div>
-      <div class="stack-tags">
-        <span class="tag hl">Kubernetes (CKA)</span>
-        <span class="tag hl">Docker Compose</span>
-        <span class="tag">GCP</span>
-        <span class="tag">Terraform</span>
-        <span class="tag">GitHub Actions</span>
-      </div>
-    </div>
-    <div class="stack-category">
-      <div class="stack-cat-label">Networking</div>
-      <div class="stack-tags">
-        <span class="tag hl">HTTP/1.1 RFCs</span>
-        <span class="tag hl">POSIX Sockets</span>
-        <span class="tag">Non-blocking I/O</span>
-        <span class="tag">TCP/IP</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="section-header">
-    <span class="section-num">02</span>
-    <h2 class="section-title">Featured Engineering Work</h2>
-  </div>
-
-  <div class="projects-grid">
-
-    <div class="project-card">
-      <div class="project-header">
-        <span class="project-num">001</span>
-        <a href="https://github.com/Kuba2901/rag-document-builder" target="_blank" class="project-link">Source ↗</a>
-      </div>
-      <h3 class="project-title">Distributed RAG Document<br>Synthesis Platform</h3>
-      <div class="project-stack">
-        <span class="tag">Python</span><span class="tag">Qdrant</span><span class="tag">LlamaIndex</span>
-        <span class="tag">MinIO</span><span class="tag">PostgreSQL</span><span class="tag">Docker Compose</span>
-      </div>
-      <p class="project-problem">Automating synthesis of user-uploaded documents requires an asynchronous ingestion pipeline capable of semantic search without blocking the main application thread.</p>
-      <div class="mermaid-container">
-                        <div class="mermaid">
-                            graph TD
-                            classDef database fill:#111316,stroke:#c8f090,stroke-width:1px,color:#e8e4dc;
-                            classDef process fill:#181b1f,stroke:#7a7870,stroke-width:1px,color:#e8e4dc;
-                            classDef client fill:#0b0d0f,stroke:#90d8f0,stroke-width:1px,color:#e8e4dc;
-                            classDef observability fill:#111316,stroke:#f0b890,stroke-width:1px,color:#e8e4dc;
-
-                            Client([Client / React Frontend]):::client -->|Upload Document| API[FastAPI Backend /
-                            Gateway]:::process
-
-                            API -->|1. Store Raw File| MinIO[(MinIO Object Storage)]:::database
-                            API -->|2. Async Processing| Orchestrator[LlamaIndex Orchestrator]:::process
-
-                            subgraph Data Ingestion Pipeline
-                            Orchestrator -->|Parse & Chunk| EmbedModel[Embedding Model]:::process
-                            EmbedModel -->|3a. Store Vectors| Qdrant[(Qdrant Vector DB)]:::database
-                            Orchestrator -->|3b. Store Metadata| SQLite[(SQLite / Metadata)]:::database
-                            end
-
-                            Client -->|4. Semantic Query| Retrieval[RAG Retrieval Engine]:::process
-                            Retrieval -->|K-NN Search| Qdrant
-                            Retrieval -->|Context Match| Synthesizer[LLM Inference Engine]:::process
-                            Synthesizer -->|5. Generated Document| Client
-
-                            subgraph Observability Stack
-                            Promtail[Promtail / Log Collector]:::observability
-                            Loki[(Loki Log Aggregation)]:::database
-                            Grafana([Grafana Dashboards]):::observability
-                            end
-
-                            %% Telemetry Flow (Dashed Lines)
-                            API -.->|App Logs| Promtail
-                            Orchestrator -.->|Pipeline Logs| Promtail
-                            Synthesizer -.->|Inference Logs| Promtail
-                            Promtail -.->|Push Logs| Loki
-                            Grafana -.->|Query Logs & Metrics| Loki
-                        </div>
-                    </div>
-
-      <ul class="arch-points">
-        <li>Engineered a containerized RAG backend utilizing LlamaIndex for document chunking and metadata extraction.</li>
-        <li>Integrated Qdrant as a dedicated Rust-based vector database for high-dimensional, low-latency similarity search.</li>
-        <li>Designed a decoupled storage layer with MinIO for raw object storage and a clear migration path to PostgreSQL for distributed write scaling.</li>
-      </ul>
-    </div>
-
-    <div class="project-card">
-      <div class="project-header">
-        <span class="project-num">002</span>
-        <a href="https://github.com/Kuba2901/webserv" target="_blank" class="project-link">Source ↗</a>
-      </div>
-      <h3 class="project-title">High-Performance HTTP/1.1<br>Server <em style="font-family:var(--mono);font-size:1rem;color:var(--muted);font-style:normal;">(webserv)</em></h3>
-      <div class="project-stack">
-        <span class="tag">C++</span><span class="tag">POSIX Sockets</span><span class="tag">raw TCP/IP</span>
-      </div>
-      <p class="project-problem">Standard networking libraries abstract away connection management. This project required building a fully RFC-compliant HTTP server from scratch to handle thousands of concurrent connections under strict memory constraints.</p>
-      <div class="mermaid-container">
-                        <div class="mermaid">
-                            stateDiagram-v2
-
-                            classDef core fill:#181b1f,stroke:#c8f090,color:#e8e4dc
-                            classDef io fill:#111316,stroke:#90d8f0,color:#e8e4dc
-
-                            [*] --> Initialization
-                            Initialization --> EventLoop : Bind & Listen Sockets
-
-                            state EventLoop {
-
-                            [*] --> Wait
-
-                            Wait --> ReadReady : fd is readable
-                            Wait --> WriteReady : fd is writable
-
-                            state ReadReady {
-                            [*] --> Accept
-                            Accept --> AddToSet
-                            AddToSet --> Recv
-                            Recv --> Parse
-                            }
-
-                            state WriteReady {
-                            [*] --> Process
-                            Process --> CGI : Dynamic Content
-                            Process --> Send : Static Content
-                            CGI --> Send : Pipe stdout
-                            }
-
-                            Parse --> Process
-                            Send --> Wait : Keep-Alive
-                            Send --> CloseConnection : Connection close
-                            }
-                        </div>
-                    </div>
-
-      <ul class="arch-points">
-        <li>Bypassed standard web frameworks to implement a custom event loop and HTTP request parser in C++.</li>
-        <li>Engineered a single-threaded, non-blocking I/O architecture using <code style="color:var(--accent);font-size:12px;">select()</code> multiplexing, managing up to 1024 concurrent file descriptors.</li>
-        <li>Implemented robust state-machine logic to handle partial socket reads/writes (EAGAIN), CGI via <code style="color:var(--accent);font-size:12px;">fork()</code>, and memory safety under stress.</li>
-      </ul>
-    </div>
-
-    <div class="project-card">
-      <div class="project-header">
-        <span class="project-num">003</span>
-        <a href="https://github.com/Kuba2901/42_philosophers" target="_blank" class="project-link">Source ↗</a>
-      </div>
-      <h3 class="project-title">OS-Level Concurrency:<br>The Dining Philosophers</h3>
-      <div class="project-stack">
-        <span class="tag">C</span><span class="tag">POSIX Threads</span><span class="tag">Mutexes</span>
-      </div>
-      <p class="project-problem">Simulating distributed resource contention without triggering deadlocks, livelocks, or thread starvation.</p>
-      <ul class="arch-points">
-        <li>Solved the classic Dining Philosophers problem by strictly managing OS-level concurrency in C.</li>
-        <li>Implemented fine-grained mutex locking on shared resources (forks and stdout) to prevent data races.</li>
-        <li>Optimized context-switching and CPU utilization, ensuring mathematically sound resource allocation under high contention.</li>
-      </ul>
-    </div>
-
-    <div class="project-card">
-      <div class="project-header">
-        <span class="project-num">004</span>
-        <a href="https://github.com/kuba2901/42_minishell" target="_blank" class="project-link">Source ↗</a>
-      </div>
-      <h3 class="project-title">Minimalist UNIX Shell<br><em style="font-family:var(--mono);font-size:1rem;color:var(--muted);font-style:normal;">(Minishell)</em></h3>
-      <div class="project-stack">
-        <span class="tag">C</span><span class="tag">POSIX</span><span class="tag">readline</span><span class="tag">fork/execve</span>
-      </div>
-      <p class="project-problem">Implementing a shell from scratch demands correct lexing, parsing, process lifecycle management, and signal handling — all without a single global variable beyond signal state.</p>
-      <ul class="arch-points">
-        <li>Built a Bash-inspired shell in C handling pipes, I/O redirection (including heredoc and append), and environment variable expansion with <code style="color:var(--accent);font-size:12px;">$?</code>.</li>
-        <li>Implemented all builtins (<code style="color:var(--accent);font-size:12px;">cd</code>, <code style="color:var(--accent);font-size:12px;">export</code>, <code style="color:var(--accent);font-size:12px;">unset</code>, <code style="color:var(--accent);font-size:12px;">env</code>, <code style="color:var(--accent);font-size:12px;">exit</code>) and child process execution via <code style="color:var(--accent);font-size:12px;">fork()</code> / <code style="color:var(--accent);font-size:12px;">execve()</code>.</li>
-        <li>Managed <code style="color:var(--accent);font-size:12px;">SIGINT</code> / <code style="color:var(--accent);font-size:12px;">SIGQUIT</code> signal handling correctly in both parent and child contexts with zero memory leaks.</li>
-      </ul>
-    </div>
-
-    <div class="project-card">
-      <div class="project-header">
-        <span class="project-num">005</span>
-        <a href="https://github.com/kuba2901/42_Cub3D" target="_blank" class="project-link">Source ↗</a>
-      </div>
-      <h3 class="project-title">Raycasting 3D Engine<br><em style="font-family:var(--mono);font-size:1rem;color:var(--muted);font-style:normal;">(Cub3D)</em></h3>
-      <div class="project-stack">
-        <span class="tag">C</span><span class="tag">MiniLibX</span><span class="tag">DDA Algorithm</span><span class="tag">Vector Math</span>
-      </div>
-      <p class="project-problem">Rendering a convincing 3D world from a flat 2D grid requires a mathematically precise ray-grid intersection algorithm, fish-eye correction, and per-column texture sampling — all within a tight pixel-buffer rendering loop.</p>
-      
-      <div class="project-images">
-        <img src="assets/projects/cub3d/cub_0.png" alt="Cub3D Gameplay View 1">
-        <img src="assets/projects/cub3d/cub_1.png" alt="Cub3D Gameplay View 2">
-      </div>
-      <ul class="arch-points">
-        <li>Implemented a DDA (Digital Differential Analyzer) raycasting engine in C, casting one ray per vertical screen stripe against a 2D tile map.</li>
-        <li>Applied perpendicular wall distance correction to eliminate fish-eye distortion, with directional texture mapping for N/S/E/W wall faces.</li>
-        <li>Engineered a double-buffered pixel rendering loop via MiniLibX and a custom <code style="color:var(--accent);font-size:12px;">.cub</code> config parser with full validation.</li>
-      </ul>
-    </div>
-
-  </div>
-
-  <div class="view-all-wrap">
-    <a href="projects.html" class="view-all-link">View all projects ↗</a>
-  </div>
-</section>
-
-<!-- CURRENTLY BUILDING -->
-<section id="building">
-  <div class="section-header">
-    <span class="section-num">03</span>
-    <h2 class="section-title">Currently Building</h2>
-  </div>
-
-  <div class="building-card">
-
-    <div class="building-left">
-      <div class="wip-badge"><span class="wip-dot"></span> In Progress</div>
-      <h3 class="building-title">CoreQ</h3>
-      <p class="building-subtitle">Automated Quotation System · Manufacturing / SME</p>
-      <p class="building-desc">
-        A production management and automated quoting system for SMEs in the manufacturing sector — migrating a legacy MySQL codebase to a modern PostgreSQL + FastAPI architecture. The core design shift is a "Bottom-Up" data model where machine operations are bound to specific parts, parts to quotes, and quotes to orders, eliminating floating operations that exist in a vacuum.
-      </p>
-      <p class="building-desc">
-        Key pillars include a <strong style="color:var(--text);font-weight:400;">Virtual Machine Park</strong> (digital twins with hourly rates and physical constraints), <strong style="color:var(--text);font-weight:400;">Material Digital Twins</strong> (density + live market pricing via cron jobs hitting LME APIs), and a <strong style="color:var(--text);font-weight:400;">Cascading Analytics</strong> layer with SQL views that automatically compute margins and client Whale Scores.
-      </p>
-      <div class="building-stack">
-        <span class="tag-warm">Python</span>
-        <span class="tag-warm">FastAPI</span>
-        <span class="tag-warm">PostgreSQL</span>
-        <span class="tag-warm">SQLAlchemy</span>
-        <span class="tag-warm">JSONB</span>
-        <span class="tag-warm">ETL</span>
-        <span class="tag-warm">React</span>
-      </div>
-    </div>
-
-    <div class="building-right">
-      <div class="roadmap-label">Roadmap</div>
-      <div class="roadmap">
-
-        <div class="roadmap-step">
-          <div class="roadmap-dot done"></div>
-          <div class="roadmap-content">
-            <div class="roadmap-step-status done">Completed</div>
-            <div class="roadmap-step-title">Foundations &amp; Data Migration</div>
-            <div class="roadmap-step-desc">ETL pipeline with orphan filtering, transaction management, and SQL views for automatic margin calculation from JSONB structures.</div>
-          </div>
-        </div>
-
-        <div class="roadmap-step">
-          <div class="roadmap-dot active"></div>
-          <div class="roadmap-content">
-            <div class="roadmap-step-status active">In Progress</div>
-            <div class="roadmap-step-title">API &amp; Digital Twin Logic</div>
-            <div class="roadmap-step-desc">Deploying <code style="color:var(--accent3);font-size:11px;">machines</code> and <code style="color:var(--accent3);font-size:11px;">materials</code> tables in SQLAlchemy; updating technological calculators to use <code style="color:var(--accent3);font-size:11px;">machine_id</code> over legacy category strings.</div>
-          </div>
-        </div>
-
-        <div class="roadmap-step">
-          <div class="roadmap-dot"></div>
-          <div class="roadmap-content">
-            <div class="roadmap-step-status future">Planned</div>
-            <div class="roadmap-step-title muted">Quotation Interface</div>
-            <div class="roadmap-step-desc">Product Tree view for adding operations directly to parts; sliding calculator drawer for real-time margin approval.</div>
-          </div>
-        </div>
-
-        <div class="roadmap-step">
-          <div class="roadmap-dot"></div>
-          <div class="roadmap-content">
-            <div class="roadmap-step-status future">Planned</div>
-            <div class="roadmap-step-title muted">MES &amp; Shop Floor Module</div>
-            <div class="roadmap-step-desc">Production manager dashboard, tablet UI for operators with <code style="color:var(--muted);font-size:11px;">machine_operators</code> permission matrix, APS bottleneck detection.</div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="section-header">
-    <span class="section-num">04</span>
-    <h2 class="section-title">Experience</h2>
-  </div>
-
-  <div class="exp-card">
-    <div class="exp-meta">
-      <div class="exp-role">Backend Engineer</div>
-      <div class="exp-company">KO2 s.r.l.</div>
-      <div class="exp-date">Nov 2024 - Nov 2025</div>
-    </div>
-    <ul class="exp-bullets">
-      <li>Architected and implemented core backend microservices for a veterinary diagnostics platform.</li>
-      <li>Migrated legacy infrastructure to Kubernetes and Terraform (IaC), increasing system fault tolerance and cutting infrastructure provisioning time.</li>
-      <li>Engineered automated deployment pipelines using GitHub Actions and Docker, ensuring zero-downtime deployments across environments.</li>
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">jakubnenczak<span>.</span>me</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Work</a></li>
+      <li><a href="#building">Building</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="mailto:kubanenczakdev@gmail.com">Contact</a></li>
     </ul>
-  </div>
+  </nav>
 
-  <div class="exp-card">
-    <div class="exp-meta">
-      <div class="exp-role">Independent Developer</div>
-      <div class="exp-company">Freelance</div>
-    </div>
-    <div class="exp-projects">
-      <div class="exp-subproject">
-        <div class="exp-subproject-header">
-          <span class="exp-subproject-name">Coeur Clothing</span>
-          <div class="project-stack" style="margin-bottom:0;"><span class="tag">Flutter</span></div>
+  <main>
+
+    <!-- HERO -->
+    <section id="hero">
+      <div class="hero-bg-text">Backend</div>
+      <div class="hero-label">Backend Software Engineer</div>
+      <h1 class="hero-name">Jakub<br><em>Nenczak</em></h1>
+      <p class="hero-tagline">
+        Architecting scalable distributed systems, high-performance network servers, and production-grade AI
+        integrations.
+      </p>
+      <div class="hero-meta">
+        <span class="hero-loc">// Wrocław, Poland</span>
+        <div class="hero-links">
+          <a href="https://github.com/kuba2901" target="_blank" class="btn">GitHub ↗</a>
+          <a href="http://linkedin.com/in/jakub-nenczak-946742243" target="_blank" class="btn">LinkedIn ↗</a>
+          <a href="https://drive.google.com/file/d/1AAjGTnyzfXoocrBnpZvR9LVVU89lncJO/view?usp=sharing" target="_blank"
+            class="btn btn-primary">Resume</a>
         </div>
-        <p class="exp-subproject-desc">E-commerce mobile application for a small local Polish premium clothing brand — handling product listings, cart, and checkout flows.</p>
       </div>
-      <div class="exp-subproject">
-        <div class="exp-subproject-header">
-          <span class="exp-subproject-name">Hitspot</span>
-          <div class="project-stack" style="margin-bottom:0;">
-            <span class="tag">Flutter</span><span class="tag">Supabase</span>
-            <span class="tag">Google Maps</span><span class="tag">Cloud Functions</span><span class="tag">Push Notifications</span>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="about-left">
+        <div class="section-header">
+          <span class="section-num">01</span>
+          <h2 class="section-title">About</h2>
+        </div>
+        <div class="about-text">
+          <p>I am a Backend Software Engineer specializing in <strong>distributed systems</strong>, <strong>network
+              programming</strong>, and <strong>cloud-native infrastructure</strong>.</p>
+          <p>Currently completing my B.S. in Automatic Control and Robotics at Wrocław University of Science and
+            Technology and the rigorous systems engineering curriculum at <strong>42 Roma Luiss</strong>.</p>
+          <div class="cka-badge">Certified Kubernetes Administrator (CKA)</div>
+        </div>
+      </div>
+      <div class="stack-grid">
+        <div class="stack-category">
+          <div class="stack-cat-label">Systems &amp; Backend</div>
+          <div class="stack-tags">
+            <span class="tag hl">Python</span>
+            <span class="tag hl">C/C++</span>
+            <span class="tag">Java</span>
+            <span class="tag">Dart</span>
           </div>
         </div>
-        <p class="exp-subproject-desc">Mobile application for travellers — integrating Google Maps for location discovery, Supabase for real-time backend, cloud functions for server-side logic, and push notifications for user engagement.</p>
+        <div class="stack-category">
+          <div class="stack-cat-label">Data &amp; AI</div>
+          <div class="stack-tags">
+            <span class="tag hl">Qdrant</span>
+            <span class="tag hl">LlamaIndex</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">SQLite</span>
+            <span class="tag">LLaVA</span>
+            <span class="tag">Qwen</span>
+          </div>
+        </div>
+        <div class="stack-category">
+          <div class="stack-cat-label">Infrastructure</div>
+          <div class="stack-tags">
+            <span class="tag hl">Kubernetes (CKA)</span>
+            <span class="tag hl">Docker Compose</span>
+            <span class="tag">GCP</span>
+            <span class="tag">Terraform</span>
+            <span class="tag">GitHub Actions</span>
+          </div>
+        </div>
+        <div class="stack-category">
+          <div class="stack-cat-label">Networking</div>
+          <div class="stack-tags">
+            <span class="tag hl">HTTP/1.1 RFCs</span>
+            <span class="tag hl">POSIX Sockets</span>
+            <span class="tag">Non-blocking I/O</span>
+            <span class="tag">TCP/IP</span>
+          </div>
+        </div>
       </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <h2 class="section-title">Featured Engineering Work</h2>
+      </div>
+
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-num">001</span>
+            <a href="https://github.com/Kuba2901/rag-document-builder" target="_blank" class="project-link">Source ↗</a>
+          </div>
+          <h3 class="project-title">Distributed RAG Document<br>Synthesis Platform</h3>
+          <div class="project-stack">
+            <span class="tag">Python</span><span class="tag">Qdrant</span><span class="tag">LlamaIndex</span>
+            <span class="tag">MinIO</span><span class="tag">PostgreSQL</span><span class="tag">Docker Compose</span>
+          </div>
+          <p class="project-problem">Automating synthesis of user-uploaded documents requires an asynchronous ingestion
+            pipeline capable of semantic search without blocking the main application thread.</p>
+          <div class="mermaid-container">
+            <div class="mermaid">
+              graph TD
+              classDef database fill:#111316,stroke:#c8f090,stroke-width:1px,color:#e8e4dc;
+              classDef process fill:#181b1f,stroke:#7a7870,stroke-width:1px,color:#e8e4dc;
+              classDef client fill:#0b0d0f,stroke:#90d8f0,stroke-width:1px,color:#e8e4dc;
+              classDef observability fill:#111316,stroke:#f0b890,stroke-width:1px,color:#e8e4dc;
+
+              Client([Client / React Frontend]):::client -->|Upload Document| API[FastAPI Backend /
+              Gateway]:::process
+
+              API -->|1. Store Raw File| MinIO[(MinIO Object Storage)]:::database
+              API -->|2. Async Processing| Orchestrator[LlamaIndex Orchestrator]:::process
+
+              subgraph Data Ingestion Pipeline
+              Orchestrator -->|Parse & Chunk| EmbedModel[Embedding Model]:::process
+              EmbedModel -->|3a. Store Vectors| Qdrant[(Qdrant Vector DB)]:::database
+              Orchestrator -->|3b. Store Metadata| SQLite[(SQLite / Metadata)]:::database
+              end
+
+              Client -->|4. Semantic Query| Retrieval[RAG Retrieval Engine]:::process
+              Retrieval -->|K-NN Search| Qdrant
+              Retrieval -->|Context Match| Synthesizer[LLM Inference Engine]:::process
+              Synthesizer -->|5. Generated Document| Client
+
+              subgraph Observability Stack
+              Promtail[Promtail / Log Collector]:::observability
+              Loki[(Loki Log Aggregation)]:::database
+              Grafana([Grafana Dashboards]):::observability
+              end
+
+              %% Telemetry Flow (Dashed Lines)
+              API -.->|App Logs| Promtail
+              Orchestrator -.->|Pipeline Logs| Promtail
+              Synthesizer -.->|Inference Logs| Promtail
+              Promtail -.->|Push Logs| Loki
+              Grafana -.->|Query Logs & Metrics| Loki
+            </div>
+          </div>
+
+          <ul class="arch-points">
+            <li>Engineered a containerized RAG backend utilizing LlamaIndex for document chunking and metadata
+              extraction.</li>
+            <li>Integrated Qdrant as a dedicated Rust-based vector database for high-dimensional, low-latency similarity
+              search.</li>
+            <li>Designed a decoupled storage layer with MinIO for raw object storage and a clear migration path to
+              PostgreSQL for distributed write scaling.</li>
+          </ul>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-num">002</span>
+            <a href="https://github.com/Kuba2901/webserv" target="_blank" class="project-link">Source ↗</a>
+          </div>
+          <h3 class="project-title">High-Performance HTTP/1.1<br>Server <em
+              style="font-family:var(--mono);font-size:1rem;color:var(--muted);font-style:normal;">(webserv)</em></h3>
+          <div class="project-stack">
+            <span class="tag">C++</span><span class="tag">POSIX Sockets</span><span class="tag">raw TCP/IP</span>
+          </div>
+          <p class="project-problem">Standard networking libraries abstract away connection management. This project
+            required building a fully RFC-compliant HTTP server from scratch to handle thousands of concurrent
+            connections under strict memory constraints.</p>
+          <div class="mermaid-container">
+            <div class="mermaid">
+              stateDiagram-v2
+
+              classDef core fill:#181b1f,stroke:#c8f090,color:#e8e4dc
+              classDef io fill:#111316,stroke:#90d8f0,color:#e8e4dc
+
+              [*] --> Initialization
+              Initialization --> EventLoop : Bind & Listen Sockets
+
+              state EventLoop {
+
+              [*] --> Wait
+
+              Wait --> ReadReady : fd is readable
+              Wait --> WriteReady : fd is writable
+
+              state ReadReady {
+              [*] --> Accept
+              Accept --> AddToSet
+              AddToSet --> Recv
+              Recv --> Parse
+              }
+
+              state WriteReady {
+              [*] --> Process
+              Process --> CGI : Dynamic Content
+              Process --> Send : Static Content
+              CGI --> Send : Pipe stdout
+              }
+
+              Parse --> Process
+              Send --> Wait : Keep-Alive
+              Send --> CloseConnection : Connection close
+              }
+            </div>
+          </div>
+
+          <ul class="arch-points">
+            <li>Bypassed standard web frameworks to implement a custom event loop and HTTP request parser in C++.</li>
+            <li>Engineered a single-threaded, non-blocking I/O architecture using <code
+                style="color:var(--accent);font-size:12px;">select()</code> multiplexing, managing up to 1024 concurrent
+              file descriptors.</li>
+            <li>Implemented robust state-machine logic to handle partial socket reads/writes (EAGAIN), CGI via <code
+                style="color:var(--accent);font-size:12px;">fork()</code>, and memory safety under stress.</li>
+          </ul>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-num">003</span>
+            <a href="https://github.com/Kuba2901/42_philosophers" target="_blank" class="project-link">Source ↗</a>
+          </div>
+          <h3 class="project-title">OS-Level Concurrency:<br>The Dining Philosophers</h3>
+          <div class="project-stack">
+            <span class="tag">C</span><span class="tag">POSIX Threads</span><span class="tag">Mutexes</span>
+          </div>
+          <p class="project-problem">Simulating distributed resource contention without triggering deadlocks, livelocks,
+            or thread starvation.</p>
+          <ul class="arch-points">
+            <li>Solved the classic Dining Philosophers problem by strictly managing OS-level concurrency in C.</li>
+            <li>Implemented fine-grained mutex locking on shared resources (forks and stdout) to prevent data races.
+            </li>
+            <li>Optimized context-switching and CPU utilization, ensuring mathematically sound resource allocation under
+              high contention.</li>
+          </ul>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-num">004</span>
+            <a href="https://github.com/kuba2901/42_minishell" target="_blank" class="project-link">Source ↗</a>
+          </div>
+          <h3 class="project-title">Minimalist UNIX Shell<br><em
+              style="font-family:var(--mono);font-size:1rem;color:var(--muted);font-style:normal;">(Minishell)</em></h3>
+          <div class="project-stack">
+            <span class="tag">C</span><span class="tag">POSIX</span><span class="tag">readline</span><span
+              class="tag">fork/execve</span>
+          </div>
+          <p class="project-problem">Implementing a shell from scratch demands correct lexing, parsing, process
+            lifecycle management, and signal handling — all without a single global variable beyond signal state.</p>
+          <ul class="arch-points">
+            <li>Built a Bash-inspired shell in C handling pipes, I/O redirection (including heredoc and append), and
+              environment variable expansion with <code style="color:var(--accent);font-size:12px;">$?</code>.</li>
+            <li>Implemented all builtins (<code style="color:var(--accent);font-size:12px;">cd</code>, <code
+                style="color:var(--accent);font-size:12px;">export</code>, <code
+                style="color:var(--accent);font-size:12px;">unset</code>, <code
+                style="color:var(--accent);font-size:12px;">env</code>, <code
+                style="color:var(--accent);font-size:12px;">exit</code>) and child process execution via <code
+                style="color:var(--accent);font-size:12px;">fork()</code> / <code
+                style="color:var(--accent);font-size:12px;">execve()</code>.</li>
+            <li>Managed <code style="color:var(--accent);font-size:12px;">SIGINT</code> / <code
+                style="color:var(--accent);font-size:12px;">SIGQUIT</code> signal handling correctly in both parent and
+              child contexts with zero memory leaks.</li>
+          </ul>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-num">005</span>
+            <a href="https://github.com/kuba2901/42_Cub3D" target="_blank" class="project-link">Source ↗</a>
+          </div>
+          <h3 class="project-title">Raycasting 3D Engine<br><em
+              style="font-family:var(--mono);font-size:1rem;color:var(--muted);font-style:normal;">(Cub3D)</em></h3>
+          <div class="project-stack">
+            <span class="tag">C</span><span class="tag">MiniLibX</span><span class="tag">DDA Algorithm</span><span
+              class="tag">Vector Math</span>
+          </div>
+          <p class="project-problem">Rendering a convincing 3D world from a flat 2D grid requires a mathematically
+            precise ray-grid intersection algorithm, fish-eye correction, and per-column texture sampling — all within a
+            tight pixel-buffer rendering loop.</p>
+
+          <div class="project-images">
+            <img src="assets/projects/cub3d/cub_0.png" alt="Cub3D Gameplay View 1">
+            <img src="assets/projects/cub3d/cub_1.png" alt="Cub3D Gameplay View 2">
+          </div>
+          <ul class="arch-points">
+            <li>Implemented a DDA (Digital Differential Analyzer) raycasting engine in C, casting one ray per vertical
+              screen stripe against a 2D tile map.</li>
+            <li>Applied perpendicular wall distance correction to eliminate fish-eye distortion, with directional
+              texture mapping for N/S/E/W wall faces.</li>
+            <li>Engineered a double-buffered pixel rendering loop via MiniLibX and a custom <code
+                style="color:var(--accent);font-size:12px;">.cub</code> config parser with full validation.</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="view-all-wrap">
+        <a href="projects.html" class="view-all-link">View all projects ↗</a>
+      </div>
+    </section>
+
+    <!-- CURRENTLY BUILDING -->
+    <section id="building">
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <h2 class="section-title">Currently Building</h2>
+      </div>
+
+      <div class="building-card">
+
+        <div class="building-left">
+          <div class="wip-badge"><span class="wip-dot"></span> In Progress</div>
+          <h3 class="building-title">CoreQ</h3>
+          <p class="building-subtitle">Automated Quotation System · Manufacturing / SME</p>
+          <p class="building-desc">
+            A production management and automated quoting system for SMEs in the manufacturing sector — migrating a
+            legacy MySQL codebase to a modern PostgreSQL + FastAPI architecture. The core design shift is a "Bottom-Up"
+            data model where machine operations are bound to specific parts, parts to quotes, and quotes to orders,
+            eliminating floating operations that exist in a vacuum.
+          </p>
+          <p class="building-desc">
+            Key pillars include a <strong style="color:var(--text);font-weight:400;">Virtual Machine Park</strong>
+            (digital twins with hourly rates and physical constraints), <strong
+              style="color:var(--text);font-weight:400;">Material Digital Twins</strong> (density + live market pricing
+            via cron jobs hitting LME APIs), and a <strong style="color:var(--text);font-weight:400;">Cascading
+              Analytics</strong> layer with SQL views that automatically compute margins and client Whale Scores.
+          </p>
+          <div class="building-stack">
+            <span class="tag-warm">Python</span>
+            <span class="tag-warm">FastAPI</span>
+            <span class="tag-warm">PostgreSQL</span>
+            <span class="tag-warm">SQLAlchemy</span>
+            <span class="tag-warm">JSONB</span>
+            <span class="tag-warm">ETL</span>
+            <span class="tag-warm">React</span>
+          </div>
+        </div>
+
+        <div class="building-right">
+          <div class="roadmap-label">Roadmap</div>
+          <div class="roadmap">
+
+            <div class="roadmap-step">
+              <div class="roadmap-dot done"></div>
+              <div class="roadmap-content">
+                <div class="roadmap-step-status done">Completed</div>
+                <div class="roadmap-step-title">Foundations &amp; Data Migration</div>
+                <div class="roadmap-step-desc">ETL pipeline with orphan filtering, transaction management, and SQL views
+                  for automatic margin calculation from JSONB structures.</div>
+              </div>
+            </div>
+
+            <div class="roadmap-step">
+              <div class="roadmap-dot active"></div>
+              <div class="roadmap-content">
+                <div class="roadmap-step-status active">In Progress</div>
+                <div class="roadmap-step-title">API &amp; Digital Twin Logic</div>
+                <div class="roadmap-step-desc">Deploying <code
+                    style="color:var(--accent3);font-size:11px;">machines</code> and <code
+                    style="color:var(--accent3);font-size:11px;">materials</code> tables in SQLAlchemy; updating
+                  technological calculators to use <code style="color:var(--accent3);font-size:11px;">machine_id</code>
+                  over legacy category strings.</div>
+              </div>
+            </div>
+
+            <div class="roadmap-step">
+              <div class="roadmap-dot"></div>
+              <div class="roadmap-content">
+                <div class="roadmap-step-status future">Planned</div>
+                <div class="roadmap-step-title muted">Quotation Interface</div>
+                <div class="roadmap-step-desc">Product Tree view for adding operations directly to parts; sliding
+                  calculator drawer for real-time margin approval.</div>
+              </div>
+            </div>
+
+            <div class="roadmap-step">
+              <div class="roadmap-dot"></div>
+              <div class="roadmap-content">
+                <div class="roadmap-step-status future">Planned</div>
+                <div class="roadmap-step-title muted">MES &amp; Shop Floor Module</div>
+                <div class="roadmap-step-desc">Production manager dashboard, tablet UI for operators with <code
+                    style="color:var(--muted);font-size:11px;">machine_operators</code> permission matrix, APS
+                  bottleneck detection.</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="section-header">
+        <span class="section-num">04</span>
+        <h2 class="section-title">Experience</h2>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-meta">
+          <div class="exp-role">Backend Engineer</div>
+          <div class="exp-company">KO2 s.r.l.</div>
+          <div class="exp-date">Nov 2024 - Nov 2025</div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Reverse-engineered undocumented legacy APIs through network traffic analysis, enabling seamless
+            integration with existing systems and uncovering critical business logic.</li>
+          <li>Designed and developed a mobile application to modernize and replace the legacy platform, delivering an
+            improved user experience and streamlined workflows.</li>
+          <li>Implemented the BLoC architectural pattern across the application and mentored team members on its
+            principles, promoting maintainable, scalable, and testable code practices.</li>
+          <li>Served as a consultant for a leading Italian telecommunications company, contributing as a Platform
+            Engineer to enhance internal developer productivity and operational efficiency.</li>
+          <li>Designed and developed internal tools to support platform workflows, streamline processes, and improve
+            cross-team collaboration across engineering functions.</li>
+          <li>Managed and optimized Kubernetes-based infrastructure, ensuring scalability, reliability, and efficient
+            orchestration of enterprise-grade services.</li>
+        </ul>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-meta">
+          <div class="exp-role">Independent Developer</div>
+          <div class="exp-company">Freelance</div>
+        </div>
+        <div class="exp-projects">
+          <div class="exp-subproject">
+            <div class="exp-subproject-header">
+              <span class="exp-subproject-name">Coeur Clothing</span>
+              <div class="project-stack" style="margin-bottom:0;"><span class="tag">Flutter</span></div>
+            </div>
+            <p class="exp-subproject-desc">E-commerce mobile application for a small local Polish premium clothing brand
+              — handling product listings, cart, and checkout flows.</p>
+          </div>
+          <div class="exp-subproject">
+            <div class="exp-subproject-header">
+              <span class="exp-subproject-name">Hitspot</span>
+              <div class="project-stack" style="margin-bottom:0;">
+                <span class="tag">Flutter</span><span class="tag">Supabase</span>
+                <span class="tag">Google Maps</span><span class="tag">Cloud Functions</span><span class="tag">Push
+                  Notifications</span>
+              </div>
+            </div>
+            <p class="exp-subproject-desc">Mobile application for travellers — integrating Google Maps for location
+              discovery, Supabase for real-time backend, cloud functions for server-side logic, and push notifications
+              for user engagement.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-name">Jakub Nenczak</div>
+    <div class="footer-links">
+      <a href="https://github.com/kuba2901" target="_blank">GitHub</a>
+      <a href="http://linkedin.com/in/jakub-nenczak-946742243" target="_blank">LinkedIn</a>
+      <a href="projects.html">All Projects</a>
+      <a href="mailto:kubanenczakdev@gmail.com">Email</a>
     </div>
-  </div>
-</section>
+    <div class="footer-copy">// kubanenczakdev@gmail.com</div>
+  </footer>
 
-</main>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-name">Jakub Nenczak</div>
-  <div class="footer-links">
-    <a href="https://github.com/kuba2901" target="_blank">GitHub</a>
-    <a href="http://linkedin.com/in/jakub-nenczak-946742243" target="_blank">LinkedIn</a>
-    <a href="projects.html">All Projects</a>
-    <a href="mailto:kubanenczakdev@gmail.com">Email</a>
-  </div>
-  <div class="footer-copy">// kubanenczakdev@gmail.com</div>
-</footer>
-
-<script>
-  const cursor = document.getElementById('cursor');
-  document.addEventListener('mousemove', e => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top  = e.clientY + 'px';
-  });
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.style.opacity = '1';
-        e.target.style.transform = 'translateY(0)';
-      }
+  <script>
+    const cursor = document.getElementById('cursor');
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
     });
-  }, { threshold: 0.1 });
 
-  document.querySelectorAll('.project-card, .exp-card, .stack-category, .building-card').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(16px)';
-    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-    observer.observe(el);
-  });
-</script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
 
-    <script type="module">
-        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-        mermaid.initialize({
-            startOnLoad: true,
-            theme: 'dark',
-            fontFamily: 'DM Mono'
-        });
-    </script>
+    document.querySelectorAll('.project-card, .exp-card, .stack-category, .building-card').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(16px)';
+      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      observer.observe(el);
+    });
+  </script>
+
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'dark',
+      fontFamily: 'DM Mono'
+    });
+  </script>
 
 </body>
+
 </html>
