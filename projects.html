@@ -1,441 +1,514 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>All Projects — Jakub Nenczak</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<style>
-  /* ── PAGE-SPECIFIC OVERRIDES ── */
-  .page-hero {
-    padding-top: 8rem;
-    padding-bottom: 4rem;
-    border-bottom: 1px solid var(--border);
-    max-width: 1100px;
-    margin: 0 auto;
-    padding-left: 3rem;
-    padding-right: 3rem;
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Projects — Jakub Nenczak</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── PAGE-SPECIFIC OVERRIDES ── */
+    .page-hero {
+      padding-top: 8rem;
+      padding-bottom: 4rem;
+      border-bottom: 1px solid var(--border);
+      max-width: 1100px;
+      margin: 0 auto;
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
 
-  .page-back {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 12px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--muted);
-    text-decoration: none;
-    margin-bottom: 2.5rem;
-    transition: color 0.2s;
-  }
+    .page-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      margin-bottom: 2.5rem;
+      transition: color 0.2s;
+    }
 
-  .page-back:hover { color: var(--accent); }
+    .page-back:hover {
+      color: var(--accent);
+    }
 
-  h1.page-title {
-    font-family: var(--serif);
-    font-weight: 300;
-    font-size: clamp(2.5rem, 6vw, 5rem);
-    letter-spacing: -0.02em;
-    color: var(--text);
-    line-height: 1;
-    margin-bottom: 1rem;
-  }
+    h1.page-title {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      letter-spacing: -0.02em;
+      color: var(--text);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
 
-  h1.page-title em { font-style: italic; color: var(--accent); }
+    h1.page-title em {
+      font-style: italic;
+      color: var(--accent);
+    }
 
-  .page-subtitle {
-    font-size: 13px;
-    color: var(--muted);
-    max-width: 480px;
-  }
+    .page-subtitle {
+      font-size: 13px;
+      color: var(--muted);
+      max-width: 480px;
+    }
 
-  /* ── FILTER BAR ── */
-  .filter-bar {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 2rem 3rem;
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    border-bottom: 1px solid var(--border);
-  }
+    /* ── FILTER BAR ── */
+    .filter-bar {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 3rem;
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      border-bottom: 1px solid var(--border);
+    }
 
-  .filter-btn {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 0.35rem 0.85rem;
-    border: 1px solid var(--border);
-    background: none;
-    color: var(--muted);
-    cursor: pointer;
-    transition: all 0.2s;
-  }
+    .filter-btn {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.85rem;
+      border: 1px solid var(--border);
+      background: none;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
 
-  .filter-btn:hover, .filter-btn.active {
-    border-color: var(--accent);
-    color: var(--accent);
-  }
+    .filter-btn:hover,
+    .filter-btn.active {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
 
-  /* ── PROJECTS TABLE ── */
-  .projects-page-section {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 3rem 6rem;
-    position: relative;
-    z-index: 1;
-  }
+    /* ── PROJECTS TABLE ── */
+    .projects-page-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 3rem 6rem;
+      position: relative;
+      z-index: 1;
+    }
 
-  .projects-category-label {
-    font-size: 11px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--muted);
-    padding: 2.5rem 0 1rem;
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 0;
-  }
-
-  .project-row {
-    display: grid;
-    grid-template-columns: 3rem 1fr auto;
-    gap: 1.5rem;
-    align-items: start;
-    padding: 1.75rem 0;
-    border-bottom: 1px solid var(--border);
-    transition: background 0.2s;
-  }
-
-  .project-row:hover { background: var(--bg2); margin: 0 -1.5rem; padding-left: 1.5rem; padding-right: 1.5rem; }
-
-  .project-row-num {
-    font-size: 11px;
-    color: var(--muted);
-    letter-spacing: 0.1em;
-    padding-top: 0.2rem;
-  }
-
-  .project-row-body {}
-
-  h3.project-row-title {
-    font-family: var(--serif);
-    font-weight: 300;
-    font-size: 1.35rem;
-    letter-spacing: -0.01em;
-    color: var(--text);
-    margin-bottom: 0.35rem;
-    line-height: 1.2;
-  }
-
-  .project-row-desc {
-    font-size: 12px;
-    color: var(--muted);
-    line-height: 1.6;
-    margin-bottom: 0.75rem;
-    max-width: 600px;
-  }
-
-  .project-row-stack {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.35rem;
-  }
-
-  .project-row-meta {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 0.75rem;
-    padding-top: 0.2rem;
-    min-width: 80px;
-  }
-
-  .project-row-link {
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--muted);
-    text-decoration: none;
-    border-bottom: 1px solid var(--border2);
-    padding-bottom: 1px;
-    transition: all 0.2s;
-    white-space: nowrap;
-  }
-
-  .project-row-link:hover { color: var(--accent); border-color: var(--accent); }
-
-  .project-row-type {
-    font-size: 10px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    padding: 0.2rem 0.5rem;
-    border: 1px solid var(--border);
-    color: var(--muted);
-    white-space: nowrap;
-  }
-
-  .project-row-type.systems { border-color: rgba(200,240,144,0.2); color: var(--accent); }
-  .project-row-type.ai      { border-color: rgba(144,216,240,0.2); color: var(--accent2); }
-  .project-row-type.mobile  { border-color: rgba(240,184,144,0.2); color: var(--accent3); }
-  .project-row-type.wip     { border-color: rgba(240,184,144,0.35); color: var(--accent3); }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 640px) {
-    .page-hero { padding: 6rem 1.25rem 3rem; }
-    .filter-bar { padding: 1.5rem 1.25rem; }
-    .projects-page-section { padding: 0 1.25rem 4rem; }
+    .projects-category-label {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 2.5rem 0 1rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 0;
+    }
 
     .project-row {
-      grid-template-columns: 2rem 1fr;
-      grid-template-rows: auto auto;
+      display: grid;
+      grid-template-columns: 3rem 1fr auto;
+      gap: 1.5rem;
+      align-items: start;
+      padding: 1.75rem 0;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.2s;
+    }
+
+    .project-row:hover {
+      background: var(--bg2);
+      margin: 0 -1.5rem;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    .project-row-num {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      padding-top: 0.2rem;
+    }
+
+    .project-row-body {}
+
+    h3.project-row-title {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: 1.35rem;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin-bottom: 0.35rem;
+      line-height: 1.2;
+    }
+
+    .project-row-desc {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+      max-width: 600px;
+    }
+
+    .project-row-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
     }
 
     .project-row-meta {
-      grid-column: 2;
-      flex-direction: row;
-      align-items: center;
-      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.75rem;
+      padding-top: 0.2rem;
+      min-width: 80px;
     }
 
-    .project-row:hover { margin: 0; padding-left: 0; padding-right: 0; }
-  }
-</style>
+    .project-row-link {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border2);
+      padding-bottom: 1px;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .project-row-link:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .project-row-type {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.5rem;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .project-row-type.systems {
+      border-color: rgba(200, 240, 144, 0.2);
+      color: var(--accent);
+    }
+
+    .project-row-type.ai {
+      border-color: rgba(144, 216, 240, 0.2);
+      color: var(--accent2);
+    }
+
+    .project-row-type.mobile {
+      border-color: rgba(240, 184, 144, 0.2);
+      color: var(--accent3);
+    }
+
+    .project-row-type.wip {
+      border-color: rgba(240, 184, 144, 0.35);
+      color: var(--accent3);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .page-hero {
+        padding: 6rem 1.25rem 3rem;
+      }
+
+      .filter-bar {
+        padding: 1.5rem 1.25rem;
+      }
+
+      .projects-page-section {
+        padding: 0 1.25rem 4rem;
+      }
+
+      .project-row {
+        grid-template-columns: 2rem 1fr;
+        grid-template-rows: auto auto;
+      }
+
+      .project-row-meta {
+        grid-column: 2;
+        flex-direction: row;
+        align-items: center;
+        min-width: 0;
+      }
+
+      .project-row:hover {
+        margin: 0;
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<div id="cursor"></div>
+  <div id="cursor"></div>
 
-<!-- NAV -->
-<nav>
-  <div class="nav-logo">jakubnenczak<span>.</span>me</div>
-  <ul class="nav-links">
-    <li><a href="index.html#about">About</a></li>
-    <li><a href="index.html#projects">Work</a></li>
-    <li><a href="index.html#building">Building</a></li>
-    <li><a href="index.html#experience">Experience</a></li>
-    <li><a href="mailto:kubanenczakdev@gmail.com">Contact</a></li>
-  </ul>
-</nav>
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">jakubnenczak<span>.</span>me</div>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#projects">Work</a></li>
+      <li><a href="index.html#building">Building</a></li>
+      <li><a href="index.html#experience">Experience</a></li>
+      <li><a href="mailto:kubanenczakdev@gmail.com">Contact</a></li>
+    </ul>
+  </nav>
 
-<main>
+  <main>
 
-  <div class="page-hero">
-    <a href="index.html" class="page-back">← Back</a>
-    <h1 class="page-title">All<br><em>Projects</em></h1>
-    <p class="page-subtitle">Every system, tool, and application — from production infrastructure to 42 curriculum deep-dives.</p>
-  </div>
-
-  <div class="filter-bar">
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="systems">Systems &amp; C</button>
-    <button class="filter-btn" data-filter="ai">AI &amp; Backend</button>
-    <button class="filter-btn" data-filter="mobile">Mobile</button>
-    <button class="filter-btn" data-filter="wip">In Progress</button>
-  </div>
-
-  <div class="projects-page-section">
-
-    <!-- SYSTEMS & BACKEND -->
-    <div class="projects-category-label">Systems &amp; Backend</div>
-
-    <div class="project-row" data-type="ai">
-      <div class="project-row-num">001</div>
-      <div class="project-row-body">
-        <h3 class="project-row-title">Distributed RAG Document Synthesis Platform</h3>
-        <p class="project-row-desc">Containerized Retrieval-Augmented Generation backend with LlamaIndex, Qdrant vector DB, and a decoupled MinIO + PostgreSQL storage layer for asynchronous document ingestion and semantic search.</p>
-        <div class="project-row-stack">
-          <span class="tag">Python</span><span class="tag">Qdrant</span><span class="tag">LlamaIndex</span>
-          <span class="tag">MinIO</span><span class="tag">PostgreSQL</span><span class="tag">Docker Compose</span>
-        </div>
-      </div>
-      <div class="project-row-meta">
-        <span class="project-row-type ai">AI / Backend</span>
-        <a href="https://github.com/Kuba2901/rag-document-builder" target="_blank" class="project-row-link">Source ↗</a>
-      </div>
+    <div class="page-hero">
+      <a href="index.html" class="page-back">← Back</a>
+      <h1 class="page-title">All<br><em>Projects</em></h1>
+      <p class="page-subtitle">Every system, tool, and application — from production infrastructure to 42 curriculum
+        deep-dives.</p>
     </div>
 
-    <div class="project-row" data-type="systems">
-      <div class="project-row-num">002</div>
-      <div class="project-row-body">
-        <h3 class="project-row-title">High-Performance HTTP/1.1 Server <span style="font-size:1rem;color:var(--muted);">(webserv)</span></h3>
-        <p class="project-row-desc">RFC-compliant HTTP server built from scratch in C++ using POSIX sockets and a single-threaded non-blocking I/O event loop via <code style="color:var(--accent);font-size:11px;">select()</code>, managing up to 1024 concurrent connections.</p>
-        <div class="project-row-stack">
-          <span class="tag">C++</span><span class="tag">POSIX Sockets</span><span class="tag">TCP/IP</span><span class="tag">CGI</span>
-        </div>
-      </div>
-      <div class="project-row-meta">
-        <span class="project-row-type systems">Systems</span>
-        <a href="https://github.com/Kuba2901/webserv" target="_blank" class="project-row-link">Source ↗</a>
-      </div>
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="systems">Systems &amp; C</button>
+      <button class="filter-btn" data-filter="ai">AI &amp; Backend</button>
+      <button class="filter-btn" data-filter="mobile">Mobile</button>
+      <button class="filter-btn" data-filter="wip">In Progress</button>
     </div>
 
-    <div class="project-row" data-type="systems">
-      <div class="project-row-num">003</div>
-      <div class="project-row-body">
-        <h3 class="project-row-title">OS-Level Concurrency: The Dining Philosophers</h3>
-        <p class="project-row-desc">Classic resource contention problem solved in C using POSIX threads and fine-grained mutex locking to prevent deadlocks, livelocks, and thread starvation under high contention.</p>
-        <div class="project-row-stack">
-          <span class="tag">C</span><span class="tag">POSIX Threads</span><span class="tag">Mutexes</span>
+    <div class="projects-page-section">
+
+      <!-- SYSTEMS & BACKEND -->
+      <div class="projects-category-label">Systems &amp; Backend</div>
+
+      <div class="project-row" data-type="ai">
+        <div class="project-row-num">001</div>
+        <div class="project-row-body">
+          <h3 class="project-row-title">Distributed RAG Document Synthesis Platform</h3>
+          <p class="project-row-desc">Containerized Retrieval-Augmented Generation backend with LlamaIndex, Qdrant
+            vector DB, and a decoupled MinIO + PostgreSQL storage layer for asynchronous document ingestion and semantic
+            search.</p>
+          <div class="project-row-stack">
+            <span class="tag">Python</span><span class="tag">Qdrant</span><span class="tag">LlamaIndex</span>
+            <span class="tag">MinIO</span><span class="tag">PostgreSQL</span><span class="tag">Docker Compose</span>
+          </div>
+        </div>
+        <div class="project-row-meta">
+          <span class="project-row-type ai">AI / Backend</span>
+          <a href="https://github.com/Kuba2901/rag-document-builder" target="_blank" class="project-row-link">Source
+            ↗</a>
         </div>
       </div>
-      <div class="project-row-meta">
-        <span class="project-row-type systems">Systems</span>
-        <a href="https://github.com/Kuba2901/42_philosophers" target="_blank" class="project-row-link">Source ↗</a>
-      </div>
-    </div>
 
-    <div class="project-row" data-type="systems">
-      <div class="project-row-num">004</div>
-      <div class="project-row-body">
-        <h3 class="project-row-title">Minimalist UNIX Shell <span style="font-size:1rem;color:var(--muted);">(Minishell)</span></h3>
-        <p class="project-row-desc">Bash-inspired shell in C supporting pipes, I/O redirection, heredoc, environment variable expansion, all POSIX builtins, correct signal handling in parent and child contexts, and zero memory leaks.</p>
-        <div class="project-row-stack">
-          <span class="tag">C</span><span class="tag">POSIX</span><span class="tag">readline</span><span class="tag">fork/execve</span><span class="tag">Signals</span>
+      <div class="project-row" data-type="systems">
+        <div class="project-row-num">002</div>
+        <div class="project-row-body">
+          <h3 class="project-row-title">High-Performance HTTP/1.1 Server <span
+              style="font-size:1rem;color:var(--muted);">(webserv)</span></h3>
+          <p class="project-row-desc">RFC-compliant HTTP server built from scratch in C++ using POSIX sockets and a
+            single-threaded non-blocking I/O event loop via <code
+              style="color:var(--accent);font-size:11px;">select()</code>, managing up to 1024 concurrent connections.
+          </p>
+          <div class="project-row-stack">
+            <span class="tag">C++</span><span class="tag">POSIX Sockets</span><span class="tag">TCP/IP</span><span
+              class="tag">CGI</span>
+          </div>
+        </div>
+        <div class="project-row-meta">
+          <span class="project-row-type systems">Systems</span>
+          <a href="https://github.com/Kuba2901/webserv" target="_blank" class="project-row-link">Source ↗</a>
         </div>
       </div>
-      <div class="project-row-meta">
-        <span class="project-row-type systems">Systems</span>
-        <a href="https://github.com/kuba2901/42_minishell" target="_blank" class="project-row-link">Source ↗</a>
-      </div>
-    </div>
 
-    <div class="project-row" data-type="systems">
-      <div class="project-row-num">005</div>
-      <div class="project-row-body">
-        <h3 class="project-row-title">Raycasting 3D Engine <span style="font-size:1rem;color:var(--muted);">(Cub3D)</span></h3>
-        <p class="project-row-desc">DDA-based pseudo-3D rendering engine in C inspired by Wolfenstein 3D — one ray per screen column, perpendicular wall distance correction for fish-eye prevention, directional texture mapping, and a custom <code style="color:var(--accent);font-size:11px;">.cub</code> config parser.</p>
-        <div class="project-row-stack">
-          <span class="tag">C</span><span class="tag">MiniLibX</span><span class="tag">DDA Algorithm</span><span class="tag">Vector Math</span>
+      <div class="project-row" data-type="systems">
+        <div class="project-row-num">003</div>
+        <div class="project-row-body">
+          <h3 class="project-row-title">OS-Level Concurrency: The Dining Philosophers</h3>
+          <p class="project-row-desc">Classic resource contention problem solved in C using POSIX threads and
+            fine-grained mutex locking to prevent deadlocks, livelocks, and thread starvation under high contention.</p>
+          <div class="project-row-stack">
+            <span class="tag">C</span><span class="tag">POSIX Threads</span><span class="tag">Mutexes</span>
+          </div>
+        </div>
+        <div class="project-row-meta">
+          <span class="project-row-type systems">Systems</span>
+          <a href="https://github.com/Kuba2901/42_philosophers" target="_blank" class="project-row-link">Source ↗</a>
         </div>
       </div>
-      <div class="project-row-meta">
-        <span class="project-row-type systems">Systems</span>
-        <a href="https://github.com/kuba2901/42_Cub3D" target="_blank" class="project-row-link">Source ↗</a>
-      </div>
-    </div>
 
-    <!-- MOBILE / FREELANCE -->
-    <div class="projects-category-label">Mobile &amp; Freelance</div>
-
-    <div class="project-row" data-type="mobile">
-      <div class="project-row-num">006</div>
-      <div class="project-row-body">
-        <h3 class="project-row-title">Hitspot</h3>
-        <p class="project-row-desc">Travel discovery mobile app built in Flutter — Google Maps integration for location pinning, Supabase real-time backend, cloud functions for server-side processing, and push notifications for user re-engagement.</p>
-        <div class="project-row-stack">
-          <span class="tag">Flutter</span><span class="tag">Supabase</span><span class="tag">Google Maps</span>
-          <span class="tag">Cloud Functions</span><span class="tag">Push Notifications</span>
+      <div class="project-row" data-type="systems">
+        <div class="project-row-num">004</div>
+        <div class="project-row-body">
+          <h3 class="project-row-title">Minimalist UNIX Shell <span
+              style="font-size:1rem;color:var(--muted);">(Minishell)</span></h3>
+          <p class="project-row-desc">Bash-inspired shell in C supporting pipes, I/O redirection, heredoc, environment
+            variable expansion, all POSIX builtins, correct signal handling in parent and child contexts, and zero
+            memory leaks.</p>
+          <div class="project-row-stack">
+            <span class="tag">C</span><span class="tag">POSIX</span><span class="tag">readline</span><span
+              class="tag">fork/execve</span><span class="tag">Signals</span>
+          </div>
+        </div>
+        <div class="project-row-meta">
+          <span class="project-row-type systems">Systems</span>
+          <a href="https://github.com/kuba2901/42_minishell" target="_blank" class="project-row-link">Source ↗</a>
         </div>
       </div>
-      <div class="project-row-meta">
-        <span class="project-row-type mobile">Mobile</span>
-        <a href="https://github.com/kuba2901" target="_blank" class="project-row-link">Source ↗</a>
-      </div>
-    </div>
 
-    <div class="project-row" data-type="mobile">
-      <div class="project-row-num">007</div>
-      <div class="project-row-body">
-        <h3 class="project-row-title">Coeur Clothing</h3>
-        <p class="project-row-desc">E-commerce mobile application for a Polish premium clothing brand — product catalogue, cart management, and checkout flow built in Flutter.</p>
-        <div class="project-row-stack">
-          <span class="tag">Flutter</span><span class="tag">Dart</span>
+      <div class="project-row" data-type="systems">
+        <div class="project-row-num">005</div>
+        <div class="project-row-body">
+          <h3 class="project-row-title">Raycasting 3D Engine <span
+              style="font-size:1rem;color:var(--muted);">(Cub3D)</span></h3>
+          <p class="project-row-desc">DDA-based pseudo-3D rendering engine in C inspired by Wolfenstein 3D — one ray per
+            screen column, perpendicular wall distance correction for fish-eye prevention, directional texture mapping,
+            and a custom <code style="color:var(--accent);font-size:11px;">.cub</code> config parser.</p>
+          <div class="project-row-stack">
+            <span class="tag">C</span><span class="tag">MiniLibX</span><span class="tag">DDA Algorithm</span><span
+              class="tag">Vector Math</span>
+          </div>
+        </div>
+        <div class="project-row-meta">
+          <span class="project-row-type systems">Systems</span>
+          <a href="https://github.com/kuba2901/42_Cub3D" target="_blank" class="project-row-link">Source ↗</a>
         </div>
       </div>
-      <div class="project-row-meta">
-        <span class="project-row-type mobile">Mobile</span>
-        <a href="https://github.com/kuba2901" target="_blank" class="project-row-link">Source ↗</a>
-      </div>
-    </div>
 
-    <!-- IN PROGRESS -->
-    <div class="projects-category-label">In Progress</div>
+      <!-- MOBILE / FREELANCE -->
+      <div class="projects-category-label">Mobile &amp; Freelance</div>
 
-    <div class="project-row" data-type="wip">
-      <div class="project-row-num">008</div>
-      <div class="project-row-body">
-        <h3 class="project-row-title">CoreQ — Manufacturing ERP &amp; Automated Quotation</h3>
-        <p class="project-row-desc">Production management system for manufacturing SMEs migrating from legacy MySQL to PostgreSQL + FastAPI. Features a Bottom-Up data model, virtual machine park (digital twins with live pricing), cascading SQL analytics for margin and Whale Score computation, and a planned MES shop-floor interface.</p>
-        <div class="project-row-stack">
-          <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span>
-          <span class="tag">SQLAlchemy</span><span class="tag">JSONB</span><span class="tag">ETL</span><span class="tag">React</span>
+      <div class="project-row" data-type="mobile">
+        <div class="project-row-num">006</div>
+        <div class="project-row-body">
+          <h3 class="project-row-title">Hitspot</h3>
+          <p class="project-row-desc">Travel discovery mobile app built in Flutter — Google Maps integration for
+            location pinning, Supabase real-time backend, cloud functions for server-side processing, and push
+            notifications for user re-engagement.</p>
+          <div class="project-row-stack">
+            <span class="tag">Flutter</span><span class="tag">Supabase</span><span class="tag">Google Maps</span>
+            <span class="tag">Cloud Functions</span><span class="tag">Push Notifications</span>
+          </div>
+        </div>
+        <div class="project-row-meta">
+          <span class="project-row-type mobile">Mobile</span>
+          <!-- <a href="https://github.com/kuba2901" target="_blank" class="project-row-link">Source ↗</a> -->
         </div>
       </div>
-      <div class="project-row-meta">
-        <span class="project-row-type wip">In Progress</span>
+
+      <div class="project-row" data-type="mobile">
+        <div class="project-row-num">007</div>
+        <div class="project-row-body">
+          <h3 class="project-row-title">Coeur Clothing</h3>
+          <p class="project-row-desc">E-commerce mobile application for a Polish premium clothing brand — product
+            catalogue, cart management, and checkout flow built in Flutter.</p>
+          <div class="project-row-stack">
+            <span class="tag">Flutter</span>
+            <span class="tag">Dart</span>
+            <span class="tag">Stripe</span>
+          </div>
+        </div>
+        <div class="project-row-meta">
+          <span class="project-row-type mobile">Mobile</span>
+          <!-- <a href="https://github.com/kuba2901" target="_blank" class="project-row-link">Source ↗</a> -->
+        </div>
       </div>
+
+      <!-- IN PROGRESS -->
+      <div class="projects-category-label">In Progress</div>
+
+      <div class="project-row" data-type="wip">
+        <div class="project-row-num">008</div>
+        <div class="project-row-body">
+          <h3 class="project-row-title">CoreQ — Manufacturing ERP &amp; Automated Quotation</h3>
+          <p class="project-row-desc">Production management system for manufacturing SMEs migrating from legacy MySQL to
+            PostgreSQL + FastAPI. Features a Bottom-Up data model, virtual machine park (digital twins with live
+            pricing), cascading SQL analytics for margin and Whale Score computation, and a planned MES shop-floor
+            interface.</p>
+          <div class="project-row-stack">
+            <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span>
+            <span class="tag">SQLAlchemy</span><span class="tag">JSONB</span><span class="tag">ETL</span><span
+              class="tag">React</span>
+          </div>
+        </div>
+        <div class="project-row-meta">
+          <span class="project-row-type wip">In Progress</span>
+        </div>
+      </div>
+
     </div>
 
-  </div>
+  </main>
 
-</main>
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-name">Jakub Nenczak</div>
+    <div class="footer-links">
+      <a href="https://github.com/kuba2901" target="_blank">GitHub</a>
+      <a href="http://linkedin.com/in/jakub-nenczak-946742243" target="_blank">LinkedIn</a>
+      <a href="index.html">Home</a>
+      <a href="mailto:kubanenczakdev@gmail.com">Email</a>
+    </div>
+    <div class="footer-copy">// kubanenczakdev@gmail.com</div>
+  </footer>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-name">Jakub Nenczak</div>
-  <div class="footer-links">
-    <a href="https://github.com/kuba2901" target="_blank">GitHub</a>
-    <a href="http://linkedin.com/in/jakub-nenczak-946742243" target="_blank">LinkedIn</a>
-    <a href="index.html">Home</a>
-    <a href="mailto:kubanenczakdev@gmail.com">Email</a>
-  </div>
-  <div class="footer-copy">// kubanenczakdev@gmail.com</div>
-</footer>
+  <script>
+    const cursor = document.getElementById('cursor');
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+    });
 
-<script>
-  const cursor = document.getElementById('cursor');
-  document.addEventListener('mousemove', e => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top  = e.clientY + 'px';
-  });
+    // Filter
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const rows = document.querySelectorAll('.project-row');
 
-  // Filter
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const rows = document.querySelectorAll('.project-row');
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const filter = btn.dataset.filter;
-      rows.forEach(row => {
-        const show = filter === 'all' || row.dataset.type === filter;
-        row.style.display = show ? 'grid' : 'none';
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        rows.forEach(row => {
+          const show = filter === 'all' || row.dataset.type === filter;
+          row.style.display = show ? 'grid' : 'none';
+        });
+        // Hide/show category labels based on visible rows
+        document.querySelectorAll('.projects-category-label').forEach(label => {
+          let next = label.nextElementSibling;
+          let hasVisible = false;
+          while (next && !next.classList.contains('projects-category-label')) {
+            if (next.style.display !== 'none') hasVisible = true;
+            next = next.nextElementSibling;
+          }
+          label.style.display = hasVisible ? '' : 'none';
+        });
       });
-      // Hide/show category labels based on visible rows
-      document.querySelectorAll('.projects-category-label').forEach(label => {
-        let next = label.nextElementSibling;
-        let hasVisible = false;
-        while (next && !next.classList.contains('projects-category-label')) {
-          if (next.style.display !== 'none') hasVisible = true;
-          next = next.nextElementSibling;
+    });
+
+    // Scroll reveal
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'translateY(0)';
         }
-        label.style.display = hasVisible ? '' : 'none';
       });
-    });
-  });
+    }, { threshold: 0.05 });
 
-  // Scroll reveal
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.style.opacity = '1';
-        e.target.style.transform = 'translateY(0)';
-      }
+    document.querySelectorAll('.project-row').forEach((el, i) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(12px)';
+      el.style.transition = `opacity 0.4s ease ${i * 0.05}s, transform 0.4s ease ${i * 0.05}s`;
+      observer.observe(el);
     });
-  }, { threshold: 0.05 });
-
-  document.querySelectorAll('.project-row').forEach((el, i) => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(12px)';
-    el.style.transition = `opacity 0.4s ease ${i * 0.05}s, transform 0.4s ease ${i * 0.05}s`;
-    observer.observe(el);
-  });
-</script>
+  </script>
 
 </body>
+
 </html>
