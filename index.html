@@ -290,7 +290,7 @@
 
   <!-- NAV -->
   <nav>
-    <div class="nav-logo">jakubnenczak<span>.</span>me</div>
+    <div class="nav-logo">jakubnenczak<span>.</span>xyz</div>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#projects">Work</a></li>
@@ -304,12 +304,11 @@
 
     <!-- HERO -->
     <section id="hero">
-      <div class="hero-bg-text">Backend</div>
-      <div class="hero-label">Backend Software Engineer</div>
+      <!-- <div class="hero-bg-text">That's thirty minutes away. I'll be there in ten.</div> -->
+      <!-- <div class="hero-label">Software Engineer</div> -->
       <h1 class="hero-name">Jakub<br><em>Nenczak</em></h1>
       <p class="hero-tagline">
-        Architecting scalable distributed systems, high-performance network servers, and production-grade AI
-        integrations.
+        Curious software engineer always eager to learn and grow.
       </p>
       <div class="hero-meta">
         <span class="hero-loc">// Wrocław, Poland</span>
@@ -330,11 +329,12 @@
           <h2 class="section-title">About</h2>
         </div>
         <div class="about-text">
-          <p>I am a Backend Software Engineer specializing in <strong>distributed systems</strong>, <strong>network
+			I'm a software engineer with 6 years of experience, including a year as a consultant working on a mobile app and as a platform engineer for an Italian telecom company. <br><br> I've always loved learning and pushing myself to improve. Even after starting full-time work, I continued studying at 42 Roma LUISS, and now I'm exploring another field at a different university
+          <!-- <p>I am a Backend Software Engineer specializing in <strong>distributed systems</strong>, <strong>network
               programming</strong>, and <strong>cloud-native infrastructure</strong>.</p>
           <p>Currently completing my B.S. in Automatic Control and Robotics at Wrocław University of Science and
-            Technology and the rigorous systems engineering curriculum at <strong>42 Roma Luiss</strong>.</p>
-          <div class="cka-badge">Certified Kubernetes Administrator (CKA)</div>
+            Technology and the rigorous systems engineering curriculum at <strong>42 Roma Luiss</strong>.</p> -->
+          <!-- <div class="cka-badge">Certified Kubernetes Administrator (CKA)</div> -->
         </div>
       </div>
       <div class="stack-grid">
@@ -354,27 +354,16 @@
             <span class="tag hl">LlamaIndex</span>
             <span class="tag">PostgreSQL</span>
             <span class="tag">SQLite</span>
-            <span class="tag">LLaVA</span>
-            <span class="tag">Qwen</span>
           </div>
         </div>
         <div class="stack-category">
           <div class="stack-cat-label">Infrastructure</div>
           <div class="stack-tags">
-            <span class="tag hl">Kubernetes (CKA)</span>
-            <span class="tag hl">Docker Compose</span>
-            <span class="tag">GCP</span>
-            <span class="tag">Terraform</span>
+            <span class="tag hl">Kubernetes</span>
+            <span class="tag hl">Docker</span>
+            <!-- <span class="tag">GCP</span> -->
+            <!-- <span class="tag">Terraform</span> -->
             <span class="tag">GitHub Actions</span>
-          </div>
-        </div>
-        <div class="stack-category">
-          <div class="stack-cat-label">Networking</div>
-          <div class="stack-tags">
-            <span class="tag hl">HTTP/1.1 RFCs</span>
-            <span class="tag hl">POSIX Sockets</span>
-            <span class="tag">Non-blocking I/O</span>
-            <span class="tag">TCP/IP</span>
           </div>
         </div>
       </div>
@@ -397,10 +386,9 @@
           <h3 class="project-title">Distributed RAG Document<br>Synthesis Platform</h3>
           <div class="project-stack">
             <span class="tag">Python</span><span class="tag">Qdrant</span><span class="tag">LlamaIndex</span>
-            <span class="tag">MinIO</span><span class="tag">PostgreSQL</span><span class="tag">Docker Compose</span>
+            <span class="tag">MinIO</span><span class="tag">PostgreSQL</span><span class="tag">Docker	</span>
           </div>
-          <p class="project-problem">Automating synthesis of user-uploaded documents requires an asynchronous ingestion
-            pipeline capable of semantic search without blocking the main application thread.</p>
+          <p class="project-problem">A simple CDE with integrated document synthesis, RAG retrieval and template-based document generation. </p>
           <div class="mermaid-container">
             <div class="mermaid">
               graph TD
@@ -459,11 +447,9 @@
           <h3 class="project-title">High-Performance HTTP/1.1<br>Server <em
               style="font-family:var(--mono);font-size:1rem;color:var(--muted);font-style:normal;">(webserv)</em></h3>
           <div class="project-stack">
-            <span class="tag">C++</span><span class="tag">POSIX Sockets</span><span class="tag">raw TCP/IP</span>
+            <span class="tag">C++</span><span class="tag">POSIX Sockets</span>
           </div>
-          <p class="project-problem">Standard networking libraries abstract away connection management. This project
-            required building a fully RFC-compliant HTTP server from scratch to handle thousands of concurrent
-            connections under strict memory constraints.</p>
+          <p class="project-problem">As a group effort we built a fully RFC-compliant HTTP server from scratch to handle thousands of concurrent connections under strict memory constraints.</p>
           <div class="mermaid-container">
             <div class="mermaid">
               stateDiagram-v2
@@ -527,8 +513,6 @@
             <li>Solved the classic Dining Philosophers problem by strictly managing OS-level concurrency in C.</li>
             <li>Implemented fine-grained mutex locking on shared resources (forks and stdout) to prevent data races.
             </li>
-            <li>Optimized context-switching and CPU utilization, ensuring mathematically sound resource allocation under
-              high contention.</li>
           </ul>
         </div>
 
@@ -543,7 +527,7 @@
             <span class="tag">C</span><span class="tag">POSIX</span><span class="tag">readline</span><span
               class="tag">fork/execve</span>
           </div>
-          <p class="project-problem">Implementing a shell from scratch demands correct lexing, parsing, process
+          <p class="project-problem">Implemented a shell from scratch demands correct lexing, parsing, process
             lifecycle management, and signal handling — all without a single global variable beyond signal state.</p>
           <ul class="arch-points">
             <li>Built a Bash-inspired shell in C handling pipes, I/O redirection (including heredoc and append), and
@@ -581,7 +565,7 @@
             <img src="assets/projects/cub3d/cub_1.png" alt="Cub3D Gameplay View 2">
           </div>
           <ul class="arch-points">
-            <li>Implemented a DDA (Digital Differential Analyzer) raycasting engine in C, casting one ray per vertical
+            <li>Implemented a DDA raycasting engine in C, casting one ray per vertical
               screen stripe against a 2D tile map.</li>
             <li>Applied perpendicular wall distance correction to eliminate fish-eye distortion, with directional
               texture mapping for N/S/E/W wall faces.</li>
