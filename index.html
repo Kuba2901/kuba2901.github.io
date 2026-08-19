@@ -3,941 +3,954 @@
 
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Jakub Nenczak</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Jakub Nenczak — Backend &amp; Systems Engineer</title>
+	<meta name="description"
+		content="Jakub Nenczak is a backend and systems engineer in Wrocław, Poland. Distributed systems, network programming and cloud-native infrastructure — from an HTTP/1.1 server written in C++ to production Kubernetes.">
+	<meta name="theme-color" content="#F1EFE9" media="(prefers-color-scheme: light)">
+	<meta name="theme-color" content="#0E0F11" media="(prefers-color-scheme: dark)">
+	<meta property="og:title" content="Jakub Nenczak — Backend &amp; Systems Engineer">
+	<meta property="og:description"
+		content="Distributed systems, network programming and cloud-native infrastructure. Wrocław, Poland.">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://jakubnenczak.xyz/">
+
 	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link
-		href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300&display=swap"
-		rel="stylesheet">
-	<link rel="stylesheet" href="style.css">
-	<style>
-		/* ── CURRENTLY BUILDING ── */
-		#building {
-			border-bottom: 1px solid var(--border);
-		}
-
-		.building-card {
-			display: grid;
-			grid-template-columns: 1fr 1fr;
-			gap: 4rem;
-			padding: 2.5rem;
-			border: 1px solid rgba(240, 184, 144, 0.15);
-			background: linear-gradient(135deg, rgba(240, 184, 144, 0.03) 0%, transparent 60%);
-			position: relative;
-			overflow: hidden;
-		}
-
-		.building-card::before {
-			content: '';
-			position: absolute;
-			top: 0;
-			left: 0;
-			right: 0;
-			height: 1px;
-			background: linear-gradient(90deg, var(--accent3), transparent);
-		}
-
-		.wip-badge {
-			display: inline-flex;
-			align-items: center;
-			gap: 0.5rem;
-			padding: 0.3rem 0.75rem;
-			border: 1px solid rgba(240, 184, 144, 0.35);
-			color: var(--accent3);
-			font-size: 11px;
-			letter-spacing: 0.12em;
-			text-transform: uppercase;
-			margin-bottom: 1.25rem;
-		}
-
-		.wip-dot {
-			width: 6px;
-			height: 6px;
-			background: var(--accent3);
-			border-radius: 50%;
-			animation: pulse 2s ease-in-out infinite;
-		}
-
-		@keyframes pulse {
-
-			0%,
-			100% {
-				opacity: 1;
-				transform: scale(1);
-			}
-
-			50% {
-				opacity: 0.4;
-				transform: scale(0.75);
-			}
-		}
-
-		h3.building-title {
-			font-family: var(--serif);
-			font-weight: 300;
-			font-size: 2rem;
-			letter-spacing: -0.02em;
-			color: var(--text);
-			line-height: 1.1;
-			margin-bottom: 0.75rem;
-		}
-
-		.building-subtitle {
-			font-size: 12px;
-			color: var(--accent3);
-			letter-spacing: 0.1em;
-			text-transform: uppercase;
-			margin-bottom: 1.25rem;
-		}
-
-		.building-desc {
-			font-size: 13px;
-			color: var(--muted);
-			line-height: 1.75;
-			margin-bottom: 1.5rem;
-		}
-
-		.building-stack {
-			display: flex;
-			flex-wrap: wrap;
-			gap: 0.4rem;
-		}
-
-		.tag-warm {
-			font-size: 12px;
-			padding: 0.25rem 0.6rem;
-			border: 1px solid rgba(240, 184, 144, 0.25);
-			color: var(--accent3);
-			letter-spacing: 0.04em;
-		}
-
-		/* Roadmap */
-		.roadmap {
-			display: flex;
-			flex-direction: column;
-			gap: 0;
-		}
-
-		.roadmap-label {
-			font-size: 11px;
-			letter-spacing: 0.12em;
-			text-transform: uppercase;
-			color: var(--muted);
-			margin-bottom: 1.25rem;
-		}
-
-		.roadmap-step {
-			display: flex;
-			gap: 1rem;
-			padding-bottom: 1.25rem;
-			position: relative;
-		}
-
-		.roadmap-step:not(:last-child)::after {
-			content: '';
-			position: absolute;
-			left: 7px;
-			top: 18px;
-			width: 1px;
-			bottom: 0;
-			background: var(--border);
-		}
-
-		.roadmap-dot {
-			width: 15px;
-			height: 15px;
-			border-radius: 50%;
-			border: 1px solid var(--border2);
-			background: var(--bg);
-			flex-shrink: 0;
-			margin-top: 3px;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-		}
-
-		.roadmap-dot.done {
-			border-color: var(--accent);
-			background: rgba(200, 240, 144, 0.12);
-		}
-
-		.roadmap-dot.done::after {
-			content: '';
-			width: 5px;
-			height: 5px;
-			border-radius: 50%;
-			background: var(--accent);
-		}
-
-		.roadmap-dot.active {
-			border-color: var(--accent3);
-			background: rgba(240, 184, 144, 0.12);
-			animation: pulse 2s ease-in-out infinite;
-		}
-
-		.roadmap-dot.active::after {
-			content: '';
-			width: 5px;
-			height: 5px;
-			border-radius: 50%;
-			background: var(--accent3);
-		}
-
-		.roadmap-content {}
-
-		.roadmap-step-title {
-			font-size: 12px;
-			color: var(--text);
-			margin-bottom: 0.2rem;
-			letter-spacing: 0.02em;
-		}
-
-		.roadmap-step-title.muted {
-			color: var(--muted);
-		}
-
-		.roadmap-step-desc {
-			font-size: 12px;
-			color: var(--muted);
-			line-height: 1.5;
-		}
-
-		.roadmap-step-status {
-			font-size: 10px;
-			letter-spacing: 0.1em;
-			text-transform: uppercase;
-			margin-bottom: 0.3rem;
-		}
-
-		.roadmap-step-status.done {
-			color: var(--accent);
-		}
-
-		.roadmap-step-status.active {
-			color: var(--accent3);
-		}
-
-		.roadmap-step-status.future {
-			color: var(--muted);
-		}
-
-		/* ── VIEW ALL PROJECTS LINK ── */
-		.view-all-wrap {
-			display: flex;
-			justify-content: flex-end;
-			margin-top: 1px;
-			/* sits right against the grid border */
-		}
-
-		.view-all-link {
-			display: inline-flex;
-			align-items: center;
-			gap: 0.5rem;
-			padding: 1rem 1.5rem;
-			font-size: 12px;
-			letter-spacing: 0.1em;
-			text-transform: uppercase;
-			color: var(--muted);
-			text-decoration: none;
-			border: 1px solid var(--border);
-			border-top: none;
-			transition: all 0.2s;
-			position: relative;
-			overflow: hidden;
-		}
-
-		.view-all-link::before {
-			content: '';
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			width: 0;
-			height: 1px;
-			background: var(--accent);
-			transition: width 0.3s ease;
-		}
-
-		.view-all-link:hover {
-			color: var(--accent);
-		}
-
-		.view-all-link:hover::before {
-			width: 100%;
-		}
-
-		@media (max-width: 768px) {
-			.building-card {
-				grid-template-columns: 1fr;
-				gap: 2.5rem;
-			}
-		}
-
-		@media (max-width: 640px) {
-			.building-card {
-				padding: 1.25rem;
-			}
-
-			h3.building-title {
-				font-size: 1.5rem;
-			}
-		}
-
-		#testimonial {
-			border-bottom: 1px solid var(--border);
-		}
-
-		.testimonial-card {
-			border: 1px solid rgba(200, 240, 144, 0.15);
-			background: linear-gradient(135deg, rgba(200, 240, 144, 0.02) 0%, transparent 60%);
-			padding: 2.5rem;
-			position: relative;
-			overflow: hidden;
-		}
-
-		.testimonial-card::before {
-			content: '';
-			position: absolute;
-			top: 0;
-			left: 0;
-			right: 0;
-			height: 1px;
-			background: linear-gradient(90deg, var(--accent), transparent);
-		}
-
-		.quote-mark {
-			font-family: var(--serif);
-			font-size: 5rem;
-			line-height: 0.6;
-			color: var(--accent);
-			opacity: 0.4;
-			display: block;
-			margin-bottom: 1.5rem;
-		}
-
-		.testimonial-text {
-			font-size: 13px;
-			line-height: 1.85;
-			color: var(--text);
-			font-style: italic;
-			margin-bottom: 2rem;
-			max-width: 72ch;
-		}
-
-		.testimonial-author {
-			display: flex;
-			align-items: center;
-			gap: 1rem;
-			padding-top: 1.5rem;
-			border-top: 1px solid var(--border);
-		}
-
-		.author-avatar {
-			width: 42px;
-			height: 42px;
-			border-radius: 50%;
-			border: 1px solid rgba(255, 255, 255, 0.14);
-			background: rgba(200, 240, 144, 0.08);
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			font-size: 13px;
-			color: var(--accent);
-			letter-spacing: 0.05em;
-			flex-shrink: 0;
-		}
-
-		.author-name {
-			font-size: 13px;
-			color: var(--text);
-			letter-spacing: 0.04em;
-			margin-bottom: 0.2rem;
-		}
-
-		.author-role {
-			font-size: 11px;
-			color: var(--muted);
-			letter-spacing: 0.08em;
-			text-transform: uppercase;
-		}
-	</style>
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap">
+	<link rel="stylesheet" href="style.css?v=1">
+	<script>
+		(function () {
+			var r = document.documentElement;
+			try {
+				var t = localStorage.getItem('theme');
+				if (t === 'light' || t === 'dark') r.setAttribute('data-theme', t);
+			} catch (e) { }
+			// js-ready arms the scroll-reveal styles. If site.js never boots,
+			// drop it again so the page is not left blank.
+			r.classList.add('js-ready');
+			setTimeout(function () {
+				if (!r.dataset.siteReady) r.classList.remove('js-ready');
+			}, 2500);
+		})();
+	</script>
 </head>
 
 <body>
+	<a class="skip" href="#main">Skip to content</a>
+	<div class="progress" id="progress" aria-hidden="true"></div>
 
-	<div id="cursor"></div>
+	<!-- ═══ MASTHEAD ═══ -->
+	<header class="masthead" id="masthead">
+		<div class="shell masthead__inner">
+			<a class="wordmark" href="index.html" aria-label="Jakub Nenczak — home">
+				<b>JAKUB&nbsp;NENCZAK</b>
+				<i>Backend &amp; Systems</i>
+			</a>
+			<nav class="nav" aria-label="Sections">
+				<a class="nav__link" href="#about" data-nav>About</a>
+				<a class="nav__link" href="#work" data-nav>Work</a>
+				<a class="nav__link" href="#building" data-nav>Building</a>
+				<a class="nav__link" href="#experience" data-nav>Experience</a>
+				<a class="nav__link" href="#contact" data-nav>Contact</a>
+				<button class="icon-btn theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark theme">
+					<svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+						stroke-linecap="round" aria-hidden="true">
+						<circle cx="12" cy="12" r="4" />
+						<path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
+					</svg>
+					<svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+						stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+						<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+					</svg>
+				</button>
+				<button class="icon-btn menu-btn" id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false"
+					aria-controls="drawer">
+					<svg class="open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+						stroke-linecap="round" aria-hidden="true">
+						<path d="M3 7h18M3 12h18M3 17h18" />
+					</svg>
+					<svg class="close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+						stroke-linecap="round" aria-hidden="true">
+						<path d="M5 5l14 14M19 5L5 19" />
+					</svg>
+				</button>
+			</nav>
+		</div>
+	</header>
 
-	<!-- NAV -->
-	<nav>
-		<div class="nav-logo">jakubnenczak<span>.</span>xyz</div>
-		<ul class="nav-links">
-			<li><a href="#about">About</a></li>
-			<li><a href="#projects">Work</a></li>
-			<li><a href="#building">Building</a></li>
-			<li><a href="#experience">Experience</a></li>
-			<li><a href="mailto:kubanenczakdev@gmail.com">Contact</a></li>
-		</ul>
-	</nav>
+	<div class="drawer" id="drawer" data-open="false">
+		<a href="#about"><span>01</span> About</a>
+		<a href="#work"><span>02</span> Work</a>
+		<a href="#building"><span>03</span> Building</a>
+		<a href="#experience"><span>04</span> Experience</a>
+		<a href="#contact"><span>05</span> Contact</a>
+	</div>
 
-	<main>
+	<main id="main">
 
-		<!-- HERO -->
-		<section id="hero">
-			<!-- <div class="hero-bg-text">That's thirty minutes away. I'll be there in ten.</div> -->
-			<!-- <div class="hero-label">Software Engineer</div> -->
-			<h1 class="hero-name">Jakub<br><em>Nenczak</em></h1>
-			<p class="hero-tagline">
-				Curious software engineer always eager to learn and grow.
-			</p>
-			<div class="hero-meta">
-				<span class="hero-loc">// Wrocław, Poland</span>
-				<div class="hero-links">
-					<a href="https://github.com/kuba2901" target="_blank" class="btn">GitHub ↗</a>
-					<a href="http://linkedin.com/in/jakub-nenczak-946742243" target="_blank" class="btn">LinkedIn ↗</a>
-					<a href="https://drive.google.com/file/d/1kOh5VMnGZBeAAFfJRy10m-hcSmAyC2om/view?usp=sharing"
-						target="_blank" class="btn btn-primary">Resume</a>
+		<!-- ═══ HERO ═══ -->
+		<section class="hero shell" aria-labelledby="hero-name">
+			<div class="hero__kicker">
+				<span class="pulse" aria-hidden="true"></span>
+				<span class="label label--mark">Open to backend &amp; platform roles</span>
+				<hr class="rule">
+				<span class="label">Wrocław · PL — UTC+2</span>
+			</div>
+
+			<h1 class="hero__name" id="hero-name">
+				<span class="reveal-line" data-line><span>Jakub</span></span>
+				<span class="reveal-line indent" data-line><span><em>Nenczak</em></span></span>
+			</h1>
+
+			<div class="hero__grid">
+				<div>
+					<p class="hero__lede" data-reveal>
+						I build the layer nobody sees. <strong>Backend and systems engineering</strong> — distributed
+						services, network programming, and the infrastructure that keeps them upright.
+					</p>
+					<div class="hero__actions" data-reveal>
+						<a class="btn btn--mark" href="#work">
+							<span>See the work</span>
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+								stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+								<path d="M12 5v14M5 12l7 7 7-7" />
+							</svg>
+						</a>
+						<a class="btn"
+							href="https://drive.google.com/file/d/1kOh5VMnGZBeAAFfJRy10m-hcSmAyC2om/view?usp=sharing"
+							target="_blank" rel="noopener">
+							<span>Résumé</span>
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+								stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+								<path d="M7 17 17 7M9 7h8v8" />
+							</svg>
+						</a>
+					</div>
+				</div>
+
+				<dl class="spec" data-reveal>
+					<dt>Discipline</dt>
+					<dd><b>Backend · Distributed systems · Platform</b></dd>
+					<dt>Experience</dt>
+					<dd>6 years — consultancy, telecom platform, freelance</dd>
+					<dt>Languages</dt>
+					<dd>Python · C / C++ · Java · Dart</dd>
+					<dt>Certified</dt>
+					<dd>CKA — Certified Kubernetes Administrator</dd>
+					<dt>Schooling</dt>
+					<dd>42 Roma Luiss · currently studying again, new field</dd>
+					<dt>Status</dt>
+					<dd><b>Available</b> — building CoreQ in the meantime</dd>
+				</dl>
+			</div>
+		</section>
+
+		<!-- ═══ 01 · ABOUT ═══ -->
+		<section class="band shell" id="about" aria-labelledby="about-h">
+			<header class="sec-head">
+				<span class="label label--mark">§ 01</span>
+				<h2 class="sec-head__title" id="about-h">About</h2>
+				<hr class="rule">
+				<span class="label">Profile</span>
+			</header>
+
+			<div class="about">
+				<div class="prose" data-reveal>
+					<p class="drop">Six years in, and the part I still like best is the part underneath — sockets,
+						schedulers, storage layers, the things that decide whether a system holds up at 3am. I spent a
+						year as a consultant building a mobile app, then moved onto platform engineering for an Italian
+						telecom company, running <em>Kubernetes infrastructure</em> and internal tooling for other
+						engineers.</p>
+					<p>Alongside full-time work I went through <strong>42 Roma Luiss</strong>, which is where the
+						low-level habits come from: writing an HTTP server without a framework, a shell without a
+						library, a renderer without an engine. Right now I'm studying again — a different field, a
+						different university — mostly because stopping felt worse than being busy.</p>
+					<p>The through-line is the same either way. Read the spec, understand the constraint, then build the
+						smallest thing that actually satisfies it.</p>
+				</div>
+
+				<div class="stack" data-reveal>
+					<div class="stack__group">
+						<div class="stack__head">
+							<span class="label"><span class="num">01</span> — Systems &amp; Backend</span>
+						</div>
+						<ul class="chips">
+							<li class="chip">Python</li>
+							<li class="chip">C / C++</li>
+							<li class="chip">Java</li>
+							<li class="chip">Dart</li>
+							<li class="chip">FastAPI</li>
+							<li class="chip">Quarkus</li>
+							<li class="chip">Spring</li>
+							<li class="chip">POSIX / sockets</li>
+						</ul>
+					</div>
+					<div class="stack__group">
+						<div class="stack__head">
+							<span class="label"><span class="num">02</span> — Data &amp; AI</span>
+						</div>
+						<ul class="chips">
+							<li class="chip">PostgreSQL</li>
+							<li class="chip">SQLAlchemy</li>
+							<li class="chip">Qdrant</li>
+							<li class="chip">LlamaIndex</li>
+							<li class="chip">SQLite</li>
+							<li class="chip">MinIO</li>
+						</ul>
+					</div>
+					<div class="stack__group">
+						<div class="stack__head">
+							<span class="label"><span class="num">03</span> — Infrastructure</span>
+						</div>
+						<ul class="chips">
+							<li class="chip chip--mark">Kubernetes · CKA</li>
+							<li class="chip">Docker</li>
+							<li class="chip">GitHub Actions</li>
+							<li class="chip">Grafana / Loki</li>
+							<li class="chip">Supabase</li>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</section>
 
-		<!-- ABOUT -->
-		<section id="about">
-			<div class="about-left">
-				<div class="section-header">
-					<span class="section-num">01</span>
-					<h2 class="section-title">About</h2>
-				</div>
-				<div class="about-text">
-					I'm a software engineer with 6 years of experience, including a year as a consultant working on a
-					mobile app and as a platform engineer for an Italian telecom company. <br><br> I've always loved
-					learning and pushing myself to improve. Even after starting full-time work, I continued studying at
-					42 Roma LUISS, and now I'm exploring another field at a different university
-					<!-- <p>I am a Backend Software Engineer specializing in <strong>distributed systems</strong>, <strong>network
-              programming</strong>, and <strong>cloud-native infrastructure</strong>.</p>
-          <p>Currently completing my B.S. in Automatic Control and Robotics at Wrocław University of Science and
-            Technology and the rigorous systems engineering curriculum at <strong>42 Roma Luiss</strong>.</p> -->
-					<!-- <div class="cka-badge">Certified Kubernetes Administrator (CKA)</div> -->
-				</div>
+		<!-- ═══ 02 · WORK ═══ -->
+		<section class="band shell" id="work" aria-labelledby="work-h">
+			<header class="sec-head">
+				<span class="label label--mark">§ 02</span>
+				<h2 class="sec-head__title" id="work-h">Selected Work</h2>
+				<hr class="rule">
+				<span class="label">05 Systems</span>
+			</header>
+
+			<div class="plates">
+
+				<!-- FIG 001 -->
+				<article class="plate" data-reveal>
+					<div class="plate__rail">
+						<span class="plate__fig">001</span>
+						<dl class="plate__meta">
+							<div>
+								<dt>Domain</dt>
+								<dd>AI / Backend</dd>
+							</div>
+							<div>
+								<dt>Role</dt>
+								<dd>Sole author</dd>
+							</div>
+							<div>
+								<dt>Core</dt>
+								<dd>Python · Qdrant</dd>
+							</div>
+						</dl>
+					</div>
+
+					<div class="plate__body">
+						<div class="plate__titlewrap">
+							<h3 class="plate__title">
+								<a href="https://github.com/Kuba2901/rag-document-builder" target="_blank"
+									rel="noopener">Distributed RAG Document Synthesis Platform</a>
+							</h3>
+							<span class="label" aria-hidden="true">Source ↗</span>
+						</div>
+
+						<p class="plate__lede">A common data environment that <b>reads your documents and writes new
+								ones</b> — ingest, chunk, embed, retrieve, then synthesise against a template. Every
+							stage is containerised and independently observable.</p>
+
+						<figure class="figure">
+							<div class="figure__bar">
+								<span class="label">Fig. 001 — Ingest &amp; retrieval topology</span>
+								<span class="label">Async · containerised</span>
+							</div>
+							<div class="figure__canvas">
+								<svg viewBox="-2 -2 904 376" role="img"
+									aria-label="Architecture diagram. Ingest pipeline: upload from the React client goes to the FastAPI gateway, then to LlamaIndex for chunking and extraction, then to an embedding model. The gateway writes raw files to MinIO; LlamaIndex writes metadata to PostgreSQL; the embedding model writes vectors to Qdrant. Query path: a semantic query from the client hits the k-nearest-neighbour retrieval engine, which vector-searches Qdrant, then passes context to the LLM synthesis engine, which returns a generated document. All services ship logs to Promtail, which pushes to Loki, which Grafana queries.">
+									<defs>
+										<marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6"
+											markerHeight="6" orient="auto-start-reverse">
+											<path d="M0 0 10 5 0 10z" fill="currentColor" />
+										</marker>
+										<marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6"
+											markerHeight="6" orient="auto-start-reverse">
+											<path d="M0 0 10 5 0 10z" fill="var(--accent-mark)" />
+										</marker>
+									</defs>
+
+									<!-- lane labels -->
+									<text class="d-t d-t--mute" x="0" y="18">INGEST PIPELINE</text>
+									<text class="d-t d-t--mute" x="650" y="18">STORAGE LAYER</text>
+									<text class="d-t d-t--mute" x="0" y="214">QUERY PATH</text>
+
+									<!-- ingest lane -->
+									<rect class="d-box" x="0" y="38" width="108" height="40" />
+									<text class="d-t" x="12" y="58">UPLOAD</text>
+									<text class="d-t d-t--mute" x="12" y="70">react client</text>
+
+									<rect class="d-box" x="136" y="38" width="124" height="40" />
+									<text class="d-t" x="148" y="58">FASTAPI</text>
+									<text class="d-t d-t--mute" x="148" y="70">gateway</text>
+
+									<rect class="d-box" x="288" y="38" width="150" height="40" />
+									<text class="d-t" x="300" y="58">LLAMAINDEX</text>
+									<text class="d-t d-t--mute" x="300" y="70">chunk + extract</text>
+
+									<rect class="d-box" x="466" y="38" width="120" height="40" />
+									<text class="d-t" x="478" y="58">EMBEDDING</text>
+									<text class="d-t d-t--mute" x="478" y="70">model</text>
+
+									<path class="d-line" d="M108 58H130" marker-end="url(#a1)" />
+									<path class="d-line" d="M260 58H282" marker-end="url(#a1)" />
+									<path class="d-line" d="M438 58H460" marker-end="url(#a1)" />
+									<path class="d-line" d="M586 58H644" marker-end="url(#a1)" />
+
+									<!-- storage rail -->
+									<rect class="d-fill" x="650" y="40" width="150" height="36" />
+									<text class="d-t" x="662" y="57">QDRANT</text>
+									<text class="d-t d-t--mute" x="662" y="69">vector index</text>
+
+									<rect class="d-fill" x="650" y="78" width="150" height="36" />
+									<text class="d-t" x="662" y="95">POSTGRESQL</text>
+									<text class="d-t d-t--mute" x="662" y="107">metadata</text>
+
+									<rect class="d-fill" x="650" y="134" width="150" height="36" />
+									<text class="d-t" x="662" y="151">MINIO</text>
+									<text class="d-t d-t--mute" x="662" y="163">raw objects</text>
+
+									<!-- channels into storage -->
+									<path class="d-line" d="M198 78V152H644" marker-end="url(#a1)" />
+									<path class="d-line" d="M363 78V96H644" marker-end="url(#a1)" />
+									<text class="d-t d-t--mute" x="206" y="148">store raw file</text>
+									<text class="d-t d-t--mute" x="371" y="92">store metadata</text>
+									<text class="d-t d-t--mute" x="594" y="52">vectors</text>
+
+									<!-- query lane -->
+									<rect class="d-box" x="0" y="232" width="124" height="40" />
+									<text class="d-t" x="12" y="252">QUERY</text>
+									<text class="d-t d-t--mute" x="12" y="264">natural language</text>
+
+									<rect class="d-box d-box--mark" x="152" y="232" width="140" height="40" />
+									<text class="d-t d-t--mark" x="164" y="252">RETRIEVAL</text>
+									<text class="d-t d-t--mute" x="164" y="264">k-NN search</text>
+
+									<rect class="d-box" x="320" y="232" width="140" height="40" />
+									<text class="d-t" x="332" y="252">LLM ENGINE</text>
+									<text class="d-t d-t--mute" x="332" y="264">context synthesis</text>
+
+									<rect class="d-box" x="488" y="232" width="140" height="40" />
+									<text class="d-t" x="500" y="252">DOCUMENT</text>
+									<text class="d-t d-t--mute" x="500" y="264">template-filled</text>
+
+									<path class="d-line" d="M124 252H146" marker-end="url(#a1)" />
+									<path class="d-line" d="M292 252H314" marker-end="url(#a1)" />
+									<path class="d-line" d="M460 252H482" marker-end="url(#a1)" />
+
+									<!-- retrieval ↔ qdrant -->
+									<path class="d-line d-line--mark" d="M222 232V200H840V58H806"
+										marker-end="url(#a2)" />
+									<text class="d-t d-t--mark" x="700" y="194">similarity search</text>
+
+									<!-- observability -->
+									<rect class="d-group" x="0" y="304" width="900" height="56" />
+									<text class="d-t d-t--mute" x="12" y="300">OBSERVABILITY</text>
+									<rect class="d-fill" x="24" y="316" width="132" height="32" />
+									<text class="d-t" x="36" y="336">PROMTAIL</text>
+									<rect class="d-fill" x="192" y="316" width="132" height="32" />
+									<text class="d-t" x="204" y="336">LOKI</text>
+									<rect class="d-fill" x="360" y="316" width="132" height="32" />
+									<text class="d-t" x="372" y="336">GRAFANA</text>
+									<path class="d-line d-line--dash" d="M156 332H186" marker-end="url(#a1)" />
+									<path class="d-line d-line--dash" d="M324 332H354" marker-end="url(#a1)" />
+									<path class="d-line d-line--dash" d="M390 272V310" marker-end="url(#a1)" />
+									<text class="d-t d-t--mute" x="512" y="336">app · pipeline · inference logs</text>
+								</svg>
+							</div>
+							<figcaption class="label">Ingest is asynchronous; retrieval reads only from Qdrant, so
+								indexing never blocks a query.</figcaption>
+						</figure>
+
+						<ul class="plate__notes">
+							<li>Built a containerised RAG backend on <b>LlamaIndex</b> for document chunking and metadata
+								extraction, with each stage isolated behind its own service boundary.</li>
+							<li>Used <b>Qdrant</b> — a Rust vector database — for high-dimensional similarity search,
+								keeping k-NN latency off the request path of ingestion.</li>
+							<li>Decoupled storage from day one: <b>MinIO</b> for raw objects, <b>PostgreSQL</b> for
+								metadata, so write scaling and blob scaling are independent problems.</li>
+							<li>Wired the whole pipeline into <b>Promtail → Loki → Grafana</b>, because a synthesis step
+								that fails silently is worse than one that fails loudly.</li>
+						</ul>
+
+						<ul class="chips">
+							<li class="chip">Python</li>
+							<li class="chip">Qdrant</li>
+							<li class="chip">LlamaIndex</li>
+							<li class="chip">MinIO</li>
+							<li class="chip">PostgreSQL</li>
+							<li class="chip">Docker Compose</li>
+						</ul>
+					</div>
+				</article>
+
+				<!-- FIG 002 -->
+				<article class="plate" data-reveal>
+					<div class="plate__rail">
+						<span class="plate__fig">002</span>
+						<dl class="plate__meta">
+							<div>
+								<dt>Domain</dt>
+								<dd>Systems / Network</dd>
+							</div>
+							<div>
+								<dt>Role</dt>
+								<dd>Team of three</dd>
+							</div>
+							<div>
+								<dt>Core</dt>
+								<dd>C++ · POSIX</dd>
+							</div>
+						</dl>
+					</div>
+
+					<div class="plate__body">
+						<div class="plate__titlewrap">
+							<h3 class="plate__title">
+								<a href="https://github.com/Kuba2901/webserv" target="_blank" rel="noopener">An HTTP/1.1
+									Server, Written From Nothing</a>
+							</h3>
+							<span class="label" aria-hidden="true">Source ↗</span>
+						</div>
+
+						<p class="plate__lede">No framework, no library, no threads. One process, one
+							<code>select()</code> loop, and up to <b>1024 concurrent file descriptors</b> — all of them
+							allowed to stall halfway through a read or a write without taking the server down.
+						</p>
+
+						<figure class="figure">
+							<div class="figure__bar">
+								<span class="label">Fig. 002 — Connection state machine</span>
+								<span class="label">Single thread · non-blocking</span>
+							</div>
+							<div class="figure__canvas">
+								<svg viewBox="-2 -2 904 272" role="img"
+									aria-label="State machine diagram. The server waits in select(), accepts a new file descriptor, receives bytes in an EAGAIN-safe loop, parses the HTTP/1.1 request, and routes it against the config. Routing branches to either a CGI child process created with fork and execve, or a static file read. Both converge on a partial-safe send. After sending, a keep-alive connection returns to the select() wait; otherwise the connection is closed.">
+									<defs>
+										<marker id="b1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6"
+											markerHeight="6" orient="auto-start-reverse">
+											<path d="M0 0 10 5 0 10z" fill="currentColor" />
+										</marker>
+										<marker id="b2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6"
+											markerHeight="6" orient="auto-start-reverse">
+											<path d="M0 0 10 5 0 10z" fill="var(--accent-mark)" />
+										</marker>
+									</defs>
+
+									<!-- main row -->
+									<rect class="d-box d-box--mark" x="0" y="100" width="118" height="44" />
+									<text class="d-t d-t--mark" x="12" y="120">WAIT</text>
+									<text class="d-t d-t--mute" x="12" y="133">select()</text>
+
+									<rect class="d-box" x="146" y="100" width="118" height="44" />
+									<text class="d-t" x="158" y="120">ACCEPT</text>
+									<text class="d-t d-t--mute" x="158" y="133">new fd → set</text>
+
+									<rect class="d-box" x="292" y="100" width="118" height="44" />
+									<text class="d-t" x="304" y="120">RECV</text>
+									<text class="d-t d-t--mute" x="304" y="133">EAGAIN safe</text>
+
+									<rect class="d-box" x="438" y="100" width="118" height="44" />
+									<text class="d-t" x="450" y="120">PARSE</text>
+									<text class="d-t d-t--mute" x="450" y="133">HTTP/1.1</text>
+
+									<rect class="d-box" x="584" y="100" width="118" height="44" />
+									<text class="d-t" x="596" y="120">ROUTE</text>
+									<text class="d-t d-t--mute" x="596" y="133">config match</text>
+
+									<rect class="d-box" x="782" y="100" width="118" height="44" />
+									<text class="d-t" x="794" y="120">SEND</text>
+									<text class="d-t d-t--mute" x="794" y="133">partial safe</text>
+
+									<path class="d-line" d="M118 122H140" marker-end="url(#b1)" />
+									<path class="d-line" d="M264 122H286" marker-end="url(#b1)" />
+									<path class="d-line" d="M410 122H432" marker-end="url(#b1)" />
+									<path class="d-line" d="M556 122H578" marker-end="url(#b1)" />
+
+									<!-- branch -->
+									<rect class="d-fill" x="584" y="24" width="118" height="38" />
+									<text class="d-t" x="596" y="41">CGI</text>
+									<text class="d-t d-t--mute" x="596" y="54">fork + execve</text>
+
+									<rect class="d-fill" x="584" y="182" width="118" height="38" />
+									<text class="d-t" x="596" y="199">STATIC</text>
+									<text class="d-t d-t--mute" x="596" y="212">file read</text>
+
+									<path class="d-line" d="M643 100V68" marker-end="url(#b1)" />
+									<path class="d-line" d="M643 144V176" marker-end="url(#b1)" />
+									<text class="d-t d-t--mute" x="650" y="88">dynamic</text>
+									<text class="d-t d-t--mute" x="650" y="168">static</text>
+
+									<path class="d-line" d="M702 43H752V122" />
+									<path class="d-line" d="M702 201H752V122" />
+									<path class="d-line" d="M752 122H776" marker-end="url(#b1)" />
+
+									<!-- close -->
+									<rect class="d-fill" x="782" y="24" width="118" height="38" />
+									<text class="d-t" x="794" y="41">CLOSE</text>
+									<text class="d-t d-t--mute" x="794" y="54">Connection: close</text>
+									<path class="d-line" d="M841 100V68" marker-end="url(#b1)" />
+
+									<!-- keep-alive return -->
+									<path class="d-line d-line--mark" d="M841 144V244H59V150" marker-end="url(#b2)" />
+									<text class="d-t d-t--mark" x="380" y="238">keep-alive · fd stays in the set</text>
+
+									<text class="d-t d-t--mute" x="0" y="88">1024 FD BUDGET</text>
+								</svg>
+							</div>
+							<figcaption class="label">Every transition is resumable: a partial read parks the connection
+								and returns to <code>select()</code> rather than blocking the loop.</figcaption>
+						</figure>
+
+						<ul class="plate__notes">
+							<li>Bypassed every web framework and wrote the event loop and the HTTP request parser by hand
+								in C++.</li>
+							<li>Single-threaded, non-blocking I/O multiplexed with <code>select()</code>, holding up to
+								1024 file descriptors without a thread per connection.</li>
+							<li>State-machine logic for partial socket reads and writes (<code>EAGAIN</code>), CGI
+								execution via <code>fork()</code>, and memory safety under sustained stress.</li>
+						</ul>
+
+						<ul class="chips">
+							<li class="chip">C++</li>
+							<li class="chip">POSIX Sockets</li>
+							<li class="chip">TCP/IP</li>
+							<li class="chip">CGI</li>
+						</ul>
+					</div>
+				</article>
+
+				<!-- FIG 003 -->
+				<article class="plate" data-reveal>
+					<div class="plate__rail">
+						<span class="plate__fig">003</span>
+						<dl class="plate__meta">
+							<div>
+								<dt>Domain</dt>
+								<dd>Concurrency</dd>
+							</div>
+							<div>
+								<dt>Role</dt>
+								<dd>Sole author</dd>
+							</div>
+							<div>
+								<dt>Core</dt>
+								<dd>C · pthreads</dd>
+							</div>
+						</dl>
+					</div>
+
+					<div class="plate__body">
+						<div class="plate__titlewrap">
+							<h3 class="plate__title">
+								<a href="https://github.com/Kuba2901/42_philosophers" target="_blank"
+									rel="noopener">Dining Philosophers, At The OS Level</a>
+							</h3>
+							<span class="label" aria-hidden="true">Source ↗</span>
+						</div>
+
+						<p class="plate__lede">Resource contention with no safety net: <b>no deadlock, no livelock, no
+								starvation</b>, and no thread quietly winning at the expense of another. The interesting
+							part is not the solution — it's proving the solution holds.</p>
+
+						<ul class="plate__notes">
+							<li>Managed OS-level concurrency directly in C with POSIX threads and hand-placed mutexes.
+							</li>
+							<li>Fine-grained locking on every shared resource — forks and <code>stdout</code> alike — so
+								logging could not itself become the race.</li>
+							<li>Timing verified against death thresholds, because a philosopher that eats late is a
+								correctness bug, not a performance one.</li>
+						</ul>
+
+						<ul class="chips">
+							<li class="chip">C</li>
+							<li class="chip">POSIX Threads</li>
+							<li class="chip">Mutexes</li>
+						</ul>
+					</div>
+				</article>
+
+				<!-- FIG 004 -->
+				<article class="plate" data-reveal>
+					<div class="plate__rail">
+						<span class="plate__fig">004</span>
+						<dl class="plate__meta">
+							<div>
+								<dt>Domain</dt>
+								<dd>Systems / UNIX</dd>
+							</div>
+							<div>
+								<dt>Role</dt>
+								<dd>Pair</dd>
+							</div>
+							<div>
+								<dt>Core</dt>
+								<dd>C · readline</dd>
+							</div>
+						</dl>
+					</div>
+
+					<div class="plate__body">
+						<div class="plate__titlewrap">
+							<h3 class="plate__title">
+								<a href="https://github.com/kuba2901/42_minishell" target="_blank" rel="noopener">A UNIX
+									Shell, One Global Variable Allowed</a>
+							</h3>
+							<span class="label" aria-hidden="true">Source ↗</span>
+						</div>
+
+						<p class="plate__lede">Lexing, parsing, process lifecycle, and signal handling — with exactly
+							<b>one global permitted</b>, reserved for signal state. Every other piece of context has to be
+							threaded through by hand.
+						</p>
+
+						<ul class="plate__notes">
+							<li>Bash-inspired shell in C: pipes, I/O redirection including heredoc and append, and
+								environment variable expansion with <code>$?</code>.</li>
+							<li>All builtins implemented from scratch (<code>cd</code>, <code>export</code>,
+								<code>unset</code>, <code>env</code>, <code>exit</code>) with child execution via
+								<code>fork()</code> / <code>execve()</code>.
+							</li>
+							<li><code>SIGINT</code> and <code>SIGQUIT</code> handled correctly in both parent and child
+								contexts, with zero leaks under Valgrind.</li>
+						</ul>
+
+						<ul class="chips">
+							<li class="chip">C</li>
+							<li class="chip">POSIX</li>
+							<li class="chip">readline</li>
+							<li class="chip">fork / execve</li>
+							<li class="chip">Signals</li>
+						</ul>
+					</div>
+				</article>
+
+				<!-- FIG 005 -->
+				<article class="plate" data-reveal>
+					<div class="plate__rail">
+						<span class="plate__fig">005</span>
+						<dl class="plate__meta">
+							<div>
+								<dt>Domain</dt>
+								<dd>Graphics / Math</dd>
+							</div>
+							<div>
+								<dt>Role</dt>
+								<dd>Sole author</dd>
+							</div>
+							<div>
+								<dt>Core</dt>
+								<dd>C · MiniLibX</dd>
+							</div>
+						</dl>
+					</div>
+
+					<div class="plate__body">
+						<div class="plate__titlewrap">
+							<h3 class="plate__title">
+								<a href="https://github.com/kuba2901/42_Cub3D" target="_blank" rel="noopener">Cub3D — A
+									Raycasting Engine In C</a>
+							</h3>
+							<span class="label" aria-hidden="true">Source ↗</span>
+						</div>
+
+						<p class="plate__lede">A convincing 3D world drawn from a flat 2D grid, <b>one ray per screen
+								column</b>. Wolfenstein's trick, rebuilt: DDA traversal, fish-eye correction, and
+							per-column texture sampling inside a tight pixel-buffer loop.</p>
+
+						<figure class="figure">
+							<div class="figure__bar">
+								<span class="label">Fig. 005 — Rendered output</span>
+								<span class="label">DDA · per-column texturing</span>
+							</div>
+							<div class="shots">
+								<img src="assets/projects/cub3d/cub_0.png" alt="Cub3D rendering a textured corridor with
+									distinct wall faces" width="2554" height="1428" loading="lazy" decoding="async">
+								<img src="assets/projects/cub3d/cub_1.png" alt="Cub3D rendering an open room, showing
+									directional wall texturing and floor-ceiling split" width="2554" height="1474"
+									loading="lazy" decoding="async">
+							</div>
+						</figure>
+
+						<ul class="plate__notes">
+							<li>DDA raycasting engine in C, casting one ray per vertical screen stripe against a 2D tile
+								map.</li>
+							<li>Perpendicular wall distance correction to remove fish-eye distortion, with directional
+								texture mapping for N/S/E/W faces.</li>
+							<li>Double-buffered pixel rendering through MiniLibX, plus a fully validating parser for the
+								custom <code>.cub</code> config format.</li>
+						</ul>
+
+						<ul class="chips">
+							<li class="chip">C</li>
+							<li class="chip">MiniLibX</li>
+							<li class="chip">DDA Algorithm</li>
+							<li class="chip">Vector Math</li>
+						</ul>
+					</div>
+				</article>
 			</div>
-			<div class="stack-grid">
-				<div class="stack-category">
-					<div class="stack-cat-label">Systems &amp; Backend</div>
-					<div class="stack-tags">
-						<span class="tag hl">Python</span>
-						<span class="tag hl">C/C++</span>
-						<span class="tag">Java</span>
-						<span class="tag">Dart</span>
+
+			<div style="margin-top: var(--s7)" data-reveal>
+				<a class="btn" href="projects.html">
+					<span>Full project index — 08 entries</span>
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+						stroke-linejoin="round" aria-hidden="true">
+						<path d="M5 12h14M12 5l7 7-7 7" />
+					</svg>
+				</a>
+			</div>
+		</section>
+
+		<!-- ═══ 03 · BUILDING ═══ -->
+		<section class="band shell" id="building" aria-labelledby="building-h">
+			<header class="sec-head">
+				<span class="label label--mark">§ 03</span>
+				<h2 class="sec-head__title" id="building-h">Currently Building</h2>
+				<hr class="rule">
+				<span class="label">In Progress</span>
+			</header>
+
+			<div class="wip" data-reveal>
+				<div>
+					<span class="badge"><span class="pulse" aria-hidden="true"></span> Active development</span>
+					<h3 class="wip__title">CoreQ</h3>
+					<p class="label" style="margin-bottom: var(--s4)">Automated quotation &amp; production management ·
+						Manufacturing SMEs</p>
+
+					<div class="prose">
+						<p>A quoting and production system for small manufacturers, replacing a legacy MySQL codebase
+							with <strong>PostgreSQL and FastAPI</strong>. The design shift that matters is a bottom-up
+							data model: operations bind to parts, parts to quotes, quotes to orders. Nothing floats in a
+							vacuum any more.</p>
+						<p>On top of that sit a <em>virtual machine park</em> — digital twins carrying hourly rates and
+							physical constraints — material twins priced against live LME data, and a cascading analytics
+							layer where SQL views compute margins and client whale scores without anyone touching a
+							spreadsheet.</p>
 					</div>
+
+					<ul class="chips" style="margin-top: var(--s5)">
+						<li class="chip">Python</li>
+						<li class="chip">FastAPI</li>
+						<li class="chip">PostgreSQL</li>
+						<li class="chip">SQLAlchemy</li>
+						<li class="chip">JSONB</li>
+						<li class="chip">ETL</li>
+						<li class="chip">React</li>
+					</ul>
 				</div>
-				<div class="stack-category">
-					<div class="stack-cat-label">Data &amp; AI</div>
-					<div class="stack-tags">
-						<span class="tag hl">Qdrant</span>
-						<span class="tag hl">LlamaIndex</span>
-						<span class="tag">PostgreSQL</span>
-						<span class="tag">SQLite</span>
+
+				<div>
+					<div class="stack__head" style="margin-bottom: var(--s4)">
+						<span class="label"><span class="num" style="color: var(--accent)">◦</span> Roadmap</span>
 					</div>
-				</div>
-				<div class="stack-category">
-					<div class="stack-cat-label">Infrastructure</div>
-					<div class="stack-tags">
-						<span class="tag hl">Kubernetes</span>
-						<span class="tag hl">Docker</span>
-						<!-- <span class="tag">GCP</span> -->
-						<!-- <span class="tag">Terraform</span> -->
-						<span class="tag">GitHub Actions</span>
-					</div>
+					<ol class="roadmap">
+						<li data-state="done">
+							<span class="label label--mark">Completed</span>
+							<h4>Foundations &amp; data migration</h4>
+							<p>ETL pipeline with orphan filtering and transaction management, plus SQL views computing
+								margins straight out of JSONB structures.</p>
+						</li>
+						<li data-state="active">
+							<span class="label label--mark">In progress</span>
+							<h4>API &amp; digital twin logic</h4>
+							<p>Machines and materials tables landing in SQLAlchemy; technological calculators moving from
+								legacy category strings to real <code>machine_id</code> references.</p>
+						</li>
+						<li data-state="planned">
+							<span class="label">Planned</span>
+							<h4>Quotation interface</h4>
+							<p>Product-tree view for attaching operations directly to parts, with a sliding calculator
+								drawer for real-time margin approval.</p>
+						</li>
+						<li data-state="planned">
+							<span class="label">Planned</span>
+							<h4>MES &amp; shop floor</h4>
+							<p>Production manager dashboard, a tablet UI for operators behind a machine-operator
+								permission matrix, and APS bottleneck detection.</p>
+						</li>
+					</ol>
 				</div>
 			</div>
 		</section>
 
-		<!-- PROJECTS -->
-		<section id="projects">
-			<div class="section-header">
-				<span class="section-num">02</span>
-				<h2 class="section-title">Featured Engineering Work</h2>
-			</div>
+		<!-- ═══ 04 · EXPERIENCE ═══ -->
+		<section class="band shell" id="experience" aria-labelledby="exp-h">
+			<header class="sec-head">
+				<span class="label label--mark">§ 04</span>
+				<h2 class="sec-head__title" id="exp-h">Experience</h2>
+				<hr class="rule">
+				<span class="label">2024 — Present</span>
+			</header>
 
-			<div class="projects-grid">
-
-				<div class="project-card">
-					<div class="project-header">
-						<span class="project-num">001</span>
-						<a href="https://github.com/Kuba2901/rag-document-builder" target="_blank"
-							class="project-link">Source ↗</a>
+			<div>
+				<article class="role" data-reveal>
+					<div class="role__aside">
+						<h3 class="role__org">KO2 s.r.l.</h3>
+						<span class="label">Nov 2024 — Nov 2025</span>
+						<span class="label">Italy · Remote</span>
 					</div>
-					<h3 class="project-title">Distributed RAG Document<br>Synthesis Platform</h3>
-					<div class="project-stack">
-						<span class="tag">Python</span><span class="tag">Qdrant</span><span
-							class="tag">LlamaIndex</span>
-						<span class="tag">MinIO</span><span class="tag">PostgreSQL</span><span class="tag">Docker
+					<div class="role__body">
+						<div class="role__block">
+							<h4 class="role__title">Backend Engineer</h4>
+							<p class="role__sub">Mobile platform replacement</p>
+							<ul class="role__list" style="margin-top: var(--s4)">
+								<li>Reverse-engineered undocumented legacy APIs through network traffic analysis,
+									surfacing business logic nobody had written down and making integration possible.</li>
+								<li>Designed and built the mobile application that replaced the legacy platform, taking
+									the workflow rewrite along with it.</li>
+								<li>Introduced the BLoC architectural pattern across the codebase and mentored the team
+									on it, so the structure would survive after I left.</li>
+							</ul>
+						</div>
+						<div class="role__block">
+							<h4 class="role__title">Platform Engineer — consultancy</h4>
+							<p class="role__sub">Leading Italian telecommunications company</p>
+							<ul class="role__list" style="margin-top: var(--s4)">
+								<li>Managed and tuned Kubernetes infrastructure running enterprise-grade services, with
+									scalability and reliability as the actual deliverable.</li>
+								<li>Built internal tooling for platform workflows, cutting the friction between
+									engineering functions that were otherwise working around each other.</li>
+								<li>Worked across Quarkus and Spring microservices in the telecom domain.</li>
+							</ul>
+						</div>
+					</div>
+				</article>
+
+				<article class="role" data-reveal>
+					<div class="role__aside">
+						<h3 class="role__org">Freelance</h3>
+						<span class="label">Independent</span>
+						<span class="label">Poland</span>
+					</div>
+					<div class="role__body">
+						<div class="role__block">
+							<h4 class="role__title">Independent Developer</h4>
+							<p class="role__sub">Two shipped mobile products</p>
+							<div class="mini-grid" style="margin-top: var(--s4)">
+								<div class="mini">
+									<span class="label label--mark">Hitspot</span>
+									<h4>Travel discovery app</h4>
+									<p>Google Maps for location pinning, Supabase for the real-time backend, cloud
+										functions for server-side logic, push notifications for re-engagement.</p>
+									<ul class="chips" style="margin-top: var(--s2)">
+										<li class="chip">Flutter</li>
+										<li class="chip">Supabase</li>
+										<li class="chip">Cloud Functions</li>
+									</ul>
+								</div>
+								<div class="mini">
+									<span class="label label--mark">Coeur Clothing</span>
+									<h4>E-commerce for a premium label</h4>
+									<p>Product catalogue, cart, and checkout for a small Polish clothing brand — built
+										to be run by people who are not developers.</p>
+									<ul class="chips" style="margin-top: var(--s2)">
+										<li class="chip">Flutter</li>
+										<li class="chip">Dart</li>
+										<li class="chip">Stripe</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</article>
+			</div>
+		</section>
+
+		<!-- ═══ 05 · TESTIMONIAL ═══ -->
+		<section class="band shell" id="testimonial" aria-labelledby="test-h">
+			<header class="sec-head">
+				<span class="label label--mark">§ 05</span>
+				<h2 class="sec-head__title" id="test-h">Reference</h2>
+				<hr class="rule">
+				<span class="label">Verbatim</span>
+			</header>
+
+			<figure class="quote-wrap" data-reveal>
+				<div class="quote">
+					<div class="quote__mark" aria-hidden="true">&ldquo;</div>
+					<blockquote class="quote__text">I'm confident he will grow into an <mark>architect role</mark> within
+						a few years.</blockquote>
+				</div>
+				<div class="quote__rest">
+					<blockquote>
+						<p>&ldquo;Jakub is an exceptionally bright and reliable engineer. In a short time he completed
+							certifications such as the CKA and delivered exceptional results across multiple areas, from
+							mobile development with Flutter to TLC Kubernetes microservices built with Quarkus/Spring.
+							Always eager to learn, he proactively sought training and asked insightful questions.&rdquo;
+						</p>
+						<p>&ldquo;It was a pleasure working with him and I'll miss him chasing me on the corridor asking
+							for software architecture courses and books. I'm very sorry to lose such a talented young
+							engineer and I compliment whoever will choose him for his next role.&rdquo;</p>
+					</blockquote>
+					<figcaption class="byline">
+						<span class="byline__initials" aria-hidden="true">TD</span>
+						<span>
+							<b>Tommy Dimitrio</b>
+							<span class="label">CTO · KO2 s.r.l.</span>
 						</span>
-					</div>
-					<p class="project-problem">A simple CDE with integrated document synthesis, RAG retrieval and
-						template-based document generation. </p>
-					<div class="mermaid-container">
-						<div class="mermaid">
-							graph TD
-							classDef database fill:#111316,stroke:#c8f090,stroke-width:1px,color:#e8e4dc;
-							classDef process fill:#181b1f,stroke:#7a7870,stroke-width:1px,color:#e8e4dc;
-							classDef client fill:#0b0d0f,stroke:#90d8f0,stroke-width:1px,color:#e8e4dc;
-							classDef observability fill:#111316,stroke:#f0b890,stroke-width:1px,color:#e8e4dc;
-
-							Client([Client / React Frontend]):::client -->|Upload Document| API[FastAPI Backend /
-							Gateway]:::process
-
-							API -->|1. Store Raw File| MinIO[(MinIO Object Storage)]:::database
-							API -->|2. Async Processing| Orchestrator[LlamaIndex Orchestrator]:::process
-
-							subgraph Data Ingestion Pipeline
-							Orchestrator -->|Parse & Chunk| EmbedModel[Embedding Model]:::process
-							EmbedModel -->|3a. Store Vectors| Qdrant[(Qdrant Vector DB)]:::database
-							Orchestrator -->|3b. Store Metadata| SQLite[(SQLite / Metadata)]:::database
-							end
-
-							Client -->|4. Semantic Query| Retrieval[RAG Retrieval Engine]:::process
-							Retrieval -->|K-NN Search| Qdrant
-							Retrieval -->|Context Match| Synthesizer[LLM Inference Engine]:::process
-							Synthesizer -->|5. Generated Document| Client
-
-							subgraph Observability Stack
-							Promtail[Promtail / Log Collector]:::observability
-							Loki[(Loki Log Aggregation)]:::database
-							Grafana([Grafana Dashboards]):::observability
-							end
-
-							%% Telemetry Flow (Dashed Lines)
-							API -.->|App Logs| Promtail
-							Orchestrator -.->|Pipeline Logs| Promtail
-							Synthesizer -.->|Inference Logs| Promtail
-							Promtail -.->|Push Logs| Loki
-							Grafana -.->|Query Logs & Metrics| Loki
-						</div>
-					</div>
-
-					<ul class="arch-points">
-						<li>Engineered a containerized RAG backend utilizing LlamaIndex for document chunking and
-							metadata
-							extraction.</li>
-						<li>Integrated Qdrant as a dedicated Rust-based vector database for high-dimensional,
-							low-latency similarity
-							search.</li>
-						<li>Designed a decoupled storage layer with MinIO for raw object storage and a clear migration
-							path to
-							PostgreSQL for distributed write scaling.</li>
-					</ul>
+					</figcaption>
 				</div>
-
-				<div class="project-card">
-					<div class="project-header">
-						<span class="project-num">002</span>
-						<a href="https://github.com/Kuba2901/webserv" target="_blank" class="project-link">Source ↗</a>
-					</div>
-					<h3 class="project-title">High-Performance HTTP/1.1<br>Server <em
-							style="font-family:var(--mono);font-size:1rem;color:var(--muted);font-style:normal;">(webserv)</em>
-					</h3>
-					<div class="project-stack">
-						<span class="tag">C++</span><span class="tag">POSIX Sockets</span>
-					</div>
-					<p class="project-problem">As a group effort we built a fully RFC-compliant HTTP server from scratch
-						to handle thousands of concurrent connections under strict memory constraints.</p>
-					<div class="mermaid-container">
-						<div class="mermaid">
-							stateDiagram-v2
-
-							classDef core fill:#181b1f,stroke:#c8f090,color:#e8e4dc
-							classDef io fill:#111316,stroke:#90d8f0,color:#e8e4dc
-
-							[*] --> Initialization
-							Initialization --> EventLoop : Bind & Listen Sockets
-
-							state EventLoop {
-
-							[*] --> Wait
-
-							Wait --> ReadReady : fd is readable
-							Wait --> WriteReady : fd is writable
-
-							state ReadReady {
-							[*] --> Accept
-							Accept --> AddToSet
-							AddToSet --> Recv
-							Recv --> Parse
-							}
-
-							state WriteReady {
-							[*] --> Process
-							Process --> CGI : Dynamic Content
-							Process --> Send : Static Content
-							CGI --> Send : Pipe stdout
-							}
-
-							Parse --> Process
-							Send --> Wait : Keep-Alive
-							Send --> CloseConnection : Connection close
-							}
-						</div>
-					</div>
-
-					<ul class="arch-points">
-						<li>Bypassed standard web frameworks to implement a custom event loop and HTTP request parser in
-							C++.</li>
-						<li>Engineered a single-threaded, non-blocking I/O architecture using <code
-								style="color:var(--accent);font-size:12px;">select()</code> multiplexing, managing up to
-							1024 concurrent
-							file descriptors.</li>
-						<li>Implemented robust state-machine logic to handle partial socket reads/writes (EAGAIN), CGI
-							via <code style="color:var(--accent);font-size:12px;">fork()</code>, and memory safety under
-							stress.</li>
-					</ul>
-				</div>
-
-				<div class="project-card">
-					<div class="project-header">
-						<span class="project-num">003</span>
-						<a href="https://github.com/Kuba2901/42_philosophers" target="_blank"
-							class="project-link">Source ↗</a>
-					</div>
-					<h3 class="project-title">OS-Level Concurrency:<br>The Dining Philosophers</h3>
-					<div class="project-stack">
-						<span class="tag">C</span><span class="tag">POSIX Threads</span><span class="tag">Mutexes</span>
-					</div>
-					<p class="project-problem">Simulating distributed resource contention without triggering deadlocks,
-						livelocks,
-						or thread starvation.</p>
-					<ul class="arch-points">
-						<li>Solved the classic Dining Philosophers problem by strictly managing OS-level concurrency in
-							C.</li>
-						<li>Implemented fine-grained mutex locking on shared resources (forks and stdout) to prevent
-							data races.
-						</li>
-					</ul>
-				</div>
-
-				<div class="project-card">
-					<div class="project-header">
-						<span class="project-num">004</span>
-						<a href="https://github.com/kuba2901/42_minishell" target="_blank" class="project-link">Source
-							↗</a>
-					</div>
-					<h3 class="project-title">Minimalist UNIX Shell<br><em
-							style="font-family:var(--mono);font-size:1rem;color:var(--muted);font-style:normal;">(Minishell)</em>
-					</h3>
-					<div class="project-stack">
-						<span class="tag">C</span><span class="tag">POSIX</span><span class="tag">readline</span><span
-							class="tag">fork/execve</span>
-					</div>
-					<p class="project-problem">Implemented a shell from scratch demands correct lexing, parsing, process
-						lifecycle management, and signal handling — all without a single global variable beyond signal
-						state.</p>
-					<ul class="arch-points">
-						<li>Built a Bash-inspired shell in C handling pipes, I/O redirection (including heredoc and
-							append), and
-							environment variable expansion with <code
-								style="color:var(--accent);font-size:12px;">$?</code>.</li>
-						<li>Implemented all builtins (<code style="color:var(--accent);font-size:12px;">cd</code>, <code
-								style="color:var(--accent);font-size:12px;">export</code>, <code
-								style="color:var(--accent);font-size:12px;">unset</code>, <code
-								style="color:var(--accent);font-size:12px;">env</code>, <code
-								style="color:var(--accent);font-size:12px;">exit</code>) and child process execution via
-							<code style="color:var(--accent);font-size:12px;">fork()</code> / <code
-								style="color:var(--accent);font-size:12px;">execve()</code>.
-						</li>
-						<li>Managed <code style="color:var(--accent);font-size:12px;">SIGINT</code> / <code
-								style="color:var(--accent);font-size:12px;">SIGQUIT</code> signal handling correctly in
-							both parent and
-							child contexts with zero memory leaks.</li>
-					</ul>
-				</div>
-
-				<div class="project-card">
-					<div class="project-header">
-						<span class="project-num">005</span>
-						<a href="https://github.com/kuba2901/42_Cub3D" target="_blank" class="project-link">Source ↗</a>
-					</div>
-					<h3 class="project-title">Raycasting 3D Engine<br><em
-							style="font-family:var(--mono);font-size:1rem;color:var(--muted);font-style:normal;">(Cub3D)</em>
-					</h3>
-					<div class="project-stack">
-						<span class="tag">C</span><span class="tag">MiniLibX</span><span class="tag">DDA
-							Algorithm</span><span class="tag">Vector Math</span>
-					</div>
-					<p class="project-problem">Rendering a convincing 3D world from a flat 2D grid requires a
-						mathematically
-						precise ray-grid intersection algorithm, fish-eye correction, and per-column texture sampling —
-						all within a
-						tight pixel-buffer rendering loop.</p>
-
-					<div class="project-images">
-						<img src="assets/projects/cub3d/cub_0.png" alt="Cub3D Gameplay View 1">
-						<img src="assets/projects/cub3d/cub_1.png" alt="Cub3D Gameplay View 2">
-					</div>
-					<ul class="arch-points">
-						<li>Implemented a DDA raycasting engine in C, casting one ray per vertical
-							screen stripe against a 2D tile map.</li>
-						<li>Applied perpendicular wall distance correction to eliminate fish-eye distortion, with
-							directional
-							texture mapping for N/S/E/W wall faces.</li>
-						<li>Engineered a double-buffered pixel rendering loop via MiniLibX and a custom <code
-								style="color:var(--accent);font-size:12px;">.cub</code> config parser with full
-							validation.</li>
-					</ul>
-				</div>
-
-			</div>
-
-			<div class="view-all-wrap">
-				<a href="projects.html" class="view-all-link">View all projects ↗</a>
-			</div>
+			</figure>
 		</section>
 
-		<!-- CURRENTLY BUILDING -->
-		<section id="building">
-			<div class="section-header">
-				<span class="section-num">03</span>
-				<h2 class="section-title">Currently Building</h2>
-			</div>
+		<!-- ═══ CONTACT ═══ -->
+		<section class="contact shell" id="contact" aria-labelledby="contact-h">
+			<header class="sec-head">
+				<span class="label label--mark">§ 06</span>
+				<h2 class="sec-head__title" id="contact-h">Contact</h2>
+				<hr class="rule">
+				<span class="label">Reply within a day</span>
+			</header>
 
-			<div class="building-card">
+			<p class="contact__lead" data-reveal>Got a system that needs<br>building, fixing, or<br><a
+					href="mailto:kubanenczakdev@gmail.com">explaining?</a></p>
 
-				<div class="building-left">
-					<div class="wip-badge"><span class="wip-dot"></span> In Progress</div>
-					<h3 class="building-title">CoreQ</h3>
-					<p class="building-subtitle">Automated Quotation System · Manufacturing / SME</p>
-					<p class="building-desc">
-						A production management and automated quoting system for SMEs in the manufacturing sector —
-						migrating a
-						legacy MySQL codebase to a modern PostgreSQL + FastAPI architecture. The core design shift is a
-						"Bottom-Up"
-						data model where machine operations are bound to specific parts, parts to quotes, and quotes to
-						orders,
-						eliminating floating operations that exist in a vacuum.
-					</p>
-					<p class="building-desc">
-						Key pillars include a <strong style="color:var(--text);font-weight:400;">Virtual Machine
-							Park</strong>
-						(digital twins with hourly rates and physical constraints), <strong
-							style="color:var(--text);font-weight:400;">Material Digital Twins</strong> (density + live
-						market pricing
-						via cron jobs hitting LME APIs), and a <strong
-							style="color:var(--text);font-weight:400;">Cascading
-							Analytics</strong> layer with SQL views that automatically compute margins and client Whale
-						Scores.
-					</p>
-					<div class="building-stack">
-						<span class="tag-warm">Python</span>
-						<span class="tag-warm">FastAPI</span>
-						<span class="tag-warm">PostgreSQL</span>
-						<span class="tag-warm">SQLAlchemy</span>
-						<span class="tag-warm">JSONB</span>
-						<span class="tag-warm">ETL</span>
-						<span class="tag-warm">React</span>
-					</div>
-				</div>
-
-				<div class="building-right">
-					<div class="roadmap-label">Roadmap</div>
-					<div class="roadmap">
-
-						<div class="roadmap-step">
-							<div class="roadmap-dot done"></div>
-							<div class="roadmap-content">
-								<div class="roadmap-step-status done">Completed</div>
-								<div class="roadmap-step-title">Foundations &amp; Data Migration</div>
-								<div class="roadmap-step-desc">ETL pipeline with orphan filtering, transaction
-									management, and SQL views
-									for automatic margin calculation from JSONB structures.</div>
-							</div>
-						</div>
-
-						<div class="roadmap-step">
-							<div class="roadmap-dot active"></div>
-							<div class="roadmap-content">
-								<div class="roadmap-step-status active">In Progress</div>
-								<div class="roadmap-step-title">API &amp; Digital Twin Logic</div>
-								<div class="roadmap-step-desc">Deploying <code
-										style="color:var(--accent3);font-size:11px;">machines</code> and <code
-										style="color:var(--accent3);font-size:11px;">materials</code> tables in
-									SQLAlchemy; updating
-									technological calculators to use <code
-										style="color:var(--accent3);font-size:11px;">machine_id</code>
-									over legacy category strings.</div>
-							</div>
-						</div>
-
-						<div class="roadmap-step">
-							<div class="roadmap-dot"></div>
-							<div class="roadmap-content">
-								<div class="roadmap-step-status future">Planned</div>
-								<div class="roadmap-step-title muted">Quotation Interface</div>
-								<div class="roadmap-step-desc">Product Tree view for adding operations directly to
-									parts; sliding
-									calculator drawer for real-time margin approval.</div>
-							</div>
-						</div>
-
-						<div class="roadmap-step">
-							<div class="roadmap-dot"></div>
-							<div class="roadmap-content">
-								<div class="roadmap-step-status future">Planned</div>
-								<div class="roadmap-step-title muted">MES &amp; Shop Floor Module</div>
-								<div class="roadmap-step-desc">Production manager dashboard, tablet UI for operators
-									with <code style="color:var(--muted);font-size:11px;">machine_operators</code>
-									permission matrix, APS
-									bottleneck detection.</div>
-							</div>
-						</div>
-
-					</div>
-				</div>
-
+			<div class="link-rows" data-reveal>
+				<a class="link-row" href="mailto:kubanenczakdev@gmail.com">
+					<span class="label">01</span>
+					<span class="link-row__name">Email</span>
+					<span class="link-row__val">kubanenczakdev@gmail.com</span>
+				</a>
+				<a class="link-row" href="https://github.com/kuba2901" target="_blank" rel="noopener">
+					<span class="label">02</span>
+					<span class="link-row__name">GitHub</span>
+					<span class="link-row__val">@kuba2901 ↗</span>
+				</a>
+				<a class="link-row" href="https://linkedin.com/in/jakub-nenczak-946742243" target="_blank"
+					rel="noopener">
+					<span class="label">03</span>
+					<span class="link-row__name">LinkedIn</span>
+					<span class="link-row__val">jakub-nenczak ↗</span>
+				</a>
+				<a class="link-row"
+					href="https://drive.google.com/file/d/1kOh5VMnGZBeAAFfJRy10m-hcSmAyC2om/view?usp=sharing"
+					target="_blank" rel="noopener">
+					<span class="label">04</span>
+					<span class="link-row__name">Résumé</span>
+					<span class="link-row__val">PDF ↗</span>
+				</a>
 			</div>
 		</section>
-
-		<!-- EXPERIENCE -->
-		<section id="experience">
-			<div class="section-header">
-				<span class="section-num">04</span>
-				<h2 class="section-title">Experience</h2>
-			</div>
-
-			<div class="exp-card">
-				<div class="exp-meta">
-					<div class="exp-role">Backend Engineer</div>
-					<div class="exp-company">KO2 s.r.l.</div>
-					<div class="exp-date">Nov 2024 - Nov 2025</div>
-				</div>
-				<ul class="exp-bullets">
-					<li>Reverse-engineered undocumented legacy APIs through network traffic analysis, enabling seamless
-						integration with existing systems and uncovering critical business logic.</li>
-					<li>Designed and developed a mobile application to modernize and replace the legacy platform,
-						delivering an
-						improved user experience and streamlined workflows.</li>
-					<li>Implemented the BLoC architectural pattern across the application and mentored team members on
-						its
-						principles, promoting maintainable, scalable, and testable code practices.</li>
-					<li>Served as a consultant for a leading Italian telecommunications company, contributing as a
-						Platform
-						Engineer to enhance internal developer productivity and operational efficiency.</li>
-					<li>Designed and developed internal tools to support platform workflows, streamline processes, and
-						improve
-						cross-team collaboration across engineering functions.</li>
-					<li>Managed and optimized Kubernetes-based infrastructure, ensuring scalability, reliability, and
-						efficient
-						orchestration of enterprise-grade services.</li>
-				</ul>
-			</div>
-
-			<div class="exp-card">
-				<div class="exp-meta">
-					<div class="exp-role">Independent Developer</div>
-					<div class="exp-company">Freelance</div>
-				</div>
-				<div class="exp-projects">
-					<div class="exp-subproject">
-						<div class="exp-subproject-header">
-							<span class="exp-subproject-name">Coeur Clothing</span>
-							<div class="project-stack" style="margin-bottom:0;"><span class="tag">Flutter</span></div>
-						</div>
-						<p class="exp-subproject-desc">E-commerce mobile application for a small local Polish premium
-							clothing brand
-							— handling product listings, cart, and checkout flows.</p>
-					</div>
-					<div class="exp-subproject">
-						<div class="exp-subproject-header">
-							<span class="exp-subproject-name">Hitspot</span>
-							<div class="project-stack" style="margin-bottom:0;">
-								<span class="tag">Flutter</span><span class="tag">Supabase</span>
-								<span class="tag">Google Maps</span><span class="tag">Cloud Functions</span><span
-									class="tag">Push
-									Notifications</span>
-							</div>
-						</div>
-						<p class="exp-subproject-desc">Mobile application for travellers — integrating Google Maps for
-							location
-							discovery, Supabase for real-time backend, cloud functions for server-side logic, and push
-							notifications
-							for user engagement.</p>
-					</div>
-				</div>
-			</div>
-		</section>
-
 	</main>
 
-	<!-- TESTIMONIAL -->
-	<section id="testimonial">
-		<div class="section-header">
-			<span class="section-num">05</span>
-			<h2 class="section-title">Testimonial</h2>
+	<footer class="shell">
+		<div class="colophon">
+			<span class="label">© <span id="year">2026</span> Jakub Nenczak — Wrocław, Poland</span>
+			<span class="label">Set in Space Grotesk &amp; IBM Plex · Hand-drawn diagrams</span>
 		</div>
-
-		<div class="testimonial-card">
-			<span class="quote-mark">"</span>
-			<p class="testimonial-text">
-				Jakub is an exceptionally bright and reliable engineer. <br><br>In a short time he completed
-				certifications such as the CKA and delivered exceptional results across multiple areas,
-				from mobile development with Flutter to TLC Kubernetes microservices built with
-				Quarkus/Spring. <br><br>Always eager to learn, he proactively sought training and asked insightful
-				questions. <br><br>It was a pleasure working with him and I'll miss him chasing me on the corridor
-				asking for software architecture courses and books. I'm confident he will grow into an
-				architect role within a few years. <br><br>I'm very sorry to loose such a talented young engineer
-				and I compliment whoever will choose him for his next role.
-			</p>
-			<div class="testimonial-author">
-				<div class="author-avatar">TD</div>
-				<div>
-					<div class="author-name">Tommy Dimitrio</div>
-					<div class="author-role">CTO · KO2 s.r.l.</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- FOOTER -->
-	<footer>
-		<div class="footer-name">Jakub Nenczak</div>
-		<div class="footer-links">
-			<a href="https://github.com/kuba2901" target="_blank">GitHub</a>
-			<a href="http://linkedin.com/in/jakub-nenczak-946742243" target="_blank">LinkedIn</a>
-			<a href="projects.html">All Projects</a>
-			<a href="mailto:kubanenczakdev@gmail.com">Email</a>
-		</div>
-		<div class="footer-copy">// kubanenczakdev@gmail.com</div>
 	</footer>
 
-	<script>
-		const cursor = document.getElementById('cursor');
-		document.addEventListener('mousemove', e => {
-			cursor.style.left = e.clientX + 'px';
-			cursor.style.top = e.clientY + 'px';
-		});
-
-		const observer = new IntersectionObserver(entries => {
-			entries.forEach(e => {
-				if (e.isIntersecting) {
-					e.target.style.opacity = '1';
-					e.target.style.transform = 'translateY(0)';
-				}
-			});
-		}, { threshold: 0.1 });
-
-		document.querySelectorAll('.project-card, .exp-card, .stack-category, .building-card').forEach(el => {
-			el.style.opacity = '0';
-			el.style.transform = 'translateY(16px)';
-			el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-			observer.observe(el);
-		});
-	</script>
-
-	<script type="module">
-		import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-		mermaid.initialize({
-			startOnLoad: true,
-			theme: 'dark',
-			fontFamily: 'DM Mono'
-		});
-	</script>
-
+	<script src="site.js?v=1" defer></script>
 </body>
 
 </html>
